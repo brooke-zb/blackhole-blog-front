@@ -48,6 +48,9 @@ export default defineConfig({
             'shift',
             'autoUpdate',
           ],
+          'dayjs': [
+            ['default', 'dayjs'],
+          ],
         },
       ],
       dts: 'src/types/auto-imports.d.ts',

@@ -26,14 +26,14 @@ function onLeave() {
 </script>
 
 <template>
-  <div ref="reference" @mouseenter="onEnter()" @mouseleave="onLeave()" @blur="onLeave()">
+  <span ref="reference" @mouseenter="onEnter()" @mouseleave="onLeave()" @blur="onLeave()">
     <slot />
-  </div>
+  </span>
   <teleport to="body">
     <div
       ref="tooltip" :class="{ show }"
       class="bh-tooltip z-50 px-1.5 py-0.5 rounded text-sm
-        bg-light-900 text-white dark:bg-light-50 dark:text-light-900
+        bg-gray-900 text-white dark:bg-gray-50 dark:text-gray-900
         absolute left-0 top-0 transition-all duration-200"
     >
       {{ props.text }}

@@ -9,13 +9,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: colors.indigo,
+        primary: colors.blue,
         info: colors.cyan,
         success: colors.green,
         danger: colors.rose,
         warning: colors.amber,
-        dark: colors.slate,
-        light: colors.neutral,
+        dark: colors.teal,
+        gray: colors.neutral,
       },
     },
   },

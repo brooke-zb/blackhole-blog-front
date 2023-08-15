@@ -21,7 +21,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
 <template>
   <nav
     class="sticky top-0 h-14 px-2 py-1 flex justify-between items-center
-    ring-1 ring-light-500/10 dark:ring-light-500/10 backdrop-blur"
+    ring-1 ring-gray-500/10 dark:ring-gray-500/10 backdrop-blur"
   >
     <div class="flex gap-2 ps-1.5 items-baseline grow">
       <div class="text-lg">
@@ -34,8 +34,8 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
     <div class="flex items-center gap-4">
       <router-link
         v-for="link in links" :key="link.path" :to="link.path"
-        class="text-light-600 hover:text-light-900 dark:text-light-400 dark:hover:text-light-100
-      fill-light-600 hover:fill-light-900 dark:fill-light-400 dark:hover:fill-light-100"
+        class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
+      fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
       >
         <span class="hidden sm:inline">{{ link.name }}</span>
         <bh-tooltip :text="link.name">
@@ -44,8 +44,8 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
       </router-link>
       <bh-tooltip text="切换主题">
         <bh-button
-          class="text-light-600 hover:text-light-900 dark:text-light-400 dark:hover:text-light-100
-      fill-light-600 hover:fill-light-900 dark:fill-light-400 dark:hover:fill-light-100"
+          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
+      fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
           @click="toggleDark()"
         >
           <template #icon>
@@ -56,8 +56,8 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
       </bh-tooltip>
       <bh-tooltip :text="userStore.isLogin ? '管理' : '登录'">
         <bh-button
-          class="text-light-600 hover:text-light-900 dark:text-light-400 dark:hover:text-light-100
-      fill-light-600 hover:fill-light-900 dark:fill-light-400 dark:hover:fill-light-100"
+          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
+      fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
         >
           <template #icon>
             <i-regular-gear v-if="userStore.isLogin" />
