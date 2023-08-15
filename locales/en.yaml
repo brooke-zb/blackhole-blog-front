@@ -1,1 +1,10 @@
 not-found: Page Not Found
+link:
+  blog: Blog
+  category: Category
+  tag: Tag
+  about: About
+  friend: Friend
+title:
+  index: Home
+  not-found: Page Not Found

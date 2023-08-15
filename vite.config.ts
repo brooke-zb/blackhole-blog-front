@@ -16,13 +16,13 @@ import MetaLayouts from 'vite-plugin-vue-meta-layouts'
 export default defineConfig({
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
   plugins: [
     VueRouter({
       routesFolder: 'src/pages',
-      dts: 'src/router.d.ts',
+      dts: 'src/types/router.d.ts',
     }),
     vue(),
     MetaLayouts(),
@@ -35,8 +35,22 @@ export default defineConfig({
         VueRouterAutoImports,
         'vue-i18n',
         '@vueuse/core',
+        {
+          '@/utils': [
+            'isDark',
+            'toggleDark',
+            'setTitle',
+          ],
+          '@floating-ui/vue': [
+            'useFloating',
+            'offset',
+            'flip',
+            'shift',
+            'autoUpdate',
+          ],
+        },
       ],
-      dts: 'src/auto-imports.d.ts',
+      dts: 'src/types/auto-imports.d.ts',
       dirs: [
         'src/composables',
         'src/stores',
@@ -44,13 +58,18 @@ export default defineConfig({
       vueTemplate: true,
     }),
     Components({
+      dirs: [
+        'src/components',
+        'src/layouts',
+        'src/layouts/components',
+      ],
       include: [/\.vue$/, /\.vue\?vue/],
       resolvers: [
         IconsResolver({
           customCollections: ['regular', 'solid', 'brands'],
         }),
       ],
-      dts: 'src/components.d.ts',
+      dts: 'src/types/components.d.ts',
     }),
     Icons({
       compiler: 'vue3',

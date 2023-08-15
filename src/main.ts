@@ -8,6 +8,10 @@ import messages from '@intlify/unplugin-vue-i18n/messages'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 
+if (isDark.value) {
+  // import this value to activate dark mode
+}
+
 const router = createRouter({
   routes: setupLayouts(routes),
   history: createWebHistory(),

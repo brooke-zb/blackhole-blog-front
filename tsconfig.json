@@ -20,10 +20,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "~/*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "types": [
       "vite/client",
+      "unplugin-icons/types/vue",
       "vite-plugin-vue-meta-layouts/client.d.ts",
     ]
   },
