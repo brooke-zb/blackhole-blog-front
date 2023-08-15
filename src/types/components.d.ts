@@ -15,6 +15,7 @@ declare module 'vue' {
     IRegularGear: typeof import('~icons/regular/gear')['default']
     IRegularMoonStars: typeof import('~icons/regular/moon-stars')['default']
     IRegularRightToBracket: typeof import('~icons/regular/right-to-bracket')['default']
+    Loading: typeof import('./../layouts/components/loading/index.vue')['default']
     Navbar: typeof import('./../layouts/components/navbar/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

@@ -46,8 +46,8 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
       <bh-tooltip text="切换主题">
         <bh-button
           class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-100
-        fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100
-        transition-colors duration-200"
+          fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100
+          transition-colors duration-200"
           @click="toggleDark()"
         >
           <template #icon>
@@ -60,7 +60,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
         <router-link to="/admin">
           <bh-button
             class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
-      fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
+          fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
           >
             <template #icon>
               <i-regular-gear v-if="userStore.isLogin" />

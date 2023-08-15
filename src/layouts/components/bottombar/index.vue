@@ -8,7 +8,7 @@ const currentYear = dayjs().year()
 </script>
 
 <template>
-  <footer class="absolute bottom-0 h-20 w-full bg-gray-50/50 dark:bg-gray-900/50 flex justify-center">
+  <footer class="absolute bottom-0 h-20 w-full bg-gray-50 dark:bg-gray-900 flex justify-center">
     <div class="max-w-5xl grow grid grid-rows-1 grid-cols-3 sm:grid-cols-4 gap-2 p-2">
       <div class="hidden sm:block col-span-1" />
       <div class="text-left sm:text-center col-span-2">
