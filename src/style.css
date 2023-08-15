@@ -15,17 +15,25 @@
   fill: black;
 
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body {
+  height: 100%;
+}
+
+html {
+  @apply h-full bg-slate-100;
+}
+
+html.dark {
+  color-scheme: dark;
+  @apply bg-slate-900 text-gray-50 fill-gray-50;
 }
 
 #app {
-  min-height: 100vh;
+  height: 100%;
   position: relative;
-}
-
-.dark:root {
-  color-scheme: dark;
-  color: white;
-  fill: white;
 }
 
 a.link {

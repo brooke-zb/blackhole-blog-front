@@ -24,9 +24,9 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
     ring-1 ring-gray-500/10 dark:ring-gray-500/10 backdrop-blur"
   >
     <div class="flex gap-2 ps-1.5 items-baseline grow">
-      <div class="text-lg">
+      <router-link to="/" class="text-lg">
         {{ navTitle }}
-      </div>
+      </router-link>
       <div class="hidden md:block text-ellipsis overflow-hidden whitespace-nowrap w-0 grow">
         {{ title }}
       </div>
@@ -34,8 +34,9 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
     <div class="flex items-center gap-4">
       <router-link
         v-for="link in links" :key="link.path" :to="link.path"
-        class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
-      fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
+        class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-100
+        fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100
+        transition-colors duration-200"
       >
         <span class="hidden sm:inline">{{ link.name }}</span>
         <bh-tooltip :text="link.name">
@@ -44,8 +45,9 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
       </router-link>
       <bh-tooltip text="切换主题">
         <bh-button
-          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
-      fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
+          class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-100
+        fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100
+        transition-colors duration-200"
           @click="toggleDark()"
         >
           <template #icon>
@@ -55,15 +57,17 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
         </bh-button>
       </bh-tooltip>
       <bh-tooltip :text="userStore.isLogin ? '管理' : '登录'">
-        <bh-button
-          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
+        <router-link to="/admin">
+          <bh-button
+            class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
       fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
-        >
-          <template #icon>
-            <i-regular-gear v-if="userStore.isLogin" />
-            <i-regular-right-to-bracket v-else />
-          </template>
-        </bh-button>
+          >
+            <template #icon>
+              <i-regular-gear v-if="userStore.isLogin" />
+              <i-regular-right-to-bracket v-else />
+            </template>
+          </bh-button>
+        </router-link>
       </bh-tooltip>
     </div>
   </nav>

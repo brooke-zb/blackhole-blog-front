@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <navbar />
   <div class="container mx-auto px-1">

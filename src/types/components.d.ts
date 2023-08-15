@@ -7,24 +7,17 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    404: typeof import('./../layouts/404.vue')['default']
     BhButton: typeof import('./../components/bh-button/index.vue')['default']
     BhTooltip: typeof import('./../components/bh-tooltip/index.vue')['default']
     Bottombar: typeof import('./../layouts/components/bottombar/index.vue')['default']
-    Container: typeof import('./../components/bh-tooltip/container.vue')['default']
     Default: typeof import('./../layouts/default.vue')['default']
-    Footer: typeof import('./../layouts/components/footer/index.vue')['default']
     IRegularBrightness: typeof import('~icons/regular/brightness')['default']
     IRegularGear: typeof import('~icons/regular/gear')['default']
-    IRegularMemoPad: typeof import('~icons/regular/memo-pad')['default']
-    IRegularMemoPads: typeof import('~icons/regular/memo-pads')['default']
-    IRegularMoon: typeof import('~icons/regular/moon')['default']
     IRegularMoonStars: typeof import('~icons/regular/moon-stars')['default']
     IRegularRightToBracket: typeof import('~icons/regular/right-to-bracket')['default']
-    IRegularSun: typeof import('~icons/regular/sun')['default']
-    IRegularUser: typeof import('~icons/regular/user')['default']
     Navbar: typeof import('./../layouts/components/navbar/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TooltipContainer: typeof import('./../components/bh-tooltip/tooltip-container.vue')['default']
   }
 }

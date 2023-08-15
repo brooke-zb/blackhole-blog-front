@@ -29,7 +29,7 @@ function onLeave() {
   <span ref="reference" @mouseenter="onEnter()" @mouseleave="onLeave()" @blur="onLeave()">
     <slot />
   </span>
-  <teleport to="body">
+  <teleport to="#bh-tooltip-container">
     <div
       ref="tooltip" :class="{ show }"
       class="bh-tooltip z-50 px-1.5 py-0.5 rounded text-sm

@@ -17,7 +17,7 @@ const currentYear = dayjs().year()
           by {{ ownerName }}
         </div>
         <div class="mt-2">
-          <a class="link" href="https://beian.miit.gov.cn">
+          <a class="link" target="_blank" href="https://beian.miit.gov.cn">
             <img alt="备案" class="inline align-text-bottom" :src="beianImg">{{ beianNumber }}
           </a>
         </div>
