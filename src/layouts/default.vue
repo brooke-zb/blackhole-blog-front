@@ -1,5 +1,5 @@
 <template>
-  <navbar />
+  <nav-bar />
   <div class="container mx-auto px-1">
     <router-view v-slot="{ Component }">
       <transition mode="out-in" name="page">
@@ -7,7 +7,7 @@
       </transition>
     </router-view>
   </div>
-  <bottombar />
+  <bottom-bar />
 </template>
 
 <style>

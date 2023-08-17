@@ -14,6 +14,8 @@ function load() {
     setPageLoading(false)
   }, 1500)
 }
+
+const page = ref(1)
 </script>
 
 <template>
@@ -22,5 +24,6 @@ function load() {
     <button @click="load()">
       load
     </button>
+    <bh-paginator v-model="page" :size="10" :total="100" />
   </div>
 </template>

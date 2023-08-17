@@ -2,6 +2,7 @@ import { isDark, toggleDark } from './dark'
 import { setTitle, title } from './title'
 import { isPageLoading, setPageLoading } from './loading'
 import { router } from './router'
+import request from './request'
 
 export {
   toggleDark,
@@ -11,4 +12,5 @@ export {
   setPageLoading,
   isPageLoading,
   router,
+  request,
 }

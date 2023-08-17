@@ -24,7 +24,11 @@ export default defineConfig({
       routesFolder: 'src/pages',
       dts: 'src/types/router.d.ts',
     }),
-    vue(),
+    vue({
+      script: {
+        defineModel: true,
+      },
+    }),
     MetaLayouts(),
     VueI18n({
       include: path.resolve(__dirname, 'locales/**'),
@@ -50,6 +54,12 @@ export default defineConfig({
           ],
           'dayjs': [
             ['default', 'dayjs'],
+          ],
+          '@/api': [
+            ['default', 'api'],
+          ],
+          'vue': [
+            'defineModel',
           ],
         },
       ],
