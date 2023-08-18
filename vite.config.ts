@@ -95,13 +95,14 @@ export default defineConfig({
     VueDevTools(),
   ],
   server: {
-    host: '0.0.0.0',
+    host: '127.0.0.1',
     port: 3000,
     proxy: {
-      '/api': {
-        target: 'http://api.blog.brookezb.com',
+      '/proxy': {
+        target: 'http://127.0.0.1:80',
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, ''),
+        followRedirects: true,
+        rewrite: path => path.replace(/^\/proxy/, ''),
       },
     },
   },

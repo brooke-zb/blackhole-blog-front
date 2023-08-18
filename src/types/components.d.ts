@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ArticleCard: typeof import('./../layouts/components/article-list/article-card.vue')['default']
     ArticleList: typeof import('./../layouts/components/article-list/index.vue')['default']
     BhButton: typeof import('./../components/bh-button/index.vue')['default']
     BhPaginator: typeof import('./../components/bh-paginator/index.vue')['default']
@@ -19,9 +20,11 @@ declare module 'vue' {
     IRegularChevronRight: typeof import('~icons/regular/chevron-right')['default']
     IRegularChevronsLeft: typeof import('~icons/regular/chevrons-left')['default']
     IRegularChevronsRight: typeof import('~icons/regular/chevrons-right')['default']
+    IRegularFolder: typeof import('~icons/regular/folder')['default']
     IRegularGear: typeof import('~icons/regular/gear')['default']
     IRegularMoonStars: typeof import('~icons/regular/moon-stars')['default']
     IRegularRightToBracket: typeof import('~icons/regular/right-to-bracket')['default']
+    IRegularTag: typeof import('~icons/regular/tag')['default']
     Loading: typeof import('./../layouts/components/loading/index.vue')['default']
     Navbar: typeof import('./../layouts/components/navbar/index.vue')['default']
     NavBar: typeof import('./../layouts/components/nav-bar/index.vue')['default']

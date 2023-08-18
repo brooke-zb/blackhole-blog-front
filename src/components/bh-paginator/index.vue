@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   size: number // 每页条数
   total: number // 总条数
-}>()
+  hidenOnSingle: boolean // 只有一页时隐藏
+}>(), {
+  hidenOnSingle: false,
+})
 
 // 当前页码
 const page = defineModel<number>({
@@ -76,7 +79,7 @@ function offsetPage(offset: number) {
 </script>
 
 <template>
-  <div class="flex p-1.5 gap-1.5 justify-center">
+  <div v-show="!props.hidenOnSingle || totalPages > 1" class="flex p-1.5 gap-1.5 justify-center">
     <!-- 前一页 -->
     <paginator-button :disabled="!pageInfo.hasPrevious" @click="offsetPage(-1)">
       <i-regular-chevron-left />

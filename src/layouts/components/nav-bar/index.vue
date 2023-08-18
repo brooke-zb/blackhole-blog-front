@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import IconRegularMemoPad from '~icons/regular/memo-pad'
-import IconRegularFolders from '~icons/regular/folders'
-import IconRegularTags from '~icons/regular/tags'
+import IconRegularFolder from '~icons/regular/folder'
+import IconRegularTag from '~icons/regular/tag'
 import IconRegularAddressCard from '~icons/regular/address-card'
 import IconRegularFaceSunglasses from '~icons/regular/face-sunglasses'
 import { title } from '@/utils'
@@ -10,8 +10,8 @@ const userStore = useUserStore()
 const { t } = useI18n()
 const links = [
   { name: t('link.blog'), path: '/', icon: IconRegularMemoPad },
-  { name: t('link.category'), path: '/categories', icon: IconRegularFolders },
-  { name: t('link.tag'), path: '/tags', icon: IconRegularTags },
+  { name: t('link.category'), path: '/categories', icon: IconRegularFolder },
+  { name: t('link.tag'), path: '/tags', icon: IconRegularTag },
   { name: t('link.about'), path: '/about', icon: IconRegularAddressCard },
   { name: t('link.friend'), path: '/friends', icon: IconRegularFaceSunglasses },
 ]
@@ -20,7 +20,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
 
 <template>
   <nav
-    class="sticky top-0 h-14 px-2 py-1 flex justify-between items-center
+    class="sticky top-0 h-14 px-2 py-1 flex justify-between items-center z-50
     ring-1 ring-gray-500/10 dark:ring-gray-500/10 backdrop-blur"
   >
     <div class="flex gap-2 ps-1.5 items-baseline grow">
