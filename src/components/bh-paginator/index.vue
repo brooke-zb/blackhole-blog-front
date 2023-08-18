@@ -76,7 +76,7 @@ function offsetPage(offset: number) {
 </script>
 
 <template>
-  <div class="flex p-1.5 gap-1.5">
+  <div class="flex p-1.5 gap-1.5 justify-center">
     <!-- 前一页 -->
     <paginator-button :disabled="!pageInfo.hasPrevious" @click="offsetPage(-1)">
       <i-regular-chevron-left />
@@ -89,7 +89,7 @@ function offsetPage(offset: number) {
     </paginator-button>
 
     <!-- 展示页 -->
-    <div class="paginator-group">
+    <div class="paginator-group flex border rounded-lg border-primary-200 dark:border-dark-950">
       <paginator-button
         v-for="num, index in pageInfo.pages" :key="index"
         :is-current-page="page === num" @click="toPage(num)" v-text="num"
@@ -111,7 +111,7 @@ function offsetPage(offset: number) {
 
 <style scoped>
 .paginator-group > button {
-  @apply rounded-none after:rounded-none;
+  @apply rounded-none !border-0 after:rounded-none;
 }
 
 .paginator-group > button:first-child {

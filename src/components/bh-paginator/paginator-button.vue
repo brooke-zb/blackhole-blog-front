@@ -19,10 +19,10 @@ const classAppend = computed(() => ({
 
 <template>
   <button
-    class="relative select-none inline-flex justify-center items-center
+    class="relative border border-primary-200 dark:border-dark-950 select-none flex justify-center items-center
       text-sm w-9 h-9 sm:text-base sm:w-10 sm:h-10 rounded-lg after:rounded-lg align-text-bottom
       after:absolute after:left-0 after:top-0 after:h-full after:w-full
-      after:transition-shadow duration-200 ease-in-out hover:after:ring-[3px]
+      after:transition-all duration-200 ease-in-out hover:after:ring-2
       after:z-10 after:ring-offset-2 after:ring-offset-gray-50
       dark:after:ring-offset-slate-800 after:ring-primary-500 dark:after:ring-dark-400"
     :disabled="props.disabled" :class="classAppend"

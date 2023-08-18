@@ -22,7 +22,7 @@ const page = ref(1)
   <div class="text-indigo-500">
     This is index
     <button @click="load()">
-      load
+      load {{ page }}
     </button>
     <bh-paginator v-model="page" :size="10" :total="100" />
   </div>
