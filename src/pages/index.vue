@@ -12,7 +12,7 @@ function loadArticle(page: number) {
 </script>
 
 <template>
-  <div class="text-indigo-500">
+  <div>
     <article-list :get-data-func="loadArticle" timeline />
   </div>
 </template>

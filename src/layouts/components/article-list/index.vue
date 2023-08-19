@@ -67,12 +67,22 @@ watchEffect(() => {
         <h2 class="text-4xl font-bold absolute -z-10 left-0 md:-left-10 -top-8 text-primary-200 dark:text-slate-800">
           {{ year }}
         </h2>
-        <article-card v-for="article in timelineData.get(year)" :key="article.aid" :data="article" />
+        <article-card
+          v-for="article in timelineData.get(year)"
+          :key="article.aid"
+          :data="article"
+          date-format="MM-DD"
+        />
       </div>
     </template>
-    <template v-else>
-      <article-card v-for="article in pageData.data" :key="article.aid" :data="article" />
-    </template>
+    <div v-else class="flex flex-col gap-8 w-full sm:max-w-2xl relative my-4">
+      <article-card
+        v-for="article in pageData.data"
+        :key="article.aid"
+        :data="article"
+        date-format="YYYY-MM-DD"
+      />
+    </div>
   </div>
   <bh-paginator v-model="pageData.page" hiden-on-single :size="pageData.size" :total="pageData.total" />
 </template>

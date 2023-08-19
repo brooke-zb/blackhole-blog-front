@@ -1,13 +1,13 @@
 <route lang="yaml">
-name: category-articles
+name: tag-articles
 </route>
 
 <script setup lang="ts">
-const route = useRoute('category-articles')
-setTitle(`分类 ${route.params.name} 下的文章`)
+const route = useRoute('tag-articles')
+setTitle(`标签 ${route.params.name} 下的文章`)
 
 function loadArticle(page: number) {
-  return api.article.getListByCategory(route.params.name, page)
+  return api.article.getListByTag(route.params.name, page)
 }
 </script>
 

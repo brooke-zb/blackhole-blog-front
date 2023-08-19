@@ -2,10 +2,11 @@
 // 参数
 const props = defineProps<{
   data: ArticlePreview
+  dateFormat: string
 }>()
 
 function formatDate(time: string) {
-  return dayjs(time).format('MM-DD')
+  return dayjs(time).format(props.dateFormat)
 }
 </script>
 
