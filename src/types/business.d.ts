@@ -55,3 +55,12 @@ type ArticleCategory = {
 type ArticleTag = {
   name: string
 }
+
+type Tag = {
+  tid: number
+  name: string
+}
+
+type TagHeat = Tag & {
+  articleCount: number
+}
