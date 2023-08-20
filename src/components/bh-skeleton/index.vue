@@ -77,17 +77,17 @@ const props = defineProps<{
       <div class="inline-block skeleton p-3.5 w-12" />
     </div>
   </div>
-  <div v-else-if="props.type === 'friend'" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4">
-    <div class="skeleton p-8 w-full" />
-    <div class="skeleton p-8 w-full" />
-    <div class="skeleton p-8 w-full" />
-    <div class="skeleton p-8 w-full" />
-    <div class="skeleton p-8 w-full" />
+  <div v-else-if="props.type === 'friend'" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-2">
+    <div class="skeleton p-8 w-full h-20" />
+    <div class="skeleton p-8 w-full h-20" />
+    <div class="skeleton p-8 w-full h-20" />
+    <div class="skeleton p-8 w-full h-20" />
+    <div class="skeleton p-8 w-full h-20" />
   </div>
 </template>
 
 <style scoped>
 .skeleton {
-  @apply bg-gray-400/50 rounded-lg animate-pulse;
+  @apply bg-gray-400/75 rounded-lg animate-pulse;
 }
 </style>

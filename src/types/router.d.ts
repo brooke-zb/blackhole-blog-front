@@ -43,6 +43,7 @@ declare module 'vue-router/auto/routes' {
     'not-found': RouteRecordInfo<'not-found', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     'categories': RouteRecordInfo<'categories', '/categories', Record<never, never>, Record<never, never>>,
     'category-articles': RouteRecordInfo<'category-articles', '/categories/:name', { name: ParamValue<true> }, { name: ParamValue<false> }>,
+    'friends': RouteRecordInfo<'friends', '/friends', Record<never, never>, Record<never, never>>,
     'tags': RouteRecordInfo<'tags', '/tags', Record<never, never>, Record<never, never>>,
     'tag-articles': RouteRecordInfo<'tag-articles', '/tags/:name', { name: ParamValue<true> }, { name: ParamValue<false> }>,
   }

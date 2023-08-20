@@ -73,3 +73,11 @@ type Category = {
 }
 
 type CategoryHeat = Category & ArticleCountInfo
+
+type Friend = {
+  fid: number
+  name: string
+  link: string
+  avatar: string
+  description: string | null
+}

@@ -11,7 +11,7 @@ function formatDate(time: string) {
 </script>
 
 <template>
-  <div class="group text-gray-400 dark:text-slate-600 hover:text-gray-500 dark:hover:text-slate-500">
+  <div class="group text-gray-400 dark:text-slate-600 hover:text-gray-500 dark:hover:text-slate-500 md:hover:scale-105 duration-150">
     <router-link
       :to="`/articles/${props.data.aid}`" class="text-xl mb-1 text-primary-600 dark:text-dark-400
         hover:text-primary-800 dark:hover:text-dark-200"
