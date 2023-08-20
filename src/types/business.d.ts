@@ -61,6 +61,15 @@ type Tag = {
   name: string
 }
 
-type TagHeat = Tag & {
+type ArticleCountInfo = {
   articleCount: number
 }
+
+type TagHeat = Tag & ArticleCountInfo
+
+type Category = {
+  cid: number
+  name: string
+}
+
+type CategoryHeat = Category & ArticleCountInfo

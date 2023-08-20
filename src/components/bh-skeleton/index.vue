@@ -51,15 +51,18 @@ const props = defineProps<{
     <div class="skeleton p-10 w-full max-w-sm" />
     <div class="skeleton p-10 w-full max-w-sm" />
   </div>
-  <div v-else-if="props.type === 'category'" class="flex flex-col gap-4">
+  <div v-else-if="props.type === 'category'" class="flex flex-col gap-4 pt-2">
+    <div class="flex justify-center">
+      <div class="skeleton p-3.5 w-24" />
+    </div>
     <div class="skeleton p-3 w-24" />
-    <div class="skeleton p-3 w-24 ml-6" />
-    <div class="skeleton p-3 w-24 ml-6" />
+    <div class="skeleton p-3 w-16" />
     <div class="skeleton p-3 w-24" />
-    <div class="skeleton p-3 w-24 ml-6" />
+    <div class="skeleton p-3 w-16" />
+    <div class="skeleton p-3 w-36" />
     <div class="skeleton p-3 w-24" />
   </div>
-  <div v-else-if="props.type === 'tag'" class="gap-4 flex flex-col items-center">
+  <div v-else-if="props.type === 'tag'" class="flex flex-col gap-4 items-center pt-2">
     <div class="skeleton p-3.5 w-24" />
     <div class="gap-4 flex flex-wrap justify-center">
       <div class="inline-block skeleton p-3.5 w-16" />
