@@ -9,22 +9,23 @@ interface TagInfo {
   sizeClass: string
 }
 
+onMounted(getTags)
+
 setTitle('标签')
 const data = ref<TagHeat[]>([])
 const tags = ref<TagInfo[]>([])
-
-getTags()
-
-function getTags() {
-  api.tag.getList().then((resp) => {
-    if (resp.success) {
-      data.value = resp.data
-      parseTagsHeat()
-    }
-    else {
-      // TODO: toast
-    }
-  })
+const loading = ref(true)
+async function getTags() {
+  loading.value = true
+  const resp = await api.tag.getList()
+  if (resp.success) {
+    data.value = resp.data
+    parseTagsHeat()
+  }
+  else {
+    // TODO: toast
+  }
+  loading.value = false
 }
 
 function parseTagsHeat() {
@@ -54,9 +55,10 @@ function parseTagsHeat() {
 </script>
 
 <template>
-  <div class="my-2 text-center">
+  <bh-skeleton v-if="loading" type="tag" />
+  <div v-else-if="tags?.length > 0" class="my-2 text-center">
     <h2 class="text-2xl mb-2">
-      {{ tags.length > 0 ? `共 ${tags.length} 个标签` : '空空如也' }}
+      {{ `共 ${tags.length} 个标签` }}
     </h2>
     <router-link
       v-for="tag in tags"
@@ -67,4 +69,5 @@ function parseTagsHeat() {
       {{ tag.name }}
     </router-link>
   </div>
+  <bh-empty v-else />
 </template>
