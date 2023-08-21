@@ -24,7 +24,7 @@ type Article = {
   content: string
   commentable: boolean
   createdAt: string
-  updatedAt: string
+  updatedAt: string | null
   status: ArticleStatus
   readCount: number
 }

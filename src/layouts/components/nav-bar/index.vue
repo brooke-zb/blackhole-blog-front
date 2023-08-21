@@ -31,7 +31,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
         {{ title }}
       </div>
     </div>
-    <div class="flex items-center gap-6 sm:gap-4">
+    <div class="flex items-center gap-5 sm:gap-4">
       <router-link
         v-for="link in links" :key="link.path" :to="link.path"
         class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-100

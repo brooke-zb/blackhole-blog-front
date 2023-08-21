@@ -1,7 +1,7 @@
 import { request } from '@/utils'
 
 export default {
-  getByAid(aid: number) {
+  getByAid(aid: number | string) {
     return request.get<Article>(`/articles/${aid}`)
   },
 

@@ -3,6 +3,7 @@ import { setTitle, title } from './title'
 import { isPageLoading, setPageLoading } from './loading'
 import { router } from './router'
 import request from './request'
+import md from './markdown'
 
 export {
   toggleDark,
@@ -13,4 +14,5 @@ export {
   isPageLoading,
   router,
   request,
+  md,
 }
