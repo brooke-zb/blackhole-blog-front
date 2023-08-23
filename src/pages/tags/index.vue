@@ -7,6 +7,7 @@ interface TagInfo {
   name: string
   colorClass: string
   sizeClass: string
+  articleCount: number
 }
 
 onMounted(getTags)
@@ -47,8 +48,9 @@ function parseTagsHeat() {
       const heat = tag.articleCount! / maxCount
       return {
         name: tag.name,
-        colorClass: heat > 0.66 ? 'text-primary-700 dark:text-dark-200' : heat > 0.33 ? 'text-primary-500 dark:text-dark-400' : 'text-gray-400 dark:text-slate-400',
+        colorClass: heat > 0.66 ? 'text-primary-700 dark:text-dark-200' : heat > 0.33 ? 'text-primary-500 dark:text-dark-400' : 'text-gray-500 dark:text-slate-400',
         sizeClass: heat > 0.66 ? 'text-4xl' : heat > 0.33 ? 'text-2xl' : 'text-base',
+        articleCount: tag.articleCount,
       }
     })
   }
@@ -67,7 +69,7 @@ function parseTagsHeat() {
       :to="`/tags/${tag.name}`"
       class="m-3 leading-8 whitespace-nowrap" :class="[tag.colorClass, tag.sizeClass]"
     >
-      {{ tag.name }}
+      {{ tag.name }}<span class="text-base text-gray-400 dark:text-gray-500">({{ tag.articleCount }})</span>
     </router-link>
   </div>
   <bh-empty v-else />

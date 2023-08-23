@@ -35,7 +35,7 @@ async function getCategories() {
         class="inline-flex items-center text-lg link my-2"
       >
         <i-solid-folder-closed class="mr-2 inline" />
-        {{ category.name }}
+        {{ category.name }} <span class="text-base text-gray-500">({{ category.articleCount }})</span>
       </router-link>
     </h3>
   </div>
