@@ -47,10 +47,20 @@ const headingClass = [
   'text-lg pt-1.5 pb-1',
   'text-base py-1',
 ]
-md.renderer.rules.heading_open = (tokens, idx, options, _env, slf) => {
+md.renderer.rules.heading_open = (tokens, idx, options, env, slf) => {
+  if (!env.anchor_id) {
+    env.anchor_id = 0
+    env.anchor_set = new Set<string>()
+  }
+  env.anchor_id++
+
+  const slug = tokens[idx + 1].content.replace(/\s+/g, '-').toLowerCase()
+  const id = `${env.anchor_id}-${slug}`
+
   const token = tokens[idx]
   const level = Number.parseInt(token.tag.substring(1)) - 1
   token.attrSet('class', `${headingClass[level]} text-primary-700 dark:text-dark-200`)
+  token.attrSet('id', id)
   return slf.renderToken(tokens, idx, options)
 }
 
@@ -72,11 +82,10 @@ md.renderer.rules.link_open = (tokens, idx, options, _env, slf) => {
 // image
 md.renderer.rules.image = (tokens, idx, options, _env, slf) => {
   const token = tokens[idx]
-  token.attrSet('class', 'cursor-pointer min-w-0')
+  token.attrSet('class', 'min-w-0')
   token.attrSet('data-gallery', '')
   token.attrSet('data-src', token.attrGet('src') || '')
-  token.attrSet('src', '')
-  return `<div class="flex justify-center max-w-4xl mx-auto">${slf.renderToken(tokens, idx, options)}</div>`
+  return `<div class="flex flex-col items-center max-w-4xl mx-auto">${slf.renderToken(tokens, idx, options)}<h6 class=" text-gray-500">${token.content}</h6></div>`
 }
 
 // fence
@@ -139,7 +148,7 @@ md.renderer.rules.fence = (tokens, idx, options, _env, slf) => {
 
 // katex
 md.use((md2) => {
-  function isValidDelim(state, pos) {
+  function isValidDelim(state: any, pos: number) {
     const max = state.posMax
     let can_open = true
     let can_close = true
@@ -299,12 +308,12 @@ md.use((md2) => {
   })
 
   // render
-  function renderKatex(tokens, idx) {
+  function renderKatex(tokens: any, idx: number) {
     const latex = tokens[idx].content
     try {
       return katex.renderToString(latex)
     }
-    catch (error) {
+    catch (error: any) {
       console.error(error)
       return `<span class='katex-error' title='${md2.utils.escapeHtml(error.toString())}'>${md2.utils.escapeHtml(latex)}</span>`
     }

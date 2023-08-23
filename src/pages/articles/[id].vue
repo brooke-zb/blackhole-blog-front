@@ -110,12 +110,12 @@ pre[class*='language-'] {
 }
 
 .code-lang {
-    @apply select-none rounded-md px-2 py-1 transition-colors text-sm text-right;
+    @apply select-none rounded-md px-2 pt-1 transition-colors text-sm text-right;
     @apply bg-gray-100 dark:bg-slate-800 text-gray-400 dark:text-gray-500;
 }
 
 pre[class*='language-'] {
-    @apply p-2 pt-0 overflow-auto select-text;
+    @apply pb-4 pt-0 overflow-auto select-text;
 }
 
 code[class*='language-'] {
@@ -124,8 +124,9 @@ code[class*='language-'] {
 
 /* Inline code */
 :not(pre) > code {
-    @apply py-0.5 px-1.5 mx-0.5;
-    @apply bg-primary-100 dark:bg-slate-600 text-primary-800 dark:text-white transition-colors rounded-md;
+    @apply font-mono py-0.5 px-1 mx-0.5;
+    @apply bg-primary-100 dark:bg-slate-700 text-primary-800 dark:text-white transition-colors rounded-md;
+    @apply border border-primary-300 dark:border-slate-500;
     white-space: normal;
 }
 
