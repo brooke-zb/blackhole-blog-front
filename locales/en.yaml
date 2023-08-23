@@ -23,3 +23,5 @@ page:
   article:
     created: Release time
     updated: Last update
+  about:
+    email: Email

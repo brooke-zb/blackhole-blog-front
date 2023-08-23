@@ -23,3 +23,5 @@ page:
   article:
     created: 发布时间
     updated: 上次更新
+  about:
+    email: 邮箱
