@@ -6,7 +6,8 @@ name: categories
 onMounted(getCategories)
 
 const titleStore = useTitleStore()
-titleStore.title = '分类'
+const { t } = useI18n()
+titleStore.title = t('link.category')
 
 const categories = ref<CategoryHeat[]>([])
 const loading = ref(true)
@@ -27,7 +28,7 @@ async function getCategories() {
   <bh-skeleton v-if="loading" type="category" />
   <div v-else-if="categories?.length > 0" class="my-2">
     <h2 class="text-2xl mb-2 text-center">
-      {{ `共 ${categories.length} 个分类` }}
+      {{ t('page.category.total', { count: categories.length }) }}
     </h2>
     <h3 v-for="category in categories" :key="category.name">
       <router-link

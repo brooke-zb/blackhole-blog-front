@@ -8,3 +8,18 @@ link:
 title:
   index: Home
   not-found: Page Not Found
+  article: Article
+nav:
+  swtich-theme: Switch Theme
+  login: Login
+  manage: Manage
+page:
+  category:
+    total: '{count} categories'
+    title: Articles in category {name}
+  tag:
+    total: '{count} tags'
+    title: Articles with tag {name}
+  article:
+    created: Release time
+    updated: Last update

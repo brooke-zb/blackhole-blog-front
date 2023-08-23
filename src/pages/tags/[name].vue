@@ -5,7 +5,8 @@ name: tag-articles
 <script setup lang="ts">
 const route = useRoute('tag-articles')
 const titleStore = useTitleStore()
-titleStore.title = `标签 ${route.params.name} 下的文章`
+const { t } = useI18n()
+titleStore.title = t('page.tag.title', { name: route.params.name })
 
 function loadArticle(page: number) {
   return api.article.getListByTag(route.params.name, page)

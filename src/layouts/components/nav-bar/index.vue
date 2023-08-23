@@ -43,7 +43,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
           <component :is="link.icon" class="sm:hidden" />
         </bh-tooltip>
       </router-link>
-      <bh-tooltip text="切换主题">
+      <bh-tooltip :text="t('nav.swtich-theme')">
         <bh-button
           class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-100
           fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100
@@ -56,7 +56,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
           </template>
         </bh-button>
       </bh-tooltip>
-      <bh-tooltip :text="userStore.isLogin ? '管理' : '登录'">
+      <bh-tooltip :text="userStore.isLogin ? t('nav.manage') : t('nav.login')">
         <router-link to="/admin">
           <bh-button
             class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100

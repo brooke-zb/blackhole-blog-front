@@ -8,3 +8,18 @@ link:
 title:
   index: 首页
   not-found: 未找到页面
+  article: 文章
+nav:
+  swtich-theme: 切换主题
+  login: 登录
+  manage: 管理
+page:
+  category:
+    total: 共计 {count} 个分类
+    title: 分类 {name} 下的文章
+  tag:
+    total: 共计 {count} 个标签
+    title: 标签 {name} 下的文章
+  article:
+    created: 发布时间
+    updated: 上次更新

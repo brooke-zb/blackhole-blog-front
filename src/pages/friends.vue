@@ -6,7 +6,8 @@ name: friends
 onMounted(getFriends)
 
 const titleStore = useTitleStore()
-titleStore.title = '友链'
+const { t } = useI18n()
+titleStore.title = t('link.friend')
 
 const friends = ref<Friend[]>([])
 const loading = ref(true)

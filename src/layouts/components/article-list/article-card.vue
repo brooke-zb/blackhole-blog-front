@@ -5,6 +5,8 @@ const props = defineProps<{
   dateFormat: string
 }>()
 
+const { t } = useI18n()
+
 function formatDate(time: string) {
   return dayjs(time).format(props.dateFormat)
 }
@@ -22,7 +24,7 @@ function formatDate(time: string) {
     <span title="发布时间" class="sm:text-sm me-2 sm:me-0 sm:ms-2">{{ formatDate(props.data.createdAt) }}</span>
     <br class="hidden sm:block">
     <router-link
-      :to="`/categories/${props.data.category.name}`" title="分类"
+      :to="`/categories/${props.data.category.name}`" :title="t('link.category')"
       class="inline-flex items-center gap-1"
     >
       <i-regular-folder class="inline w-4 h-4 fill-gray-400 dark:fill-slate-600 group-hover:fill-gray-500 dark:group-hover:fill-slate-500" />
@@ -30,7 +32,7 @@ function formatDate(time: string) {
     </router-link>
     <div class="flex sm:inline-flex items-center gap-3 flex-wrap ms-0 sm:ms-2">
       <router-link
-        v-for="tag in props.data.tags" :key="tag.name" :to="`/tags/${tag.name}`" title="标签"
+        v-for="tag in props.data.tags" :key="tag.name" :to="`/tags/${tag.name}`" :title="t('link.tag')"
         class="inline-flex items-center text-sm"
       >
         <i-regular-tag class="inline w-4 h-4 fill-gray-400 dark:fill-slate-600 group-hover:fill-gray-500 dark:group-hover:fill-slate-500" />

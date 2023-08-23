@@ -11,7 +11,8 @@ definePage({
 
 onMounted(getArticle)
 const titleStore = useTitleStore()
-titleStore.title = '文章'
+const { t } = useI18n()
+titleStore.title = t('title.article')
 
 const article = ref<Article>()
 const contentHTML = ref('')
@@ -43,13 +44,13 @@ function formatDate(date: string) {
       {{ article.title }}
     </div>
     <div class="flex justify-center gap-2 mb-2 text-gray-500 fill-gray-500 dark:text-gray-400 dark:fill-gray-400">
-      <bh-tooltip text="发布时间">
+      <bh-tooltip :text="t('page.article.created')">
         <i-regular-calendar-lines class="inline align-text-top" />
         {{ formatDate(article.createdAt) }}
       </bh-tooltip>
       <template v-if="article.updatedAt">
         <span> - </span>
-        <bh-tooltip text="上次更新">
+        <bh-tooltip :text="t('page.article.updated')">
           <i-regular-calendar-lines-pen class="inline align-text-top" />
           {{ formatDate(article.updatedAt) }}
         </bh-tooltip>
@@ -63,7 +64,7 @@ function formatDate(date: string) {
       -
       <router-link
         class="link flex justify-center items-center gap-1.5" :to="`/categories/${article.category.name}`"
-        title="分类"
+        :title="t('link.category')"
       >
         <IRegularFolder />
         {{ article.category.name }}
@@ -74,7 +75,7 @@ function formatDate(date: string) {
     >
       <router-link
         v-for="tag in article.tags" :key="tag.name" class="link flex justify-center items-center gap-0.5"
-        :to="`/tags/${tag.name}`" title="标签"
+        :to="`/tags/${tag.name}`" :title="t('link.tag')"
       >
         <IRegularTag />
         {{ tag.name }}

@@ -13,7 +13,8 @@ interface TagInfo {
 onMounted(getTags)
 
 const titleStore = useTitleStore()
-titleStore.title = '标签'
+const { t } = useI18n()
+titleStore.title = t('link.tag')
 const data = ref<TagHeat[]>([])
 const tags = ref<TagInfo[]>([])
 const loading = ref(true)
@@ -61,7 +62,7 @@ function parseTagsHeat() {
   <bh-skeleton v-if="loading" type="tag" />
   <div v-else-if="tags?.length > 0" class="my-2 text-center">
     <h2 class="text-2xl mb-2">
-      {{ `共 ${tags.length} 个标签` }}
+      {{ t('page.tag.total', { count: tags.length }) }}
     </h2>
     <router-link
       v-for="tag in tags"

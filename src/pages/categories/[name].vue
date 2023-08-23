@@ -5,7 +5,8 @@ name: category-articles
 <script setup lang="ts">
 const route = useRoute('category-articles')
 const titleStore = useTitleStore()
-titleStore.title = `分类 ${route.params.name} 下的文章`
+const { t } = useI18n()
+titleStore.title = t('page.category.title', { name: route.params.name })
 
 function loadArticle(page: number) {
   return api.article.getListByCategory(route.params.name, page)
