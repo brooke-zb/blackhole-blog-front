@@ -13,6 +13,7 @@ import 'prismjs/components/prism-json.min.js'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
+import taskLists from 'markdown-it-task-lists'
 
 // line numbers
 const NEW_LINE_EXP = /\n(?!$)/g
@@ -325,5 +326,8 @@ md.use((md2) => {
     return `<p class="flex justify-center">${renderKatex(tokens, idx)}</p>`
   }
 })
+
+// task lists
+md.use(taskLists)
 
 export default md
