@@ -4,7 +4,8 @@ name: not-found
 
 <script setup lang="ts">
 const { t } = useI18n()
-setTitle(t('title.not-found'))
+const titleStore = useTitleStore()
+titleStore.title = t('title.not-found')
 </script>
 
 <template>

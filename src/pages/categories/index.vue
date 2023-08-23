@@ -5,7 +5,9 @@ name: categories
 <script setup lang="ts">
 onMounted(getCategories)
 
-setTitle('分类')
+const titleStore = useTitleStore()
+titleStore.title = '分类'
+
 const categories = ref<CategoryHeat[]>([])
 const loading = ref(true)
 async function getCategories() {

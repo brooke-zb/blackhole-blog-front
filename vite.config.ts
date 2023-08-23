@@ -43,7 +43,6 @@ export default defineConfig({
           '@/utils': [
             'isDark',
             'toggleDark',
-            'setTitle',
           ],
           '@floating-ui/vue': [
             'useFloating',

@@ -11,7 +11,8 @@ interface TagInfo {
 
 onMounted(getTags)
 
-setTitle('标签')
+const titleStore = useTitleStore()
+titleStore.title = '标签'
 const data = ref<TagHeat[]>([])
 const tags = ref<TagInfo[]>([])
 const loading = ref(true)

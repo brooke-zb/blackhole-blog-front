@@ -4,8 +4,8 @@ import IconRegularFolders from '~icons/regular/folders'
 import IconRegularTags from '~icons/regular/tags'
 import IconRegularAddressCard from '~icons/regular/address-card'
 import IconRegularFaceSunglasses from '~icons/regular/face-sunglasses'
-import { title } from '@/utils'
 
+const titleStore = useTitleStore()
 const userStore = useUserStore()
 const { t } = useI18n()
 const links = [
@@ -28,7 +28,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
         {{ navTitle }}
       </router-link>
       <div class="hidden md:block text-ellipsis overflow-hidden whitespace-nowrap w-0 grow">
-        {{ title }}
+        {{ titleStore.title }}
       </div>
     </div>
     <div class="flex items-center gap-5 sm:gap-4">

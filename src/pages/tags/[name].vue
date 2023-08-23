@@ -4,7 +4,8 @@ name: tag-articles
 
 <script setup lang="ts">
 const route = useRoute('tag-articles')
-setTitle(`标签 ${route.params.name} 下的文章`)
+const titleStore = useTitleStore()
+titleStore.title = `标签 ${route.params.name} 下的文章`
 
 function loadArticle(page: number) {
   return api.article.getListByTag(route.params.name, page)

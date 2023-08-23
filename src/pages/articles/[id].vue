@@ -10,19 +10,20 @@ definePage({
 })
 
 onMounted(getArticle)
-
-const route = useRoute('article-detail')
+const titleStore = useTitleStore()
+titleStore.title = '文章'
 
 const article = ref<Article>()
 const contentHTML = ref('')
 const loading = ref(true)
 async function getArticle() {
   loading.value = true
-  const resp = await api.article.getByAid(route.params.id)
+
+  const resp = await api.article.getByAid(useRoute('article-detail').params.id)
   if (resp.success) {
     article.value = resp.data
-    // TODO: parse markdown
     contentHTML.value = md.render(resp.data.content)
+    titleStore.title = resp.data.title
   }
   else {
     // TODO: toast

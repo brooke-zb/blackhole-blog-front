@@ -5,7 +5,9 @@ name: friends
 <script setup lang="ts">
 onMounted(getFriends)
 
-setTitle('友链')
+const titleStore = useTitleStore()
+titleStore.title = '友链'
+
 const friends = ref<Friend[]>([])
 const loading = ref(true)
 async function getFriends() {

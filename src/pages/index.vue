@@ -4,7 +4,8 @@ name: index
 
 <script setup lang="ts">
 const { t } = useI18n()
-setTitle(t('title.index'))
+const titleStore = useTitleStore()
+titleStore.title = t('title.index')
 
 function loadArticle(page: number) {
   return api.article.getList(page)
