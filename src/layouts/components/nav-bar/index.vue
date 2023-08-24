@@ -46,9 +46,8 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
       <bh-tooltip :text="t('nav.swtich-theme')">
         <bh-button
           class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-100
-          fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100
-          transition-colors duration-200"
-          @click="toggleDark()"
+          fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100"
+          no-ring @click="toggleDark()"
         >
           <template #icon>
             <i-regular-moon-stars v-if="isDark" />
@@ -61,6 +60,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
           <bh-button
             class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
           fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
+            no-ring
           >
             <template #icon>
               <i-regular-gear v-if="userStore.isLogin" />

@@ -23,5 +23,10 @@ page:
   article:
     created: 发布时间
     updated: 上次更新
+    comments-count: '{count}条评论'
+    no-comments: 空空如也
+    click-to-reply: 点击回复
+    show-remain-comments: 显示剩余{count}条评论
+    author: 博主
   about:
     email: 邮箱

@@ -23,5 +23,10 @@ page:
   article:
     created: Release time
     updated: Last update
+    comments-count: '{count} comments'
+    no-comments: No comments
+    click-to-reply: Click to reply
+    show-remain-comments: Show remaining {count} comments
+    author: Author
   about:
     email: Email

@@ -44,6 +44,9 @@ export default defineConfig({
             'isDark',
             'toggleDark',
           ],
+          '@/api': [
+            ['default', 'api'],
+          ],
           '@floating-ui/vue': [
             'useFloating',
             'offset',
@@ -51,11 +54,12 @@ export default defineConfig({
             'shift',
             'autoUpdate',
           ],
+          'lodash-es': [
+            'throttle',
+            'debounce',
+          ],
           'dayjs': [
             ['default', 'dayjs'],
-          ],
-          '@/api': [
-            ['default', 'api'],
           ],
           'vue': [
             'defineModel',
