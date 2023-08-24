@@ -15,69 +15,87 @@ type Page<T> = {
   data: T[]
 }
 
-type Article = {
+type BhArticle = {
   aid: number
-  user: ArticleUser
-  category: ArticleCategory
-  tags: ArticleTag[]
+  user: BhArticleUser
+  category: BhArticleCategory
+  tags: BhArticleTag[]
   title: string
   content: string
   commentable: boolean
   createdAt: string
   updatedAt: string | null
-  status: ArticleStatus
+  status: BhArticleStatus
   readCount: number
 }
 
-type ArticlePreview = {
+type BhArticlePreview = {
   aid: number
-  user: ArticleUser
-  category: ArticleCategory
-  tags: ArticleTag[]
+  user: BhArticleUser
+  category: BhArticleCategory
+  tags: BhArticleTag[]
   title: string
   createdAt: string
-  status: ArticleStatus
+  status: BhArticleStatus
   readCount: number
 }
 
-type ArticleStatus = 'PUBLISHED' | 'DRAFT' | 'HIDDEN'
+type BhArticleStatus = 'PUBLISHED' | 'DRAFT' | 'HIDDEN'
 
-type ArticleUser = {
+type BhArticleUser = {
   uid: number
   name: string
 }
 
-type ArticleCategory = {
+type BhArticleCategory = {
   cid: number
   name: string
 }
 
-type ArticleTag = {
+type BhArticleTag = {
   name: string
 }
 
-type Tag = {
+type BhTag = {
   tid: number
   name: string
 }
 
-type ArticleCountInfo = {
+type BhArticleCountInfo = {
   articleCount: number
 }
 
-type TagHeat = Tag & ArticleCountInfo
+type BhTagHeat = BhTag & BhArticleCountInfo
 
-type Category = {
+type BhCategory = {
   cid: number
   name: string
 }
 
-type CategoryHeat = Category & ArticleCountInfo
+type BhCategoryHeat = BhCategory & BhArticleCountInfo
 
-type Friend = {
+type BhFriend = {
   fid: number
   name: string
   link: string
   avatar: string
   description: string | null
+}
+
+
+type BhComment = {
+  coid: number
+  nickname: string
+  email?: string
+  uid?: number
+  avatar?: string
+  site?: string
+  ip?: string
+  content: string
+  createdAt: string
+  children: CommentDto[]
+  parentId?: number
+  replyId?: number
+  replyTo?: string
+  status: 'PUBLISHED' | 'REVIEW' | 'HIDDEN'
 }

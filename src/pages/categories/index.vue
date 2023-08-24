@@ -9,7 +9,7 @@ const titleStore = useTitleStore()
 const { t } = useI18n()
 titleStore.title = t('link.category')
 
-const categories = ref<CategoryHeat[]>([])
+const categories = ref<BhCategoryHeat[]>([])
 const loading = ref(true)
 async function getCategories() {
   loading.value = true

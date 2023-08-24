@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   text: string
+  appendClass?: string
 }>()
 
 const reference = ref<HTMLElement>()
@@ -26,7 +27,10 @@ function onLeave() {
 </script>
 
 <template>
-  <span ref="reference" @mouseenter="onEnter()" @mouseleave="onLeave()" @blur="onLeave()">
+  <span
+    ref="reference" :class="appendClass"
+    @mouseenter="onEnter()" @mouseleave="onLeave()" @blur="onLeave()"
+  >
     <slot />
   </span>
   <teleport to="#bh-tooltip-container">

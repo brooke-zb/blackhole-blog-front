@@ -9,7 +9,7 @@ const titleStore = useTitleStore()
 const { t } = useI18n()
 titleStore.title = t('link.friend')
 
-const friends = ref<Friend[]>([])
+const friends = ref<BhFriend[]>([])
 const loading = ref(true)
 async function getFriends() {
   loading.value = true

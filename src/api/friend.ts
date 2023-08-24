@@ -2,6 +2,6 @@ import { request } from '@/utils'
 
 export default {
   getList() {
-    return request.get<Friend[]>('/friends')
+    return request.get<BhFriend[]>('/friends')
   },
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // 参数
 const props = defineProps<{
-  data: ArticlePreview
+  data: BhArticlePreview
   dateFormat: string
 }>()
 

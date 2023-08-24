@@ -14,7 +14,7 @@ const titleStore = useTitleStore()
 const { t } = useI18n()
 titleStore.title = t('title.article')
 
-const article = ref<Article>()
+const article = ref<BhArticle>()
 const contentHTML = ref('')
 const loading = ref(true)
 async function getArticle() {
@@ -82,6 +82,7 @@ function formatDate(date: string) {
       </router-link>
     </div>
     <div v-html="contentHTML" />
+    <comment-box :aid="article.aid" :author-uid="article.user.uid" />
   </div>
 </template>
 

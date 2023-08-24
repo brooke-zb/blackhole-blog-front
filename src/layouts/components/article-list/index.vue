@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // 参数
 const props = withDefaults(defineProps<{
-  getDataFunc: (page: number) => Promise<Resp<Page<ArticlePreview>>>
+  getDataFunc: (page: number) => Promise<Resp<Page<BhArticlePreview>>>
   timeline?: boolean
 }>(), {
   timeline: false,
@@ -13,7 +13,7 @@ const emit = defineEmits<{
 }>()
 
 // 数据
-const pageData = reactive<Page<ArticlePreview>>({
+const pageData = reactive<Page<BhArticlePreview>>({
   page: 1,
   size: 10,
   total: 0,
@@ -21,7 +21,7 @@ const pageData = reactive<Page<ArticlePreview>>({
 })
 
 // 时间线数据<年份、文章>
-const timelineData = reactive<Map<string, ArticlePreview[]>>(new Map())
+const timelineData = reactive<Map<string, BhArticlePreview[]>>(new Map())
 
 // 获取数据
 async function getData(page: number) {
@@ -84,5 +84,5 @@ watchEffect(() => {
       />
     </div>
   </div>
-  <bh-paginator v-model="pageData.page" hiden-on-single :size="pageData.size" :total="pageData.total" />
+  <bh-paginator v-model="pageData.page" hide-on-single-page :size="pageData.size" :total="pageData.total" />
 </template>

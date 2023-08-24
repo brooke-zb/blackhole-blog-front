@@ -15,7 +15,7 @@ onMounted(getTags)
 const titleStore = useTitleStore()
 const { t } = useI18n()
 titleStore.title = t('link.tag')
-const data = ref<TagHeat[]>([])
+const data = ref<BhTagHeat[]>([])
 const tags = ref<TagInfo[]>([])
 const loading = ref(true)
 async function getTags() {
