@@ -44,6 +44,19 @@ export default defineConfig({
             'isDark',
             'toggleDark',
           ],
+          '@/utils/validation/index': [
+            ['default', 'validate'],
+          ],
+          '@/utils/validation/rules': [
+            'email',
+            'notEmpty',
+            'isEmpty',
+            'minLength',
+            'maxLength',
+            'betweenLength',
+            'or',
+            'and',
+          ],
           '@/api': [
             ['default', 'api'],
           ],
