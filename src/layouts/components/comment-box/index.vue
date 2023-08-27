@@ -4,6 +4,19 @@ const props = defineProps<{
   authorUid: number
 }>()
 
+// 奇怪的渲染顺序问题，必须mount后teleport才能正确渲染
+const isRenderEnd = ref(false)
+onMounted(() => {
+  isRenderEnd.value = true
+})
+
+// 更改回复框位置
+const coid = ref<number>()
+provide('changeReplyComment', (id?: number) => {
+  coid.value = id
+})
+
+const toast = useToast()
 const { t } = useI18n()
 
 const currentPage = ref(1)
@@ -15,6 +28,7 @@ const comments = ref<Page<BhComment>>({
 })
 
 watchEffect(() => {
+  coid.value = undefined
   getComments(currentPage.value)
 })
 async function getComments(page: number) {
@@ -23,7 +37,11 @@ async function getComments(page: number) {
     comments.value = resp.data
   }
   else {
-    // TODO: toast
+    toast.add({
+      type: 'danger',
+      message: resp.msg,
+      duration: 5000,
+    })
   }
 }
 </script>
@@ -41,5 +59,6 @@ async function getComments(page: number) {
       />
     </template>
     <bh-paginator v-model="currentPage" :size="10" :total="comments.total" hide-on-single-page />
+    <comment-sender v-if="isRenderEnd" :aid="props.aid" :coid="coid" @refresh="getComments(currentPage)" />
   </div>
 </template>

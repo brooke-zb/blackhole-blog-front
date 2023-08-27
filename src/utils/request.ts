@@ -29,7 +29,7 @@ const request = {
 instance.interceptors.request.use(
   (config) => {
     // csrf token
-    config.headers['X-CSRFToken'] = '_'
+    config.headers['X-CSRF-Token'] = '_'
     return config
   },
 )

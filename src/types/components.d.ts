@@ -16,11 +16,13 @@ declare module 'vue' {
     BhPaginator: typeof import('./../components/bh-paginator/index.vue')['default']
     BhSkeleton: typeof import('./../components/bh-skeleton/index.vue')['default']
     BhTextarea: typeof import('./../components/bh-textarea/index.vue')['default']
+    BhToast: typeof import('./../components/bh-toast/index.vue')['default']
     BhTooltip: typeof import('./../components/bh-tooltip/index.vue')['default']
     Bottombar: typeof import('./../layouts/components/bottombar/index.vue')['default']
     BottomBar: typeof import('./../layouts/components/bottom-bar/index.vue')['default']
     CommentBox: typeof import('./../layouts/components/comment-box/index.vue')['default']
     CommentContent: typeof import('./../layouts/components/comment-box/comment-content.vue')['default']
+    CommentSender: typeof import('./../layouts/components/comment-box/comment-sender.vue')['default']
     Default: typeof import('./../layouts/default.vue')['default']
     IBrandsBilibili: typeof import('~icons/brands/bilibili')['default']
     IBrandsGithub: typeof import('~icons/brands/github')['default']
@@ -38,9 +40,11 @@ declare module 'vue' {
     IRegularFolderClosed: typeof import('~icons/regular/folder-closed')['default']
     IRegularGear: typeof import('~icons/regular/gear')['default']
     IRegularImage: typeof import('~icons/regular/image')['default']
+    IRegularLink: typeof import('~icons/regular/link')['default']
     IRegularMoonStars: typeof import('~icons/regular/moon-stars')['default']
     IRegularRightToBracket: typeof import('~icons/regular/right-to-bracket')['default']
     IRegularSearch: typeof import('~icons/regular/search')['default']
+    IRegularSpinnerThird: typeof import('~icons/regular/spinner-third')['default']
     IRegularTag: typeof import('~icons/regular/tag')['default']
     IRegularTimes: typeof import('~icons/regular/times')['default']
     IRegularUser: typeof import('~icons/regular/user')['default']
@@ -52,6 +56,10 @@ declare module 'vue' {
     PaginatorButtonGroup: typeof import('./../components/bh-paginator/paginator-button-group.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ToastContainer: typeof import('./../components/bh-toast/toast-container.vue')['default']
     TooltipContainer: typeof import('./../components/bh-tooltip/tooltip-container.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vTooltip: typeof import('@/utils/tooltip')['vTooltip']
   }
 }

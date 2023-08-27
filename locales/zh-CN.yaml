@@ -28,5 +28,19 @@ page:
     click-to-reply: 点击回复
     show-remain-comments: 显示剩余{count}条评论
     author: 博主
+    validate:
+      nickname-min: 昵称不能少于2个字符
+      nickname-max: 昵称不能超过32个字符
+      email: 邮箱格式不正确
+      content-blank: 评论内容不能为空
+      content-max: 评论内容不能超过300个字符
+    comment:
+      nickname: 昵称
+      email: 邮箱(可选,用于获取头像)
+      site: 网站(可选)
+      content: 评论(点击头像回复他人评论)
+      sending: 发送中...
+      submit: 发送
+      cancel-reply: 取消
   about:
     email: 邮箱

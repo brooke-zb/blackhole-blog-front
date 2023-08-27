@@ -28,5 +28,19 @@ page:
     click-to-reply: Click to reply
     show-remain-comments: Show remaining {count} comments
     author: Author
+    validate:
+      nickname-min: Nickname cannot be less than 2 characters
+      nickname-max: Nickname cannot be more than 32 characters
+      email: Email is invalid
+      content-blank: Content cannot be blank
+      content-max: Content cannot be more than 300 characters
+    comment:
+      nickname: Nickname
+      email: Email(optional,for Gravatar)
+      site: Website(optional)
+      content: Content(Click avatar to reply other's comment)
+      sending: Sending...
+      submit: Submit
+      cancel-reply: Cancel
   about:
     email: Email

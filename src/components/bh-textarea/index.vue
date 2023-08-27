@@ -24,8 +24,9 @@ onUnmounted(() => {
 })
 
 const classAppend = computed(() => ({
-  'border-danger-300/60 focus:border-danger-500 dark:border-danger-500/40 dark:focus:border-danger-700': props.invalid,
-  'placeholder:text-danger-300 dark:placeholder:text-danger-400': props.invalid,
+  'border-danger-300 focus:border-danger-500 dark:border-danger-500/40 dark:focus:border-danger-700': props.invalid,
+  'placeholder:text-danger-400 dark:placeholder:text-danger-400': props.invalid,
+  'border-gray-300 dark:border-slate-600 focus:border-primary-500 dark:focus:border-dark-500': !props.invalid,
 }))
 
 function onResize() {
@@ -40,8 +41,7 @@ function onResize() {
 <template>
   <textarea
     ref="el" v-model="inputValue"
-    class="p-2 rounded-md outline-0 bg-transparent border-2 block w-full resize-none transition-colors
-    border-gray-300 dark:border-slate-600 focus:border-primary-500 dark:focus:border-dark-500"
+    class="p-2 rounded-md outline-0 bg-transparent border-2 block w-full resize-none transition-colors"
     :class="classAppend" :rows="props.minRows" :placeholder="props.placeholder" @input="onResize"
   />
 </template>

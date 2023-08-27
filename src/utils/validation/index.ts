@@ -20,4 +20,4 @@ function validate(data: Record<string, ValidationData>, callback?: ValidateCallb
   }
 }
 
-export default validate
+export { validate }

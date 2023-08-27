@@ -99,3 +99,12 @@ type BhComment = {
   replyTo?: string
   status: 'PUBLISHED' | 'REVIEW' | 'HIDDEN'
 }
+
+type BhCommentAdd = {
+  aid: number
+  nickname: string
+  email?: string
+  site?: string
+  content: string
+  replyId?: number
+}

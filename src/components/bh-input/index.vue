@@ -17,7 +17,7 @@ const input = ref<HTMLInputElement>()
 
 onMounted(() => {
   if (props.focus) {
-    input.value.focus()
+    input.value?.focus()
   }
 })
 
@@ -26,12 +26,13 @@ const slots = useSlots()
 const classAppend = computed(() => ({
   'pl-8': slots.left,
   'pr-8': slots.right,
-  'border-danger-300/60 focus:border-danger-500 dark:border-danger-500/40 dark:focus:border-danger-700': props.invalid,
-  'placeholder:text-danger-300 dark:placeholder:text-danger-400': props.invalid,
+  'border-danger-300 focus:border-danger-500 dark:border-danger-500/40 dark:focus:border-danger-700': props.invalid,
+  'placeholder:text-danger-400 dark:placeholder:text-danger-400': props.invalid,
+  'border-gray-300 dark:border-slate-600 focus:border-primary-500 dark:focus:border-dark-500': !props.invalid,
 }))
 const slotClassAppend = computed(() => ({
   'fill-gray-400 dark:fill-slate-500': !props.invalid,
-  'fill-danger-300 dark:fill-danger-500/70': props.invalid,
+  'fill-danger-400 dark:fill-danger-500/70': props.invalid,
 }))
 </script>
 
@@ -43,8 +44,7 @@ const slotClassAppend = computed(() => ({
     <input
       ref="input"
       v-model="inputValue" class="rounded-md bg-transparent px-2 py-1.5 w-full border-2 placeholder:text-sm
-      border-light-300 dark:border-slate-600 focus:border-primary-500 dark:focus:border-dark-500
-      transition-colors outline-0" :class="classAppend"
+      transition-colors placeholder:transition-colors outline-0" :class="classAppend"
       :type="props.type" :placeholder="props.placeholder"
     >
     <div
