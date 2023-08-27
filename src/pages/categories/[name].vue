@@ -1,5 +1,7 @@
 <route lang="yaml">
 name: category-articles
+meta:
+  noLoaded: true
 </route>
 
 <script setup lang="ts">
@@ -15,6 +17,9 @@ function loadArticle(page: number) {
 
 <template>
   <div>
-    <article-list :get-data-func="loadArticle" timeline />
+    <article-list
+      :get-data-func="loadArticle" timeline
+      @loaded="setPageLoading(false)"
+    />
   </div>
 </template>

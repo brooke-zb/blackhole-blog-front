@@ -1,14 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { setupLayouts } from 'virtual:meta-layouts'
 import { routes } from 'vue-router/auto/routes'
-import { setPageLoading } from '.'
 
 const router = createRouter({
   routes: setupLayouts(routes),
   history: createWebHistory(),
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((_to, _from, next) => {
   setPageLoading(true)
   next()
   // if (to.meta.auth) {
@@ -24,8 +23,11 @@ router.beforeEach((to, from, next) => {
   // }
 })
 
-router.beforeResolve(() => {
-  setPageLoading(false)
+router.beforeResolve((to, _from, next) => {
+  if (!to.meta.noLoaded) {
+    setPageLoading(false)
+  }
+  next()
 })
 
 export { router }

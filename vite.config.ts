@@ -44,6 +44,8 @@ export default defineConfig({
             'isDark',
             'toggleDark',
             'useToast',
+            'setPageLoading',
+            'isPageLoading',
           ],
           '@/api': [
             ['default', 'api'],

@@ -34,7 +34,6 @@ function onBeforeEnter(el: Element) {
   gsap.set(el, {
     opacity: 0,
     translateY: -50,
-    transformOrigin: 'top',
   })
 }
 
@@ -67,7 +66,7 @@ function onLeave(el: Element, done: () => void) {
     <div
       class="fixed z-50 top-0 left-0 right-0 mx-auto max-w-sm
       sm:left-auto sm:w-96 pointer-events-none
-      flex flex-col p-2"
+      flex flex-col p-2 origin-top"
     >
       <transition-group name="toast" :css="false" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave">
         <bh-toast v-for="toast in toastQueue" :key="toast.id" :config="toast.config" @close="remove(toast.id)" />

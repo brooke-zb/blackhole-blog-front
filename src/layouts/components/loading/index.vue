@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isPageLoading } from '@/utils'
-
 const text = '咕咕咕...'
 
 const loading = ref<HTMLElement>()
@@ -17,14 +15,18 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div ref="loading" class="fixed w-full h-full top-0 left-0 bg-black/60 flex justify-center items-center z-50 transition-all duration-300 opacity-0 invisible">
+  <div
+    ref="loading"
+    class="fixed w-full h-full top-0 left-0 bg-black/60 flex justify-center items-center z-50
+    transition-all duration-300 opacity-0 invisible"
+  >
     <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-sm text-black dark:text-white shadow-xl">
       <div class="pb-2 text-center">
         {{ text }}
       </div>
       <div
         class="relative w-64 h-1 bg-gray-200 dark:bg-gray-600
-          before:absolute before:h-1 before:bg-primary-500 dark:before:bg-dark-400 progress-bar"
+        before:absolute before:h-1 before:bg-primary-500 dark:before:bg-dark-400 progress-bar"
       />
     </div>
   </div>

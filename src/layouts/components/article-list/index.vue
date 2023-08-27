@@ -10,6 +10,7 @@ const props = withDefaults(defineProps<{
 // 事件
 const emit = defineEmits<{
   change: [page: number]
+  loaded: []
 }>()
 
 const toast = useToast()
@@ -55,6 +56,7 @@ async function getData(page: number) {
       duration: 5000,
     })
   }
+  emit('loaded')
 }
 
 watchEffect(() => {
