@@ -108,3 +108,28 @@ type BhCommentAdd = {
   content: string
   replyId?: number
 }
+
+type BhLoginBody = {
+  username: string
+  password: string
+  rememberMe: boolean
+}
+
+type BhUser = {
+  uid: number
+  name: string
+  mail: string
+  link?: string
+  role: BhRole
+  enabled: boolean
+}
+
+type BhRole = {
+  rid: number
+  name: string
+  permissions: BhPermission[]
+}
+
+type BhPermission = {
+  name: string
+}

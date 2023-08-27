@@ -48,3 +48,7 @@ page:
   not-found:
     message: 你要找的内容已经消失在宇宙中了
     homepage: 返回首页
+network-err: 网络异常，请求失败
+auth:
+  require-login: 请登录后再操作
+  no-permission: 您没有权限访问该页面

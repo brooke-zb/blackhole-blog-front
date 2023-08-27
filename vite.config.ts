@@ -53,6 +53,7 @@ export default defineConfig({
           'lodash-es': [
             'throttle',
             'debounce',
+            'once',
           ],
           'dayjs': [
             ['default', 'dayjs'],

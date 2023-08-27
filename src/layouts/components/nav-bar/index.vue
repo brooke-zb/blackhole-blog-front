@@ -7,6 +7,7 @@ import IconRegularFaceSunglasses from '~icons/regular/face-sunglasses'
 
 const titleStore = useTitleStore()
 const userStore = useUserStore()
+
 const { t } = useI18n()
 const links = [
   { name: t('link.blog'), path: '/', icon: IconRegularBoxArchive },
@@ -47,19 +48,23 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
           fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100" no-ring @click="toggleDark()"
       >
         <template #icon>
-          <i-regular-moon-stars v-if="isDark" />
-          <i-regular-brightness v-else />
+          <i-regular-moon-stars v-if="isDark" class="align-bottom" />
+          <i-regular-brightness v-else class="align-bottom" />
         </template>
       </bh-button>
-      <router-link v-tooltip="userStore.isLogin ? t('nav.manage') : t('nav.login')" to="/admin">
+      <router-link
+        v-tooltip="userStore.isLogin ? t('nav.manage') : t('nav.login')"
+        :to="userStore.isLogin ? '/admin' : '/admin/login'"
+        class="inline-flex"
+      >
         <bh-button
           class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100
           fill-gray-600 hover:fill-gray-900 dark:fill-gray-400 dark:hover:fill-gray-100"
           no-ring
         >
           <template #icon>
-            <i-regular-gear v-if="userStore.isLogin" />
-            <i-regular-right-to-bracket v-else />
+            <i-regular-gear v-if="userStore.isLogin" class="align-bottom" />
+            <i-regular-right-to-bracket v-else class="align-bottom" />
           </template>
         </bh-button>
       </router-link>

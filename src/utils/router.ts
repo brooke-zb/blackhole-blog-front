@@ -7,20 +7,40 @@ const router = createRouter({
   history: createWebHistory(),
 })
 
-router.beforeEach((_to, _from, next) => {
+router.beforeEach(async (to, _from, next) => {
+  const userStore = useUserStore()
+  const toast = useToast()
+
   setPageLoading(true)
+
+  // 获取用户信息
+  await userStore.initOnce()
+
+  // 路由鉴权
+  if (to.meta.auth) {
+    if (!userStore.isLogin) {
+      toast.add({
+        type: 'danger',
+        translate: 'auth.require-login',
+        duration: 3000,
+      })
+      next('/admin/login')
+      return
+    }
+    if (to.meta.auth === true) {
+      next()
+      return
+    }
+    if (!userStore.hasPermission(to.meta.auth as string)) {
+      toast.add({
+        type: 'danger',
+        translate: 'auth.no-permission',
+        duration: 3000,
+      })
+      next('/admin')
+    }
+  }
   next()
-  // if (to.meta.auth) {
-  //   if (localStorage.getItem('token')) {
-  //     next()
-  //   }
-  //   else {
-  //     next({ name: 'login' })
-  //   }
-  // }
-  // else {
-  //   next()
-  // }
 })
 
 router.beforeResolve((to, _from, next) => {

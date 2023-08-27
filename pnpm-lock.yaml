@@ -17,6 +17,9 @@ dependencies:
   gsap:
     specifier: ^3.12.2
     version: 3.12.2
+  js-cookie:
+    specifier: ^3.0.5
+    version: 3.0.5
   katex:
     specifier: ^0.16.8
     version: 0.16.8
@@ -52,6 +55,9 @@ devDependencies:
   '@intlify/unplugin-vue-i18n':
     specifier: ^0.12.2
     version: 0.12.2(vue-i18n@9.3.0-beta.25)
+  '@types/js-cookie':
+    specifier: ^3.0.3
+    version: 3.0.3
   '@types/katex':
     specifier: ^0.16.2
     version: 0.16.2
@@ -1237,6 +1243,10 @@ packages:
 
   /@types/estree@1.0.1:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
+    dev: true
+
+  /@types/js-cookie@3.0.3:
+    resolution: {integrity: sha512-Xe7IImK09HP1sv2M/aI+48a20VX+TdRJucfq4vfRVy6nWN8PYPOEnlMRSgxJAgYQIXJVL8dZ4/ilAM7dWNaOww==}
     dev: true
 
   /@types/json-schema@7.0.12:
@@ -3384,6 +3394,11 @@ packages:
     resolution: {integrity: sha512-oVhqoRDaBXf7sjkll95LHVS6Myyyb1zaunVwk4Z0+WPSW4gjS0pl01zYKHScTuyEhQsFxV5L4DR5r+YqSyqyyg==}
     hasBin: true
     dev: true
+
+  /js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
+    dev: false
 
   /js-stringify@1.0.2:
     resolution: {integrity: sha512-rtS5ATOo2Q5k1G+DADISilDA6lv79zIiwFd6CcjuIxGKLFm5C+RLImRscVap9k55i+MOZwgliw+NejvkLuGD5g==}

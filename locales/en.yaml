@@ -48,3 +48,7 @@ page:
   not-found:
     message: The content you are looking for has disappeared into the universe.
     homepage: Back to home
+network-err: Network error, request failed
+auth:
+  require-login: Please login before operation
+  no-permission: You have no permission to access this page

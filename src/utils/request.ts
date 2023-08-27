@@ -47,7 +47,7 @@ instance.interceptors.response.use(
       return Promise.resolve({
         success: false,
         data: null,
-        msg: '网络异常，请求失败',
+        msg: useI18n().t('network-err'),
       })
     }
   },
