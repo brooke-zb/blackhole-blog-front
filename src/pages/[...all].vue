@@ -4,12 +4,8 @@ name: not-found
 
 <script setup lang="ts">
 const { t } = useI18n()
-const titleStore = useTitleStore()
-titleStore.title = t('title.not-found')
 </script>
 
 <template>
-  <div>
-    <h1>{{ t('not-found') }}</h1>
-  </div>
+  <bh-not-found code="404" :title="t('title.not-found')" />
 </template>

@@ -21,6 +21,7 @@ page:
     total: 共计 {count} 个标签
     title: 标签 {name} 下的文章
   article:
+    not-found: 文章未找到
     created: 发布时间
     updated: 上次更新
     comments-count: '{count}条评论'
@@ -44,3 +45,6 @@ page:
       cancel-reply: 取消
   about:
     email: 邮箱
+  not-found:
+    message: 你要找的内容已经消失在宇宙中了
+    homepage: 返回首页

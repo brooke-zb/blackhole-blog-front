@@ -25,7 +25,7 @@ function updatePos() {
 
   const windowRect = {
     height: window.innerHeight,
-    width: window.innerWidth,
+    width: document.body.clientWidth,
   }
 
   // y

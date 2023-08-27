@@ -44,8 +44,8 @@ function formatDate(date: string) {
 </script>
 
 <template>
-  <bh-skeleton v-if="loading || !article" type="article" />
-  <div v-else class="py-2">
+  <bh-skeleton v-if="loading" type="article" />
+  <div v-else-if="article" class="py-2">
     <div class="text-xl sm:text-2xl text-center font-bold mb-2">
       {{ article.title }}
     </div>
@@ -90,6 +90,7 @@ function formatDate(date: string) {
     <div v-html="contentHTML" />
     <comment-box :aid="article.aid" :author-uid="article.user.uid" />
   </div>
+  <bh-not-found v-else code="404" :title="t('page.article.not-found')" />
 </template>
 
 <style>
