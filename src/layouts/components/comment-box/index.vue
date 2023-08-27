@@ -40,7 +40,7 @@ async function getComments(page: number) {
     toast.add({
       type: 'danger',
       message: resp.msg,
-      duration: 5000,
+      duration: 3000,
     })
   }
 }

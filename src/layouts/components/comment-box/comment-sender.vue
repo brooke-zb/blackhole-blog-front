@@ -76,7 +76,7 @@ function sendComment() {
           toast.add({
             type: 'success',
             message: res.msg,
-            duration: 5000,
+            duration: 3000,
           })
 
           // 缓存用户信息
@@ -88,7 +88,7 @@ function sendComment() {
           toast.add({
             type: 'danger',
             message: res.msg,
-            duration: 5000,
+            duration: 3000,
           })
         }
       })
@@ -97,7 +97,7 @@ function sendComment() {
       toast.add({
         type: 'danger',
         message,
-        duration: 5000,
+        duration: 3000,
       })
     }
   })

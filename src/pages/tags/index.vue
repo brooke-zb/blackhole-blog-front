@@ -32,7 +32,7 @@ async function getTags() {
     toast.add({
       type: 'danger',
       message: resp.msg,
-      duration: 5000,
+      duration: 3000,
     })
   }
   loading.value = false

@@ -12,6 +12,8 @@ const emits = defineEmits<{
   (e: 'close'): void
 }>()
 
+const { t } = useI18n()
+
 onMounted(() => {
   if (props.config.duration) {
     setTimeout(() => {
@@ -46,7 +48,7 @@ const classAppend = computed(() => ({
         <component :is="props.config.icon ? props.config.icon : defaultIcons[props.config.type]" />
       </div>
       <div class="whitespace-pre-wrap">
-        {{ props.config.message }}
+        {{ props.config.message !== undefined ? props.config.message : t(props.config.translate) }}
       </div>
     </div>
   </div>
