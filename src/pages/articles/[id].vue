@@ -10,8 +10,10 @@ definePage({
 })
 
 onMounted(getArticle)
+const toast = useToast()
 const titleStore = useTitleStore()
 const { t } = useI18n()
+
 titleStore.title = t('title.article')
 
 const article = ref<BhArticle>()
@@ -27,7 +29,11 @@ async function getArticle() {
     titleStore.title = resp.data.title
   }
   else {
-    // TODO: toast
+    toast.add({
+      type: 'danger',
+      message: resp.msg,
+      duration: 5000,
+    })
   }
   loading.value = false
 }
@@ -44,16 +50,16 @@ function formatDate(date: string) {
       {{ article.title }}
     </div>
     <div class="flex justify-center gap-2 mb-2 text-gray-500 fill-gray-500 dark:text-gray-400 dark:fill-gray-400">
-      <bh-tooltip :text="t('page.article.created')">
+      <span v-tooltip="t('page.article.created')">
         <i-regular-calendar-lines class="inline align-text-top" />
         {{ formatDate(article.createdAt) }}
-      </bh-tooltip>
+      </span>
       <template v-if="article.updatedAt">
         <span> - </span>
-        <bh-tooltip :text="t('page.article.updated')">
+        <span v-tooltip="t('page.article.updated')">
           <i-regular-calendar-lines-pen class="inline align-text-top" />
           {{ formatDate(article.updatedAt) }}
-        </bh-tooltip>
+        </span>
       </template>
     </div>
     <div

@@ -12,6 +12,8 @@ const emit = defineEmits<{
   change: [page: number]
 }>()
 
+const toast = useToast()
+
 // 数据
 const pageData = reactive<Page<BhArticlePreview>>({
   page: 1,
@@ -47,7 +49,11 @@ async function getData(page: number) {
     }
   }
   else {
-    // TODO: toast
+    toast.add({
+      type: 'danger',
+      message: resp.msg,
+      duration: 5000,
+    })
   }
 }
 

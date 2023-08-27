@@ -8,4 +8,5 @@ useTitle(computed(() => titleStore.title ? `${titleStore.title} | ${import.meta.
   <router-view />
   <loading />
   <tooltip-container />
+  <toast-container />
 </template>

@@ -5,8 +5,10 @@ name: categories
 <script setup lang="ts">
 onMounted(getCategories)
 
+const toast = useToast()
 const titleStore = useTitleStore()
 const { t } = useI18n()
+
 titleStore.title = t('link.category')
 
 const categories = ref<BhCategoryHeat[]>([])
@@ -18,7 +20,11 @@ async function getCategories() {
     categories.value = resp.data
   }
   else {
-    // TODO: toast
+    toast.add({
+      type: 'danger',
+      message: resp.msg,
+      duration: 5000,
+    })
   }
   loading.value = false
 }

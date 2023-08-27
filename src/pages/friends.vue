@@ -5,6 +5,7 @@ name: friends
 <script setup lang="ts">
 onMounted(getFriends)
 
+const toast = useToast()
 const titleStore = useTitleStore()
 const { t } = useI18n()
 titleStore.title = t('link.friend')
@@ -18,7 +19,11 @@ async function getFriends() {
     friends.value = resp.data
   }
   else {
-    // TODO: toast
+    toast.add({
+      type: 'danger',
+      message: resp.msg,
+      duration: 5000,
+    })
   }
   loading.value = false
 }

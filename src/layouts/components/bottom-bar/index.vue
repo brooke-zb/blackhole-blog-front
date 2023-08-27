@@ -25,9 +25,7 @@ const currentYear = dayjs().year()
       <div class="text-right col-span-1">
         <div>
           Power by
-          <bh-tooltip text="BlackHole Blog">
-            <a class="link" target="_blank" href="https://github.com/brooke-zb/blackhole-blog">BHBlog</a>
-          </bh-tooltip>
+          <a v-tooltip="'BlackHole Blog'" class="link" target="_blank" href="https://github.com/brooke-zb/blackhole-blog">BHBlog</a>
         </div>
       </div>
     </div>

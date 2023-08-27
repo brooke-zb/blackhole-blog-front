@@ -12,9 +12,12 @@ interface TagInfo {
 
 onMounted(getTags)
 
+const toast = useToast()
 const titleStore = useTitleStore()
 const { t } = useI18n()
+
 titleStore.title = t('link.tag')
+
 const data = ref<BhTagHeat[]>([])
 const tags = ref<TagInfo[]>([])
 const loading = ref(true)
@@ -26,7 +29,11 @@ async function getTags() {
     parseTagsHeat()
   }
   else {
-    // TODO: toast
+    toast.add({
+      type: 'danger',
+      message: resp.msg,
+      duration: 5000,
+    })
   }
   loading.value = false
 }

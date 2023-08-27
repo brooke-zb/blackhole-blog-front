@@ -34,28 +34,22 @@ titleStore.title = t('link.about')
     </h2>
     <ul class="my-1">
       <li>
-        <bh-tooltip text="Github">
-          <div class="inline-flex items-center gap-2">
-            <i-brands-github class="inline" />
-            <a class="link" target="_blank" href="https://github.com/brooke-zb">brooke-zb</a>
-          </div>
-        </bh-tooltip>
+        <div v-tooltip="'Github'" class="inline-flex items-center gap-2">
+          <i-brands-github class="inline" />
+          <a class="link" target="_blank" href="https://github.com/brooke-zb">brooke-zb</a>
+        </div>
       </li>
       <li class="flex items-center gap-2">
-        <bh-tooltip text="Bilibili">
-          <div class="inline-flex items-center gap-2">
-            <i-brands-bilibili class="inline" />
-            <a class="link" target="_blank" href="https://space.bilibili.com/14910487">brooke_zb</a>
-          </div>
-        </bh-tooltip>
+        <div v-tooltip="'Bilibili'" class="inline-flex items-center gap-2">
+          <i-brands-bilibili class="inline" />
+          <a class="link" target="_blank" href="https://space.bilibili.com/14910487">brooke_zb</a>
+        </div>
       </li>
       <li class="flex items-center gap-2">
-        <bh-tooltip :text="t('page.about.email')">
-          <div class="inline-flex items-center gap-2">
-            <i-regular-envelope class="inline" />
-            <a class="link" href="mailto:me@brookezb.com">me@brookezb.com</a>
-          </div>
-        </bh-tooltip>
+        <div v-tooltip="t('page.about.email')" class="inline-flex items-center gap-2">
+          <i-regular-envelope class="inline" />
+          <a class="link" href="mailto:me@brookezb.com">me@brookezb.com</a>
+        </div>
       </li>
     </ul>
   </div>

@@ -43,29 +43,10 @@ export default defineConfig({
           '@/utils': [
             'isDark',
             'toggleDark',
-          ],
-          '@/utils/validation/index': [
-            ['default', 'validate'],
-          ],
-          '@/utils/validation/rules': [
-            'email',
-            'notEmpty',
-            'isEmpty',
-            'minLength',
-            'maxLength',
-            'betweenLength',
-            'or',
-            'and',
+            'useToast',
           ],
           '@/api': [
             ['default', 'api'],
-          ],
-          '@floating-ui/vue': [
-            'useFloating',
-            'offset',
-            'flip',
-            'shift',
-            'autoUpdate',
           ],
           'lodash-es': [
             'throttle',
@@ -77,12 +58,15 @@ export default defineConfig({
           'vue': [
             'defineModel',
           ],
+          'gsap': [
+            'gsap',
+          ],
         },
       ],
       dts: 'src/types/auto-imports.d.ts',
       dirs: [
-        'src/composables',
         'src/stores',
+        'src/utils/validation',
       ],
       vueTemplate: true,
     }),
@@ -97,6 +81,17 @@ export default defineConfig({
         IconsResolver({
           customCollections: ['regular', 'solid', 'brands'],
         }),
+        {
+          type: 'directive',
+          resolve: (name: string) => {
+            if (name === 'Tooltip') {
+              return {
+                name: 'vTooltip',
+                from: '@/utils/tooltip',
+              }
+            }
+          },
+        },
       ],
       dts: 'src/types/components.d.ts',
     }),

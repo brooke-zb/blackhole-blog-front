@@ -74,13 +74,12 @@ function toAnchor(id: number | string | null) {
 <template>
   <div :id="`co${props.item.coid}`" class="py-4 bg-primary-300 dark:bg-slate-400 bg-opacity-0 dark:bg-opacity-0 transition-colors duration-200">
     <div class="flex items-start" :class="{ 'gap-2': props.sub, 'gap-4': !props.sub }">
-      <bh-tooltip :text="t('page.article.click-to-reply')" append-class="shrink-0">
-        <img
-          :alt="props.item.nickname" class="rounded-full cursor-pointer hover:opacity-70"
-          :src="avatar" :height="props.sub ? 36 : 48" :width="props.sub ? 36 : 48"
-          @click="changeReplyComment(props.item.coid)"
-        >
-      </bh-tooltip>
+      <img
+        v-tooltip="t('page.article.click-to-reply')"
+        :alt="props.item.nickname" class="rounded-full cursor-pointer hover:opacity-70 shrink-0"
+        :src="avatar" :height="props.sub ? 36 : 48" :width="props.sub ? 36 : 48"
+        @click="changeReplyComment(props.item.coid)"
+      >
       <div class="grow">
         <div class="text-gray-500 dark:text-gray-400 flex items-baseline gap-1">
           <!-- 昵称 -->
