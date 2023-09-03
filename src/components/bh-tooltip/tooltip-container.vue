@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { tooltipImpl } from '@/utils/tooltip'
 
-const tooltipQueue = ref<TooltipProps[]>([])
+const tooltipQueue = ref<BhTooltip.Props[]>([])
 
-tooltipImpl.add = function (tooltip: TooltipProps) {
+tooltipImpl.add = function (tooltip: BhTooltip.Props) {
   for (let i = 0; i < tooltipQueue.value.length; i++) {
     if (tooltipQueue.value[i].id === tooltip.id) {
       return
