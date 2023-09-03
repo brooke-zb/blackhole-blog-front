@@ -40,9 +40,10 @@ const vTooltip: Directive = {
       const removeTooltip = () => tooltipImpl.remove(tooltip.id)
 
       // unbind old tooltip
-      el.removeEventListener('mouseenter', binding.instance.addTooltip)
-      el.removeEventListener('mouseleave', binding.instance.removeTooltip)
-      el.removeEventListener('blur', binding.instance.removeTooltip)
+      el.removeEventListener('mouseenter', binding.instance.bhtooltip.addTooltip)
+      el.removeEventListener('mouseleave', binding.instance.bhtooltip.removeTooltip)
+      el.removeEventListener('blur', binding.instance.bhtooltip.removeTooltip)
+      binding.instance.bhtooltip.removeTooltip()
 
       // bind new tooltip
       el.addEventListener('mouseenter', addTooltip)
@@ -56,6 +57,12 @@ const vTooltip: Directive = {
         removeTooltip,
       }
     }
+  },
+  beforeUnmount(el: Element, binding: any) {
+    el.removeEventListener('mouseenter', binding.instance.bhtooltip.addTooltip)
+    el.removeEventListener('mouseleave', binding.instance.bhtooltip.removeTooltip)
+    el.removeEventListener('blur', binding.instance.bhtooltip.removeTooltip)
+    binding.instance.bhtooltip.removeTooltip()
   },
 }
 
