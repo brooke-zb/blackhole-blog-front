@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const text = '咕咕咕...'
+const { t } = useI18n()
+const text = t('loading')
 
 const loading = ref<HTMLElement>()
 

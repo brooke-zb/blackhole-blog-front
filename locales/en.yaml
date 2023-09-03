@@ -13,6 +13,7 @@ nav:
   swtich-theme: Switch Theme
   login: Login
   manage: Manage
+loading: Loading...
 page:
   category:
     total: '{count} categories'
