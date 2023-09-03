@@ -2,7 +2,7 @@ import { request } from '@/utils'
 
 export default {
   login(data: BhLoginBody) {
-    return request.post<void>('/accounts/tokens', {
+    return request.post<string>('/accounts/tokens', {
       data,
     })
   },

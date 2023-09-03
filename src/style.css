@@ -24,3 +24,14 @@ a.link {
   @apply text-primary-600 fill-primary-600 dark:text-dark-300 dark:fill-dark-300 after:bg-primary-500 dark:after:bg-dark-400;
   @apply after:transition-transform after:origin-bottom-right hover:after:origin-bottom-left;
 }
+
+/* checkbox */
+.checkbox {
+  @apply relative appearance-none h-4 w-4 border rounded disabled:opacity-80 disabled:cursor-not-allowed outline-none hover:ring-2 focus:ring-2 ring-offset-2 transition-shadow;
+  @apply border-primary-400 checked:bg-primary-700 ring-primary-500 ring-offset-gray-50;
+  @apply dark:border-dark-500 dark:checked:bg-dark-600 dark:ring-dark-400 dark:ring-offset-slate-800;
+}
+
+.checkbox:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}

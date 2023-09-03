@@ -48,6 +48,14 @@ page:
   not-found:
     message: 你要找的内容已经消失在宇宙中了
     homepage: 返回首页
+  login:
+    username: 用户名
+    password: 密码
+    remember-me: 七天内免登录
+    submit: 登录
+    error:
+      username-blank: 用户名不能为空
+      password-blank: 密码不能为空
 network-err: 网络异常，请求失败
 auth:
   require-login: 请登录后再操作

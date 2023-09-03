@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 import Cookies from 'js-cookie'
 
 interface UserState {
-  token?: string
   info?: BhUser
 }
 
@@ -11,7 +10,7 @@ const cookieKey = 'Authorization'
 export const useUserStore = defineStore('user', () => {
   // state
   const state = ref<UserState>({
-    token: Cookies.get(cookieKey),
+    info: undefined,
   })
 
   // getters
@@ -21,15 +20,25 @@ export const useUserStore = defineStore('user', () => {
 
   // init fn
   const initOnceFn = once(() => {
-    if (state.value.token) {
-      return getInfo()
-    }
+    return getInfo()
   })
   function initOnce() {
     return initOnceFn()
   }
 
   // actions
+  async function login(data: BhLoginBody) {
+    const resp = await api.account.login(data)
+    if (!resp.success) {
+      useToast().add({
+        type: 'danger',
+        message: resp.msg,
+        duration: 3000,
+      })
+      throw new Error(resp.msg)
+    }
+    return await getInfo()
+  }
   function logout() {
     Cookies.remove(cookieKey)
   }
@@ -37,13 +46,6 @@ export const useUserStore = defineStore('user', () => {
     const resp = await api.account.getInfo()
     if (resp.success) {
       state.value.info = resp.data
-    }
-    else {
-      state.value.token = undefined
-      useToast().add({
-        type: 'danger',
-        message: resp.msg,
-      })
     }
   }
   function hasPermission(permission: string) {
@@ -59,6 +61,7 @@ export const useUserStore = defineStore('user', () => {
     state,
     isLogin,
     initOnce,
+    login,
     logout,
     getInfo,
     hasPermission,

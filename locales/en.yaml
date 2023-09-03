@@ -48,6 +48,14 @@ page:
   not-found:
     message: The content you are looking for has disappeared into the universe.
     homepage: Back to home
+  login:
+    username: Username
+    password: Password
+    remember-me: Remember me for 7 days
+    submit: Login
+    error:
+      username-blank: Username cannot be blank
+      password-blank: Password cannot be blank
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation
