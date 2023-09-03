@@ -1,5 +1,7 @@
 <route lang="yaml">
 name: article-detail
+meta:
+  layout: blog
 </route>
 
 <script setup lang="ts">

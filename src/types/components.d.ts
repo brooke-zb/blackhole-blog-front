@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Admin: typeof import('./../layouts/admin.vue')['default']
     ArticleCard: typeof import('./../layouts/components/article-list/article-card.vue')['default']
     ArticleList: typeof import('./../layouts/components/article-list/index.vue')['default']
     BhButton: typeof import('./../components/bh-button/index.vue')['default']
@@ -18,12 +19,14 @@ declare module 'vue' {
     BhTextarea: typeof import('./../components/bh-textarea/index.vue')['default']
     BhToast: typeof import('./../components/bh-toast/index.vue')['default']
     BhTooltip: typeof import('./../components/bh-tooltip/index.vue')['default']
+    Blog: typeof import('./../layouts/blog.vue')['default']
     Bottombar: typeof import('./../layouts/components/bottombar/index.vue')['default']
     BottomBar: typeof import('./../layouts/components/bottom-bar/index.vue')['default']
     CommentBox: typeof import('./../layouts/components/comment-box/index.vue')['default']
     CommentContent: typeof import('./../layouts/components/comment-box/comment-content.vue')['default']
     CommentSender: typeof import('./../layouts/components/comment-box/comment-sender.vue')['default']
     Default: typeof import('./../layouts/default.vue')['default']
+    Empty: typeof import('./../layouts/empty.vue')['default']
     IBrandsBilibili: typeof import('~icons/brands/bilibili')['default']
     IBrandsGithub: typeof import('~icons/brands/github')['default']
     IRegularBrightness: typeof import('~icons/regular/brightness')['default']
@@ -41,6 +44,7 @@ declare module 'vue' {
     IRegularGear: typeof import('~icons/regular/gear')['default']
     IRegularImage: typeof import('~icons/regular/image')['default']
     IRegularLink: typeof import('~icons/regular/link')['default']
+    IRegularLock: typeof import('~icons/regular/lock')['default']
     IRegularMoonStars: typeof import('~icons/regular/moon-stars')['default']
     IRegularRightToBracket: typeof import('~icons/regular/right-to-bracket')['default']
     IRegularSearch: typeof import('~icons/regular/search')['default']

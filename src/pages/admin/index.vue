@@ -2,6 +2,7 @@
 name: admin
 meta:
   auth: true
+  layout: admin
 </route>
 
 <script setup lang="ts">

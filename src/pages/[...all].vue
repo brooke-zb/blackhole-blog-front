@@ -1,5 +1,7 @@
 <route lang="yaml">
 name: not-found
+meta:
+  layout: blog
 </route>
 
 <script setup lang="ts">

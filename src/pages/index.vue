@@ -2,6 +2,7 @@
 name: index
 meta:
   noLoaded: true
+  layout: blog
 </route>
 
 <script setup lang="ts">

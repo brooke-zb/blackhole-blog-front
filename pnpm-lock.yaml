@@ -119,8 +119,8 @@ devDependencies:
     specifier: 1.0.0-rc.0
     version: 1.0.0-rc.0(@types/node@18.17.4)(pug@3.0.2)(vite@4.4.9)
   vite-plugin-vue-meta-layouts:
-    specifier: ^0.2.2
-    version: 0.2.2(vite@4.4.9)(vue-router@4.2.4)
+    specifier: ^0.3.0
+    version: 0.3.0(vite@4.4.9)(vue-router@4.2.4)
   vue-tsc:
     specifier: ^1.8.5
     version: 1.8.8(typescript@5.1.6)
@@ -5170,8 +5170,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-vue-meta-layouts@0.2.2(vite@4.4.9)(vue-router@4.2.4):
-    resolution: {integrity: sha512-u3WHlSzqE7tfOFFN7IygkQXDgnhVYD+GSfSXeMk1m/xI/gMtJtLeVwjBTow4kOn3oEkJcj/I9yCZoWpQeRHTFw==}
+  /vite-plugin-vue-meta-layouts@0.3.0(vite@4.4.9)(vue-router@4.2.4):
+    resolution: {integrity: sha512-6N1Y2tascKSfUs8VC/aSyxe2oNhPrrz5DKRWSoowqJ34Eww8bEk4Mmj/1K+K9jQ/KTnOyj1l96SBwt3gIbclSQ==}
     peerDependencies:
       vite: '>=2.0.0'
       vue-router: '>=4.0.14'

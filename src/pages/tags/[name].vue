@@ -2,6 +2,7 @@
 name: tag-articles
 meta:
   noLoaded: true
+  layout: blog
 </route>
 
 <script setup lang="ts">
