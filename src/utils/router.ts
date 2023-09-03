@@ -16,6 +16,16 @@ router.beforeEach(async (to, _from, next) => {
   // 获取用户信息
   await userStore.initOnce()
 
+  // 登录页判断
+  if (to.name === 'login') {
+    if (userStore.isLogin) {
+      router.replace('/admin')
+      return
+    }
+    next()
+    return
+  }
+
   // 路由鉴权
   if (to.meta.auth) {
     if (!userStore.isLogin) {
@@ -38,6 +48,7 @@ router.beforeEach(async (to, _from, next) => {
         duration: 3000,
       })
       next('/admin')
+      return
     }
   }
   next()
