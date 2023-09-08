@@ -83,8 +83,9 @@ md.renderer.rules.link_open = (tokens, idx, options, _env, slf) => {
 // image
 md.renderer.rules.image = (tokens, idx, options, _env, slf) => {
   const token = tokens[idx]
-  token.attrSet('class', 'min-w-0')
+  token.attrSet('class', 'min-w-0 cursor-pointer')
   token.attrSet('data-gallery', '')
+  token.attrSet('data-alt', token.content)
   token.attrSet('data-src', token.attrGet('src') || '')
   return `<div class="flex flex-col items-center max-w-4xl mx-auto">${slf.renderToken(tokens, idx, options)}<h6 class=" text-gray-500">${token.content}</h6></div>`
 }

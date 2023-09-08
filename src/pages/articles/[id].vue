@@ -11,13 +11,18 @@ definePage({
   path: '/articles/:id(\\d+)',
 })
 
-onMounted(getArticle)
+const gallery = ref()
+
+onMounted(() => {
+  getArticle().then(() => {
+    gallery.value.init('[data-gallery]')
+  })
+})
 const toast = useToast()
 const titleStore = useTitleStore()
 const { t } = useI18n()
 
 titleStore.title = t('title.article')
-
 const article = ref<BhArticle>()
 const contentHTML = ref('')
 const loading = ref(true)
@@ -91,6 +96,7 @@ function formatDate(date: string) {
     </div>
     <div v-html="contentHTML" />
     <comment-box :aid="article.aid" :author-uid="article.user.uid" />
+    <bh-gallery ref="gallery" />
   </div>
   <bh-not-found v-else code="404" :title="t('page.article.not-found')" />
 </template>
