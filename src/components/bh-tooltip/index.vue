@@ -25,7 +25,7 @@ function updatePos() {
 
   const windowRect = {
     height: window.innerHeight,
-    width: document.body.clientWidth,
+    width: document.body.clientWidth - 1, // 防止精度问题导致进位
   }
 
   // y

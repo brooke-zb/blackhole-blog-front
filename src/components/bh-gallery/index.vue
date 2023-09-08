@@ -514,7 +514,7 @@ onUnmounted(() => {
         <!-- alt信息 -->
         <div
           class="p-3 text-sm text-gray-200 flex justify-center items-center
-        bg-gradient-to-b from-transparent to-black/60 z-50"
+          bg-gradient-to-b from-transparent to-black/60 z-50"
         >
           {{ currentAlt }}
         </div>

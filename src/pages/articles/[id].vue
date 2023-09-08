@@ -20,6 +20,7 @@ onMounted(() => {
 })
 const toast = useToast()
 const titleStore = useTitleStore()
+const anchorStore = useAnchorStore()
 const { t } = useI18n()
 
 titleStore.title = t('title.article')
@@ -32,6 +33,7 @@ async function getArticle() {
   const resp = await api.article.getByAid(useRoute('article-detail').params.id)
   if (resp.success) {
     article.value = resp.data
+    anchorStore.clear()
     contentHTML.value = md.render(resp.data.content)
     titleStore.title = resp.data.title
   }
@@ -97,6 +99,7 @@ function formatDate(date: string) {
     <div v-html="contentHTML" />
     <comment-box :aid="article.aid" :author-uid="article.user.uid" />
     <bh-gallery ref="gallery" />
+    <article-directory />
   </div>
   <bh-not-found v-else code="404" :title="t('page.article.not-found')" />
 </template>

@@ -30,6 +30,7 @@ page:
     click-to-reply: Click to reply
     show-remain-comments: Show remaining {count} comments
     author: Author
+    directory: Directory
     validate:
       nickname-min: Nickname cannot be less than 2 characters
       nickname-max: Nickname cannot be more than 32 characters

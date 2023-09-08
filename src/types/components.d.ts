@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Admin: typeof import('./../layouts/admin.vue')['default']
     ArticleCard: typeof import('./../layouts/components/article-list/article-card.vue')['default']
+    ArticleDirectory: typeof import('./../layouts/components/article-directory/index.vue')['default']
     ArticleList: typeof import('./../layouts/components/article-list/index.vue')['default']
     BhButton: typeof import('./../components/bh-button/index.vue')['default']
     BhEmpty: typeof import('./../components/bh-empty/index.vue')['default']
@@ -45,6 +46,7 @@ declare module 'vue' {
     IRegularGear: typeof import('~icons/regular/gear')['default']
     IRegularImage: typeof import('~icons/regular/image')['default']
     IRegularLink: typeof import('~icons/regular/link')['default']
+    IRegularList: typeof import('~icons/regular/list')['default']
     IRegularLock: typeof import('~icons/regular/lock')['default']
     IRegularMoonStars: typeof import('~icons/regular/moon-stars')['default']
     IRegularRightToBracket: typeof import('~icons/regular/right-to-bracket')['default']

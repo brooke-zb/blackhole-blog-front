@@ -30,6 +30,7 @@ page:
     click-to-reply: 点击回复
     show-remain-comments: 显示剩余{count}条评论
     author: 博主
+    directory: 目录
     validate:
       nickname-min: 昵称不能少于2个字符
       nickname-max: 昵称不能超过32个字符
