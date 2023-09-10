@@ -22,7 +22,7 @@ const navTitle = import.meta.env.BHBLOG_APP_TITLE
 <template>
   <nav
     class="sticky top-0 h-14 px-2 py-1 flex justify-between items-center z-50
-    ring-1 ring-gray-500/10 dark:ring-gray-500/10 backdrop-blur"
+    ring-1 ring-gray-500/10 dark:ring-gray-500/10 bg-gray-50 dark:bg-slate-900 bg-opacity-60 backdrop-blur"
   >
     <div class="flex gap-2 ps-1.5 items-baseline grow">
       <router-link to="/" class="text-lg">
