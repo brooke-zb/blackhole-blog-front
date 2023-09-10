@@ -54,7 +54,7 @@ function formatDate(date: string) {
 
 <template>
   <bh-skeleton v-if="loading" type="article" />
-  <div v-else-if="article" class="py-2">
+  <div v-else-if="article" class="p-2">
     <div class="text-xl sm:text-2xl text-center font-bold mb-2">
       {{ article.title }}
     </div>

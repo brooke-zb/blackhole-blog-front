@@ -9,4 +9,5 @@ useTitle(computed(() => titleStore.title ? `${titleStore.title} | ${import.meta.
   <loading />
   <tooltip-container />
   <toast-container />
+  <background />
 </template>

@@ -38,6 +38,9 @@ dependencies:
   prismjs:
     specifier: ^1.29.0
     version: 1.29.0
+  twgl.js:
+    specifier: ^5.5.3
+    version: 5.5.3
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -4864,6 +4867,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /twgl.js@5.5.3:
+    resolution: {integrity: sha512-lUrWxXmEURxQphwu4hMkudIThjhbrej3WUKH2qdTifixuO1FxQRLgxJVQ81rTDw9CBoxx4m4iIEOfgCf02Ip1Q==}
+    dev: false
 
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
