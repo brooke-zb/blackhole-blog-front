@@ -7,7 +7,7 @@ const router = createRouter({
   history: createWebHistory(),
 })
 
-router.beforeEach(async (to, _from, next) => {
+router.beforeEach(async (to) => {
   const userStore = useUserStore()
   const toast = useToast()
 
@@ -19,10 +19,8 @@ router.beforeEach(async (to, _from, next) => {
   // 登录页判断
   if (to.name === 'login') {
     if (userStore.isLogin) {
-      router.replace('/admin')
-      return
+      return '/admin'
     }
-    next()
     return
   }
 
@@ -34,11 +32,9 @@ router.beforeEach(async (to, _from, next) => {
         translate: 'auth.require-login',
         duration: 3000,
       })
-      next('/admin/login')
-      return
+      return '/admin/login'
     }
     if (to.meta.auth === true) {
-      next()
       return
     }
     if (!userStore.hasPermission(to.meta.auth as string)) {
@@ -47,18 +43,15 @@ router.beforeEach(async (to, _from, next) => {
         translate: 'auth.no-permission',
         duration: 3000,
       })
-      next('/admin')
-      return
+      return '/admin'
     }
   }
-  next()
 })
 
-router.beforeResolve((to, _from, next) => {
+router.afterEach((to, _from) => {
   if (!to.meta.noLoaded) {
     setPageLoading(false)
   }
-  next()
 })
 
 export { router }
