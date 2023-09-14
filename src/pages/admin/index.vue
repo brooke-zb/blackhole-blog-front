@@ -6,9 +6,11 @@ meta:
 </route>
 
 <script setup lang="ts">
-
+const { t } = useI18n()
+const titleStore = useTitleStore()
+titleStore.title = t('routes.admin.index')
 </script>
 
 <template>
-  <div>2333admin</div>
+  <div>admin</div>
 </template>

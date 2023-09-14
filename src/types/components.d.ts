@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Admin: typeof import('./../layouts/admin.vue')['default']
+    AdminSideBar: typeof import('./../layouts/components/admin/admin-side-bar/index.vue')['default']
     ArticleCard: typeof import('./../layouts/components/article-list/article-card.vue')['default']
     ArticleDirectory: typeof import('./../layouts/components/article-directory/index.vue')['default']
     ArticleList: typeof import('./../layouts/components/article-list/index.vue')['default']

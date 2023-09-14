@@ -62,3 +62,13 @@ network-err: Network error, request failed
 auth:
   require-login: Please login before operation
   no-permission: You have no permission to access this page
+routes:
+  admin:
+    index: Dashboard
+    articles: Manage Articles
+    comments: Manage Comments
+    tags: Manage Tags
+    categories: Manage Categories
+    friends: Manage Friends
+    users: Manage Users
+    roles: Manage Roles
