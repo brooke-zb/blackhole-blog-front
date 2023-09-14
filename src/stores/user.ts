@@ -1,7 +1,4 @@
 import { defineStore } from 'pinia'
-import Cookies from 'js-cookie'
-
-const cookieKey = 'Authorization'
 
 export const useUserStore = defineStore('user', () => {
   // state
@@ -33,8 +30,10 @@ export const useUserStore = defineStore('user', () => {
     }
     return await getInfo()
   }
-  function logout() {
-    Cookies.remove(cookieKey)
+  async function logout() {
+    const resp = await api.account.logout()
+    info.value = undefined
+    return resp
   }
   async function getInfo() {
     const resp = await api.account.getInfo()

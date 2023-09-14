@@ -7,7 +7,7 @@ export default {
     })
   },
   logout() {
-    return request.delete<void>('/accounts/tokens')
+    return request.delete<string>('/accounts/tokens')
   },
   getInfo() {
     return request.get<BhUser>('/accounts')
