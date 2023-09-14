@@ -1,6 +1,6 @@
 <template>
   <nav-bar />
-  <div class="container mx-auto px-1">
+  <div class="container mx-auto px-1 pb-20">
     <router-view v-slot="{ Component }">
       <transition mode="out-in" name="page">
         <component :is="Component" :key="$route.path" />

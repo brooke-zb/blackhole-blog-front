@@ -31,9 +31,3 @@ const currentYear = dayjs().year()
     </div>
   </footer>
 </template>
-
-<style>
-#app {
-  @apply pb-20;
-}
-</style>
