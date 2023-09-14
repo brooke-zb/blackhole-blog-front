@@ -1,21 +1,15 @@
 import { defineStore } from 'pinia'
 import Cookies from 'js-cookie'
 
-interface UserState {
-  info?: BhUser
-}
-
 const cookieKey = 'Authorization'
 
 export const useUserStore = defineStore('user', () => {
   // state
-  const state = ref<UserState>({
-    info: undefined,
-  })
+  const info = ref<BhUser>()
 
   // getters
   const isLogin = computed(() => {
-    return !!state.value.info
+    return !!info.value
   })
 
   // init fn
@@ -45,11 +39,11 @@ export const useUserStore = defineStore('user', () => {
   async function getInfo() {
     const resp = await api.account.getInfo()
     if (resp.success) {
-      state.value.info = resp.data
+      info.value = resp.data
     }
   }
   function hasPermission(permission: string) {
-    for (const perm of state.value.info?.role.permissions || []) {
+    for (const perm of info.value?.role.permissions || []) {
       if (perm.name === permission) {
         return true
       }
@@ -58,7 +52,7 @@ export const useUserStore = defineStore('user', () => {
   }
 
   return {
-    state,
+    info,
     isLogin,
     initOnce,
     login,

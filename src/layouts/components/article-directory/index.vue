@@ -52,7 +52,7 @@ function onAfterLeave() {
           @click.stop=""
         >
           <li
-            v-for="item in anchorStore.state.anchors" :key="item.id"
+            v-for="item in anchorStore.anchors" :key="item.id"
             class="directory block cursor-pointer px-1 py-0.5 hover:bg-primary-100 dark:hover:bg-slate-800"
             :data-level="item.level" @click="toAnchor(item.id)"
           >

@@ -6,26 +6,20 @@ interface Anchor {
   level: number
 }
 
-interface AnchorState {
-  anchors: Anchor[]
-}
-
 export const useAnchorStore = defineStore('anchor', () => {
   // state
-  const state = ref<AnchorState>({
-    anchors: [],
-  })
+  const anchors = ref<Anchor[]>([])
 
   // actions
   function add(anchor: Anchor) {
-    state.value.anchors.push(anchor)
+    anchors.value.push(anchor)
   }
   function clear() {
-    state.value.anchors = []
+    anchors.value = []
   }
 
   return {
-    state,
+    anchors,
     add,
     clear,
   }
