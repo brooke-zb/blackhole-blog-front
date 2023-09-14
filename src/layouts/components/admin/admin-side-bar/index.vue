@@ -44,7 +44,10 @@ const routerList = [
 </script>
 
 <template>
-  <div class="h-screen w-16 hover:w-56 delay-500 duration-200 transition-[width] bg-gray-50 dark:bg-slate-900 group/sidebar overflow-hidden">
+  <div
+    class="h-screen w-16 hover:w-56 delay-500 duration-200 transition-[width]
+    bg-gray-50 dark:bg-slate-800 group/sidebar overflow-hidden shadow-lg shadow-gray-300 dark:shadow-slate-950 translate-x-0"
+  >
     <!-- logo -->
     <router-link to="/admin" class="flex items-center gap-2 p-2">
       <img :src="logo" alt="logo" class="w-12 h-12 rounded-lg">
@@ -62,11 +65,16 @@ const routerList = [
         <router-link
           :to="router.path"
           class="flex items-center w-full h-12 gap-1 transition-colors hover:bg-primary-200 dark:hover:bg-dark-600"
+          :class="{ '!bg-primary-300 dark:!bg-dark-500': $route.path === router.path }"
         >
-          <component :is="router.icon" class="w-5 h-5 m-5 shrink-0 fill-gray-600 dark:fill-gray-200" />
+          <component
+            :is="router.icon" class="w-5 h-5 m-5 shrink-0 fill-gray-600 dark:fill-gray-200"
+            :class="{ '!fill-gray-700 dark:!fill-gray-50': $route.path === router.path }"
+          />
           <span
             class="whitespace-nowrap transition-colors delay-500 duration-200 select-none group-hover/sidebar:select-auto
             text-transparent group-hover/sidebar:text-gray-600 dark:group-hover/sidebar:text-gray-200"
+            :class="{ 'group-hover/sidebar:!text-gray-700 dark:group-hover/sidebar:!text-gray-50': $route.path === router.path }"
           >
             {{ $t(router.translate) }}
           </span>
