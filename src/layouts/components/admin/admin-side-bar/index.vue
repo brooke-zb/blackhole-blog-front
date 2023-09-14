@@ -45,14 +45,14 @@ const routerList = [
 
 <template>
   <div
-    class="h-screen w-16 hover:w-56 delay-500 duration-200 transition-[width]
+    class="h-screen w-16 hover:w-56 delay-200 duration-200 transition-[width]
     bg-gray-50 dark:bg-slate-800 group/sidebar overflow-hidden shadow-lg shadow-gray-300 dark:shadow-slate-950 translate-x-0"
   >
     <!-- logo -->
     <router-link to="/admin" class="flex items-center gap-2 p-2">
       <img :src="logo" alt="logo" class="w-12 h-12 rounded-lg">
       <h1
-        class="text-lg whitespace-nowrap select-none group-hover/sidebar:select-auto transition-colors delay-500 duration-200
+        class="text-lg whitespace-nowrap select-none group-hover/sidebar:select-auto transition-colors delay-200 duration-200
         text-transparent group-hover/sidebar:text-gray-600 dark:group-hover/sidebar:text-gray-200"
       >
         {{ appName }}
@@ -72,7 +72,7 @@ const routerList = [
             :class="{ '!fill-gray-700 dark:!fill-gray-50': $route.path === router.path }"
           />
           <span
-            class="whitespace-nowrap transition-colors delay-500 duration-200 select-none group-hover/sidebar:select-auto
+            class="whitespace-nowrap transition-colors delay-200 duration-200 select-none group-hover/sidebar:select-auto
             text-transparent group-hover/sidebar:text-gray-600 dark:group-hover/sidebar:text-gray-200"
             :class="{ 'group-hover/sidebar:!text-gray-700 dark:group-hover/sidebar:!text-gray-50': $route.path === router.path }"
           >

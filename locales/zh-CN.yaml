@@ -58,6 +58,9 @@ page:
     error:
       username-blank: 用户名不能为空
       password-blank: 密码不能为空
+  admin:
+    logout: 退出登录
+    settings: 个人设置
 network-err: 网络异常，请求失败
 auth:
   require-login: 请登录后再操作

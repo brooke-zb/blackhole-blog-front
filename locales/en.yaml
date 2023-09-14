@@ -58,6 +58,9 @@ page:
     error:
       username-blank: Username cannot be blank
       password-blank: Password cannot be blank
+  admin:
+    logout: Logout
+    settings: Settings
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation

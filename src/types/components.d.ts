@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Admin: typeof import('./../layouts/admin.vue')['default']
+    AdminNavBar: typeof import('./../layouts/components/admin/admin-nav-bar/index.vue')['default']
     AdminSideBar: typeof import('./../layouts/components/admin/admin-side-bar/index.vue')['default']
     ArticleCard: typeof import('./../layouts/components/article-list/article-card.vue')['default']
     ArticleDirectory: typeof import('./../layouts/components/article-directory/index.vue')['default']
@@ -17,6 +18,8 @@ declare module 'vue' {
     BhEmpty: typeof import('./../components/bh-empty/index.vue')['default']
     BhGallery: typeof import('./../components/bh-gallery/index.vue')['default']
     BhInput: typeof import('./../components/bh-input/index.vue')['default']
+    BhMenu: typeof import('./../components/bh-menu/index.vue')['default']
+    BhMenuItem: typeof import('./../components/bh-menu/bh-menu-item.vue')['default']
     BhNotFound: typeof import('./../components/bh-not-found/index.vue')['default']
     BhPaginator: typeof import('./../components/bh-paginator/index.vue')['default']
     BhSkeleton: typeof import('./../components/bh-skeleton/index.vue')['default']
@@ -52,6 +55,9 @@ declare module 'vue' {
     IRegularTag: typeof import('~icons/regular/tag')['default']
     IRegularUser: typeof import('~icons/regular/user')['default']
     ISolidFolderClosed: typeof import('~icons/solid/folder-closed')['default']
+    ISolidGear: typeof import('~icons/solid/gear')['default']
+    ISolidRightFromBracket: typeof import('~icons/solid/right-from-bracket')['default']
+    ISolidUser: typeof import('~icons/solid/user')['default']
     ISolidXmark: typeof import('~icons/solid/xmark')['default']
     Loading: typeof import('./../layouts/components/loading/index.vue')['default']
     NavBar: typeof import('./../layouts/components/nav-bar/index.vue')['default']
