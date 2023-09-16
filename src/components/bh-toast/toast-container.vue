@@ -64,7 +64,7 @@ function onLeave(el: Element, done: () => void) {
 <template>
   <teleport to="body">
     <div
-      class="fixed z-50 top-0 left-0 right-0 mx-auto max-w-sm
+      class="fixed z-40 top-0 left-0 right-0 mx-auto max-w-sm
       sm:left-auto sm:w-96 pointer-events-none
       flex flex-col p-2 origin-top"
     >

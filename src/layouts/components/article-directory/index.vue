@@ -35,7 +35,7 @@ function onAfterLeave() {
 
 <template>
   <teleport to="body">
-    <div class="fixed left-1 right-1 top-16 pointer-events-none">
+    <div class="fixed z-40 left-1 right-1 top-16 pointer-events-none">
       <bh-button
         v-tooltip="t('page.article.directory')" class="!absolute left-auto right-0 top-0 pointer-events-auto p-1.5 !rounded-lg
         fill-white bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500"

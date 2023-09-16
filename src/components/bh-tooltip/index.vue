@@ -54,7 +54,7 @@ function updatePos() {
 
 <template>
   <div
-    ref="tooltip" class="fixed z-50 px-1.5 py-0.5 rounded text-sm
+    ref="tooltip" class="fixed z-30 px-1.5 py-0.5 rounded text-sm
     bg-gray-900 text-white dark:bg-gray-50 dark:text-gray-900"
   >
     {{ props.text }}

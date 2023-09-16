@@ -17,11 +17,21 @@ function logout() {
 </script>
 
 <template>
-  <div class="sticky top-0 h-12 bg-gray-50 dark:bg-slate-800 p-2 flex items-center">
+  <div class="sticky top-0 h-12 bg-gray-50 dark:bg-slate-800 p-2 flex items-center z-30">
     <h1>{{ titleStore.title }}</h1>
     <div class="grow" />
+    <bh-button
+      v-tooltip="$t('nav.swtich-theme')"
+      class="text-gray-600 hover:text-gray-950 dark:text-gray-400 dark:hover:text-gray-100
+          fill-gray-600 hover:fill-gray-950 dark:fill-gray-400 dark:hover:fill-gray-100" no-ring @click="toggleDark()"
+    >
+      <template #icon>
+        <i-regular-moon-stars v-if="isDark" class="align-bottom" />
+        <i-regular-brightness v-else class="align-bottom" />
+      </template>
+    </bh-button>
     <bh-menu>
-      <div class="flex items-baseline gap-1">
+      <div class="flex items-center gap-1">
         <i-solid-user class="h-4 w-4" />
         <h1>{{ userStore.info?.name }}</h1>
       </div>
