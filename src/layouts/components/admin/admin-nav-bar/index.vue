@@ -17,7 +17,7 @@ function logout() {
 </script>
 
 <template>
-  <div class="h-12 bg-gray-50 dark:bg-slate-800 p-2 flex items-center">
+  <div class="sticky top-0 h-12 bg-gray-50 dark:bg-slate-800 p-2 flex items-center">
     <h1>{{ titleStore.title }}</h1>
     <div class="grow" />
     <bh-menu>
