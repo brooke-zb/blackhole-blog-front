@@ -6,7 +6,7 @@ const props = defineProps<{
 
 const renderHeader = computed(() => {
   if (!props.cols) {
-    return props.data.keys()
+    return Object.keys(props.data[0])
   }
   return props.cols
 })
@@ -89,7 +89,7 @@ tr :slotted(td) {
 
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) :slotted(td) {
-  @apply bg-primary-100;
+  @apply bg-primary-50;
 }
 .dark tbody tr:nth-child(odd) td,
 .dark tbody tr:nth-child(odd) :slotted(td) {
@@ -98,7 +98,7 @@ tbody tr:nth-child(odd) :slotted(td) {
 
 tbody tr:hover td,
 tbody tr:hover :slotted(td) {
-  @apply bg-primary-200;
+  @apply bg-primary-100;
 }
 .dark tbody tr:hover td,
 .dark tbody tr:hover :slotted(td) {
