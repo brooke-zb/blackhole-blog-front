@@ -490,11 +490,11 @@ onUnmounted(() => {
     <transition :css="false" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave">
       <div
         v-show="isShow" class="fixed top-0 left-0 w-full h-full overflow-hidden
-        bg-gray-900 z-30 select-none flex flex-col justify-between"
+        bg-gray-900 z-50 select-none flex flex-col justify-between"
         @wheel.stop.prevent="onWheel"
       >
         <!-- 提示栏 -->
-        <div class="flex justify-between z-30">
+        <div class="flex justify-between z-50">
           <div class="px-3 text-xs text-gray-200 flex justify-center items-center">
             {{ currentIndex }} / {{ pictures.length }}
           </div>
@@ -514,7 +514,7 @@ onUnmounted(() => {
         <!-- alt信息 -->
         <div
           class="p-3 text-sm text-gray-200 flex justify-center items-center
-          bg-gradient-to-b from-transparent to-black/60 z-30"
+          bg-gradient-to-b from-transparent to-black/60 z-50"
         >
           {{ currentAlt }}
         </div>

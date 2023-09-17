@@ -1,55 +1,62 @@
 <script setup lang="ts">
 import logo from '@/assets/images/avatar.png?url'
-import IconRegularMemo from '~icons/regular/memo'
-import IconRegularFolders from '~icons/regular/folders'
-import IconRegularTags from '~icons/regular/tags'
-import IconRegularUserGear from '~icons/regular/user-gear'
-import IconRegularComments from '~icons/regular/comments'
-import IconRegularShieldHalved from '~icons/regular/shield-halved'
+import IconIndex from '~icons/regular/gauge-max'
+import IconArticles from '~icons/regular/memo'
+import IconCategories from '~icons/regular/folders'
+import IconTags from '~icons/regular/tags'
+import IconUsers from '~icons/regular/user-gear'
+import IconComments from '~icons/regular/comments'
+import IconRoles from '~icons/regular/shield-halved'
 
 const appName = import.meta.env.BHBLOG_APP_TITLE
 
 const routerList = [
   {
+    path: '/admin',
+    translate: 'routes.admin.index',
+    icon: IconIndex,
+  },
+  {
     path: '/admin/articles',
     translate: 'routes.admin.articles',
-    icon: IconRegularMemo,
+    icon: IconArticles,
   },
   {
     path: '/admin/comments',
     translate: 'routes.admin.comments',
-    icon: IconRegularComments,
+    icon: IconComments,
   },
   {
     path: '/admin/categories',
     translate: 'routes.admin.categories',
-    icon: IconRegularFolders,
+    icon: IconCategories,
   },
   {
     path: '/admin/tags',
     translate: 'routes.admin.tags',
-    icon: IconRegularTags,
+    icon: IconTags,
   },
   {
     path: '/admin/users',
     translate: 'routes.admin.users',
-    icon: IconRegularUserGear,
+    icon: IconUsers,
   },
   {
     path: '/admin/roles',
     translate: 'routes.admin.roles',
-    icon: IconRegularShieldHalved,
+    icon: IconRoles,
   },
 ]
 </script>
 
 <template>
   <div
-    class="h-screen w-16 hover:w-56 delay-200 duration-200 transition-[width]
-    bg-gray-50 dark:bg-slate-800 group/sidebar overflow-hidden shadow-lg shadow-gray-300 dark:shadow-slate-950 translate-x-0"
+    class="h-screen w-16 hover:w-64 delay-200 duration-200 transition-[width]
+    bg-gray-50 dark:bg-slate-800 group/sidebar overflow-hidden
+    shadow-lg shadow-gray-300 dark:shadow-slate-950 translate-x-0 shrink-0"
   >
     <!-- logo -->
-    <router-link to="/admin" class="flex items-center gap-2 p-2">
+    <router-link to="/" class="flex items-center gap-2 p-2" :title="$t('routes.admin.back-to-blog')">
       <img :src="logo" alt="logo" class="w-12 h-12 rounded-lg">
       <h1
         class="text-lg whitespace-nowrap select-none group-hover/sidebar:select-auto transition-colors delay-200 duration-200

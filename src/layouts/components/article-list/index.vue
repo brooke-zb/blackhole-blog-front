@@ -92,5 +92,10 @@ watchEffect(() => {
       />
     </div>
   </div>
-  <bh-paginator v-model="pageData.page" hide-on-single-page :size="pageData.size" :total="pageData.total" />
+  <bh-paginator
+    v-model="pageData.page"
+    :size="pageData.size"
+    :total="pageData.total"
+    hide-on-single-page
+  />
 </template>

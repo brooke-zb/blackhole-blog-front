@@ -58,7 +58,12 @@ async function getComments(page: number) {
         :class="{ 'border-gray-300 dark:border-gray-600 border-t border-dashed': index !== 0 }"
       />
     </template>
-    <bh-paginator v-model="currentPage" :size="10" :total="comments.total" hide-on-single-page />
+    <bh-paginator
+      v-model="currentPage"
+      :size="10"
+      :total="comments.total"
+      hide-on-single-page
+    />
     <comment-sender v-if="isRenderEnd" :aid="props.aid" :coid="coid" @refresh="getComments(currentPage)" />
   </div>
 </template>

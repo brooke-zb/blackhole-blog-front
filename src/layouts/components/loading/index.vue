@@ -18,7 +18,7 @@ watchEffect(() => {
 <template>
   <div
     ref="loading"
-    class="fixed w-full h-full top-0 left-0 bg-black/60 flex justify-center items-center z-50
+    class="fixed w-full h-full top-0 left-0 bg-black/60 flex justify-center items-center z-[90]
     transition-all duration-300 opacity-0 invisible"
   >
     <div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-sm text-black dark:text-white shadow-xl">

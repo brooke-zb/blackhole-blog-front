@@ -7,6 +7,10 @@ const props = withDefaults(defineProps<{
   hideOnSinglePage: false,
 })
 
+const emit = defineEmits<{
+  change: []
+}>()
+
 // 当前页码
 const page = defineModel<number>({
   required: true,
@@ -71,6 +75,7 @@ function toPage(to: number) {
   }
   page.value = to
   getPages(to)
+  emit('change')
 }
 
 function offsetPage(offset: number) {

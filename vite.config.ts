@@ -82,7 +82,7 @@ export default defineConfig({
       include: [/\.vue$/, /\.vue\?vue/],
       resolvers: [
         IconsResolver({
-          customCollections: ['regular', 'solid', 'brands'],
+          customCollections: ['regular', 'solid', 'brands', 'sharp-regular', 'sharp-solid'],
         }),
         {
           type: 'directive',
@@ -101,9 +101,11 @@ export default defineConfig({
     Icons({
       compiler: 'vue3',
       customCollections: {
-        regular: FileSystemIconLoader('./src/icons/regular'),
-        solid: FileSystemIconLoader('./src/icons/solid'),
-        brands: FileSystemIconLoader('./src/icons/brands'),
+        'regular': FileSystemIconLoader('./src/icons/regular'),
+        'solid': FileSystemIconLoader('./src/icons/solid'),
+        'brands': FileSystemIconLoader('./src/icons/brands'),
+        'sharp-regular': FileSystemIconLoader('./src/icons/sharp-regular'),
+        'sharp-solid': FileSystemIconLoader('./src/icons/sharp-solid'),
       },
     }),
     VueDevTools(),

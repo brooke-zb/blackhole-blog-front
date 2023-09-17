@@ -61,6 +61,25 @@ page:
   admin:
     logout: Logout
     settings: Settings
+  admin-article:
+    write: Write
+    edit: Edit
+    delete: Delete
+    title: Title
+    category: Category
+    tag: Tag
+    read-count: Read count
+    created: Published time
+    operation: Operation
+    search: Search
+    delete-title: Delete article
+    confirm-delete: Are you sure to delete "{title}"?
+    all-category: All categories
+    status:
+      published: Published
+      draft: Draft
+      hidden: Hidden
+    date-format: YYYY-MM-DD
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation

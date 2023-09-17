@@ -17,7 +17,7 @@ function logout() {
 </script>
 
 <template>
-  <div class="sticky top-0 h-12 bg-gray-50 dark:bg-slate-800 p-2 flex items-center z-30">
+  <div class="sticky top-0 h-12 bg-gray-50 dark:bg-slate-800 p-2 flex items-baseline gap-4 z-30">
     <h1>{{ titleStore.title }}</h1>
     <div class="grow" />
     <bh-button
@@ -31,8 +31,8 @@ function logout() {
       </template>
     </bh-button>
     <bh-menu>
-      <div class="flex items-center gap-1">
-        <i-solid-user class="h-4 w-4" />
+      <div class="flex items-baseline gap-1 text-gray-700 dark:text-gray-300">
+        <i-solid-user class="h-4 w-4 fill-gray-700 dark:fill-gray-300" />
         <h1>{{ userStore.info?.name }}</h1>
       </div>
       <template #menu>

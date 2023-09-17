@@ -133,3 +133,24 @@ type BhRole = {
 type BhPermission = {
   name: string
 }
+
+type BhArticleCondition = {
+  title?: string,
+  username?: string,
+  status?: BhArticleStatus,
+  category?: string,
+  tag?: string,
+  sortBy?: 'created_at' | 'read_count',
+}
+
+type BhArticleAdd = {
+  aid: number
+  cid: number
+  tags: Omit<BhTag, 'tid'>[]
+  title: string
+  content: string
+  commentable: boolean
+  status: BhArticleStatus
+  createdAt: string
+  updatedAt?: string
+}

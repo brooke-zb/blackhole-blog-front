@@ -6,7 +6,7 @@ export default {
   },
 
   getList(page = 1, condition: BhArticleCondition = {}) {
-    return request.get<Page<BhArticlePreview>>('/articles', {
+    return request.get<Page<BhArticlePreview>>('/admin/articles', {
       params: { page, ...condition },
     })
   },

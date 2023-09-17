@@ -7,18 +7,23 @@ const props = withDefaults(defineProps<{
   danger: false,
 })
 
+const emit = defineEmits<{
+  cancel: []
+  confirm: []
+}>()
+
 const show = defineModel<boolean>({
   required: true,
 })
 
 function onCancel() {
   show.value = false
-  emits('cancel')
+  emit('cancel')
 }
 
 function onConfirm() {
   show.value = false
-  emits('confirm')
+  emit('confirm')
 }
 
 const confirmClass = computed(() => {

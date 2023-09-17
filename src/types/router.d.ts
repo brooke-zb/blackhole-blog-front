@@ -43,6 +43,7 @@ declare module 'vue-router/auto/routes' {
     'not-found': RouteRecordInfo<'not-found', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     'about': RouteRecordInfo<'about', '/about', Record<never, never>, Record<never, never>>,
     'admin': RouteRecordInfo<'admin', '/admin', Record<never, never>, Record<never, never>>,
+    'admin-articles': RouteRecordInfo<'admin-articles', '/admin/articles', Record<never, never>, Record<never, never>>,
     'login': RouteRecordInfo<'login', '/admin/login', Record<never, never>, Record<never, never>>,
     'article-detail': RouteRecordInfo<'article-detail', '/articles/:id(\d+)', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'categories': RouteRecordInfo<'categories', '/categories', Record<never, never>, Record<never, never>>,
