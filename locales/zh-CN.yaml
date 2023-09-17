@@ -67,7 +67,8 @@ auth:
   no-permission: 您没有权限访问该页面
 routes:
   admin:
-    index: 仪表盘
+    back-to-blog: 返回博客
+    index: 统计信息
     articles: 文章管理
     comments: 评论管理
     tags: 标签管理
@@ -75,3 +76,6 @@ routes:
     friends: 友链管理
     users: 用户管理
     roles: 角色管理
+modal:
+  cancel: 取 消
+  confirm: 确 认

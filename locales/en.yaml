@@ -67,11 +67,15 @@ auth:
   no-permission: You have no permission to access this page
 routes:
   admin:
+    back-to-blog: Back to blog
     index: Dashboard
-    articles: Manage Articles
-    comments: Manage Comments
-    tags: Manage Tags
-    categories: Manage Categories
-    friends: Manage Friends
-    users: Manage Users
-    roles: Manage Roles
+    articles: Article management
+    comments: Comment management
+    tags: Tag management
+    categories: Category management
+    friends: Friend management
+    users: User management
+    roles: Role management
+modal:
+  cancel: Cancel
+  confirm: Confirm
