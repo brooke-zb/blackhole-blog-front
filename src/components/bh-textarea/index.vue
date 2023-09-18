@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import type { StyleValue } from 'vue'
+import { calcTextareaHeight } from './utils'
+
 const props = withDefaults(defineProps<{
   placeholder?: string
   invalid?: boolean
@@ -29,12 +32,24 @@ const classAppend = computed(() => ({
   'border-gray-300 dark:border-slate-600 focus:border-primary-500 dark:focus:border-dark-500': !props.invalid,
 }))
 
+// @ts-expect-error ts(2589)
+const textareaCalcStyle = ref<StyleValue>({
+  overflowY: 'hidden',
+})
+
 function onResize() {
-  const currentScrollTop = window.scrollY
-  const style = window.getComputedStyle(el.value!)
-  el.value!.style.height = 'auto'
-  el.value!.style.height = `calc(${el.value!.scrollHeight}px + ${style.borderTopWidth} + ${style.borderBottomWidth})`
-  window.scrollTo(0, currentScrollTop)
+  const textareaStyle = calcTextareaHeight(el.value!, props.minRows)
+  textareaCalcStyle.value = {
+    overflowY: 'hidden',
+    ...textareaStyle,
+  }
+
+  nextTick(() => {
+    // NOTE: Force repaint to make sure the style set above is applied.
+    // eslint-disable-next-line no-unused-expressions
+    el.value!.offsetHeight
+    textareaCalcStyle.value = textareaStyle as any
+  })
 }
 </script>
 
@@ -42,6 +57,6 @@ function onResize() {
   <textarea
     ref="el" v-model="inputValue"
     class="p-2 rounded-md outline-0 bg-transparent border-2 block w-full resize-none transition-colors"
-    :class="classAppend" :rows="props.minRows" :placeholder="props.placeholder" @input="onResize"
+    :class="classAppend" :style="textareaCalcStyle" :rows="props.minRows" :placeholder="props.placeholder" @input="onResize"
   />
 </template>
