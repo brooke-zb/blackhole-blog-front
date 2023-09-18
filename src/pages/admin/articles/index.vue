@@ -1,6 +1,7 @@
 <route lang="yaml">
 name: admin-articles
 meta:
+  auth: ARTICLE:FULLACCESS
   layout: admin
 </route>
 
@@ -15,21 +16,20 @@ const { t } = useI18n()
 const titleStore = useTitleStore()
 titleStore.title = t('routes.admin.articles')
 
-const articles = ref<Page<BhArticlePreview>>({
-  total: 0,
-  page: 1,
-  size: 10,
-  data: [],
-})
-const categories = ref<BhCategory[]>([])
-
-// 获取文章列表
 const conditions = reactive({
   title: '',
   category: '',
   tag: '',
   sortBy: 'created_at',
   status: 'PUBLISHED',
+})
+
+// 文章列表
+const articles = ref<Page<BhArticlePreview>>({
+  total: 0,
+  page: 1,
+  size: 10,
+  data: [],
 })
 function loadArticles() {
   // remove empty conditions
@@ -54,6 +54,9 @@ function loadArticles() {
     }
   })
 }
+
+// 分类列表
+const categories = ref<BhCategory[]>([])
 function loadCategories() {
   api.admin.category.getList().then((resp) => {
     if (resp.success) {
@@ -175,7 +178,7 @@ function onComfirmDelete() {
           </span>
         </td>
         <td class="sticky right-0">
-          <router-link :to="`/admin/articles/${rowData.aid}`">
+          <router-link :to="`/admin/articles/write/${rowData.aid}`">
             <bh-button
               class="mr-2 px-2 py-0.5 bg-info-600 ring-info-600
             ring-offset-primary-100 dark:!ring-offset-slate-600 text-white text-sm"

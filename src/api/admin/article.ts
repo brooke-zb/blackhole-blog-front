@@ -11,7 +11,7 @@ export default {
     })
   },
 
-  add(article: BhArticle) {
+  add(article: BhArticleAdd) {
     return request.post<void>('/admin/articles', {
       data: article,
     })

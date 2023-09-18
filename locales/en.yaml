@@ -80,6 +80,23 @@ page:
       draft: Draft
       hidden: Hidden
     date-format: YYYY-MM-DD
+  admin-article-write:
+    title: Title
+    content: Content
+    commentable: Allow comments
+    status:
+      published: Published
+      draft: Draft
+      hidden: Hidden
+    submit: Submit
+    preview: Preview
+    cancel-preview: Cancel preview
+    input-tags: Input tags name
+    published_time: Published time
+    update_modified: Update modified time
+    success: Article saved successfully
+  admin-article-update:
+    success: Article updated successfully
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation
@@ -95,6 +112,8 @@ routes:
     friends: Friend management
     users: User management
     roles: Role management
+    articles-write: Write article
+    articles-update: Update article
 modal:
   cancel: Cancel
   confirm: Confirm

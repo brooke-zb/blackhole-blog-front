@@ -80,6 +80,23 @@ page:
       draft: 草稿
       hidden: 隐藏
     date-format: YYYY年MM月DD日
+  admin-article-write:
+    title: 标题
+    content: 内容
+    commentable: 允许评论
+    status:
+      published: 发布
+      draft: 草稿
+      hidden: 隐藏
+    submit: 提交
+    preview: 预览
+    cancel-preview: 取消预览
+    input-tags: 输入标签名
+    published_time: 发布时间
+    update_modified: 更新编辑时间
+    success: 文章保存成功
+  admin-article-update:
+    success: 文章更新成功
 network-err: 网络异常，请求失败
 auth:
   require-login: 请登录后再操作
@@ -95,6 +112,8 @@ routes:
     friends: 友链管理
     users: 用户管理
     roles: 角色管理
+    articles-write: 撰写文章
+    articles-update: 更新文章
 modal:
   cancel: 取 消
   confirm: 确 认

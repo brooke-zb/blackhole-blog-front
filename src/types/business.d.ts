@@ -144,6 +144,15 @@ type BhArticleCondition = {
 }
 
 type BhArticleAdd = {
+  cid: number
+  tags: Omit<BhTag, 'tid'>[]
+  title: string
+  content: string
+  commentable: boolean
+  status: BhArticleStatus
+}
+
+type BhArticleUpdate = {
   aid: number
   cid: number
   tags: Omit<BhTag, 'tid'>[]
