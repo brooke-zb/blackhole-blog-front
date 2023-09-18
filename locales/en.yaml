@@ -79,7 +79,7 @@ page:
       published: Published
       draft: Draft
       hidden: Hidden
-    date-format: YYYY-MM-DD
+    date-format: YYYY-MM-DD HH:mm
   admin-article-write:
     title: Title
     content: Content

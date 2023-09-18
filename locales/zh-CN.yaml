@@ -79,7 +79,7 @@ page:
       published: 已发布
       draft: 草稿
       hidden: 隐藏
-    date-format: YYYY年MM月DD日
+    date-format: YYYY年MM月DD日 HH:mm
   admin-article-write:
     title: 标题
     content: 内容

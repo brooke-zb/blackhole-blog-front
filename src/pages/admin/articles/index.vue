@@ -116,7 +116,7 @@ function onComfirmDelete() {
   <div>
     <div class="flex items-center gap-2">
       <router-link to="/admin/articles/write">
-        <bh-button class="bg-success-600 dark:!ring-offset-slate-700 ring-success-600 px-2 text-white">
+        <bh-button class="bg-success-600 dark:!ring-offset-slate-700 ring-success-600 px-2 text-white whitespace-nowrap">
           {{ t('page.admin-article.write') }}
         </bh-button>
       </router-link>
@@ -141,7 +141,7 @@ function onComfirmDelete() {
           {{ t('page.admin-article.status.hidden') }}
         </option>
       </select>
-      <bh-button class="bg-primary-500 dark:bg-dark-600 dark:!ring-offset-slate-700 ring-primary-500 dark:ring-dark-600 px-2 text-white" @click="loadArticles()">
+      <bh-button class="bg-primary-500 dark:bg-dark-600 dark:!ring-offset-slate-700 ring-primary-500 dark:ring-dark-600 px-2 text-white whitespace-nowrap" @click="loadArticles()">
         {{ t('page.admin-article.search') }}
       </bh-button>
     </div>
@@ -173,9 +173,7 @@ function onComfirmDelete() {
         <td>{{ rowData.readCount }}</td>
         <td>{{ rowData.category.name }}</td>
         <td>
-          <span v-tooltip="dayjs(rowData.createdAt).format('HH:mm:ss')">
-            {{ dayjs(rowData.createdAt).format(t('page.admin-article.date-format')) }}
-          </span>
+          {{ dayjs(rowData.createdAt).format(t('page.admin-article.date-format')) }}
         </td>
         <td class="sticky right-0">
           <router-link :to="`/admin/articles/write/${rowData.aid}`">
