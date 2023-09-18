@@ -51,9 +51,9 @@ const routerList = [
 
 <template>
   <div
-    class="h-screen w-16 hover:w-64 delay-200 duration-200 transition-[width]
+    class="fixed top-0 bottom-0 w-16 hover:w-64 delay-200 duration-200 transition-[width]
     bg-gray-50 dark:bg-slate-800 group/sidebar overflow-hidden
-    shadow-lg shadow-gray-300 dark:shadow-slate-950 translate-x-0 shrink-0"
+    shadow-lg shadow-gray-300 dark:shadow-slate-950 translate-x-0 shrink-0 z-[35]"
   >
     <!-- logo -->
     <router-link to="/" class="flex items-center gap-2 p-2" :title="$t('routes.admin.back-to-blog')">
