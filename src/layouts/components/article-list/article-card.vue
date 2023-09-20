@@ -23,7 +23,7 @@ function formatDate(time: string) {
     <span title="发布时间" class="sm:text-sm me-2 sm:me-0 whitespace-nowrap">{{ formatDate(props.data.createdAt) }}</span>
     <br>
     <router-link
-      :to="`/categories/${props.data.category.name}`" :title="t('link.category')"
+      :to="`/categories/${props.data.category.name}`" :title="t('routes.category')"
       class="inline-flex items-center gap-1 me-2"
     >
       <i-regular-folder class="inline w-4 h-4 fill-gray-400 dark:fill-slate-600 group-hover:fill-gray-500 dark:group-hover:fill-slate-400" />
@@ -31,7 +31,7 @@ function formatDate(time: string) {
     </router-link>
     <div class="inline-flex items-center gap-x-3 flex-wrap">
       <router-link
-        v-for="tag in props.data.tags" :key="tag.name" :to="`/tags/${tag.name}`" :title="t('link.tag')"
+        v-for="tag in props.data.tags" :key="tag.name" :to="`/tags/${tag.name}`" :title="t('routes.tag')"
         class="inline-flex items-center text-sm"
       >
         <i-regular-tag class="inline w-4 h-4 fill-gray-400 dark:fill-slate-600 group-hover:fill-gray-500 dark:group-hover:fill-slate-400" />

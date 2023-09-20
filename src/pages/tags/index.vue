@@ -18,7 +18,7 @@ const toast = useToast()
 const titleStore = useTitleStore()
 const { t } = useI18n()
 
-titleStore.title = t('link.tag')
+titleStore.title = t('routes.tag')
 
 const data = ref<BhTagHeat[]>([])
 const tags = ref<TagInfo[]>([])

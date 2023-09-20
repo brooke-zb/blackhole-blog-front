@@ -80,7 +80,7 @@ function formatDate(date: string) {
       -
       <router-link
         class="link flex justify-center items-center gap-1.5" :to="`/categories/${article.category.name}`"
-        :title="t('link.category')"
+        :title="t('routes.category')"
       >
         <IRegularFolder />
         {{ article.category.name }}
@@ -91,7 +91,7 @@ function formatDate(date: string) {
     >
       <router-link
         v-for="tag in article.tags" :key="tag.name" class="link flex justify-center items-center gap-0.5"
-        :to="`/tags/${tag.name}`" :title="t('link.tag')"
+        :to="`/tags/${tag.name}`" :title="t('routes.tag')"
       >
         <IRegularTag />
         {{ tag.name }}

@@ -11,7 +11,7 @@ const toast = useToast()
 const titleStore = useTitleStore()
 const { t } = useI18n()
 
-titleStore.title = t('link.category')
+titleStore.title = t('routes.category')
 
 const categories = ref<BhCategoryHeat[]>([])
 const loading = ref(true)

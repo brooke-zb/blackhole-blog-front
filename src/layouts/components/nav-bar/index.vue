@@ -10,11 +10,11 @@ const userStore = useUserStore()
 
 const { t } = useI18n()
 const links = [
-  { name: t('link.blog'), path: '/', icon: IconRegularBoxArchive },
-  { name: t('link.category'), path: '/categories', icon: IconRegularFolders },
-  { name: t('link.tag'), path: '/tags', icon: IconRegularTags },
-  { name: t('link.about'), path: '/about', icon: IconRegularAddressCard },
-  { name: t('link.friend'), path: '/friends', icon: IconRegularFaceSunglasses },
+  { name: t('routes.blog'), path: '/', icon: IconRegularBoxArchive },
+  { name: t('routes.category'), path: '/categories', icon: IconRegularFolders },
+  { name: t('routes.tag'), path: '/tags', icon: IconRegularTags },
+  { name: t('routes.about'), path: '/about', icon: IconRegularAddressCard },
+  { name: t('routes.friend'), path: '/friends', icon: IconRegularFaceSunglasses },
 ]
 const navTitle = import.meta.env.BHBLOG_APP_TITLE
 </script>

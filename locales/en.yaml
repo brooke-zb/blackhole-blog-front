@@ -1,10 +1,4 @@
 not-found: Page Not Found
-link:
-  blog: Blog
-  category: Category
-  tag: Tag
-  about: About
-  friend: Friends
 title:
   index: Home
   not-found: Page Not Found
@@ -145,11 +139,34 @@ page:
     delete-title: Delete user
     confirm-delete: Are you sure to delete "{name}"?
     reset-password: Reset password
+  admin-role:
+    name: Role name
+    operation: Operation
+    add: Add
+    add-title: Add role
+    edit: Edit
+    edit-title: Edit role
+    delete: Delete
+    delete-title: Delete role
+    confirm-delete: Are you sure to delete "{name}"?
+    permission: Permission
+    perm-article-full: Article permission
+    perm-comment-full: Comment permission
+    perm-category-full: Category permission
+    perm-tag-full: Tag permission
+    perm-user-full: User permission
+    perm-role-full: Role permission
+    perm-friend-full: Friend permission
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation
   no-permission: You have no permission to access this page
 routes:
+  blog: Blog
+  category: Category
+  tag: Tag
+  about: About
+  friend: Friends
   admin:
     back-to-blog: Back to blog
     index: Dashboard

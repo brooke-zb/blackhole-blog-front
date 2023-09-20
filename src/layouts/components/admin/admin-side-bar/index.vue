@@ -7,7 +7,7 @@ import IconTags from '~icons/regular/tags'
 import IconUsers from '~icons/regular/user-gear'
 import IconComments from '~icons/regular/comments'
 import IconRoles from '~icons/regular/shield-halved'
-import IconFriend from '~icons/regular/user-group'
+import IconFriend from '~icons/regular/face-sunglasses'
 
 const appName = import.meta.env.BHBLOG_APP_TITLE
 

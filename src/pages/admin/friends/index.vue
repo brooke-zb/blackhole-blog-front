@@ -6,7 +6,9 @@ meta:
 </route>
 
 <script setup lang="ts">
-
+const { t } = useI18n()
+const titleStore = useTitleStore()
+titleStore.title = t('routes.admin.friends')
 </script>
 
 <template>

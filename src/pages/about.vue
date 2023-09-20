@@ -7,7 +7,7 @@ meta:
 <script setup lang="ts">
 const titleStore = useTitleStore()
 const { t } = useI18n()
-titleStore.title = t('link.about')
+titleStore.title = t('routes.about')
 </script>
 
 <template>

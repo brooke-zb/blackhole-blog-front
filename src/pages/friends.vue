@@ -1,6 +1,7 @@
 <route lang="yaml">
 name: friends
 meta:
+  auth: FRIEND:FULLACCESS
   layout: blog
 </route>
 
@@ -10,7 +11,7 @@ onMounted(getFriends)
 const toast = useToast()
 const titleStore = useTitleStore()
 const { t } = useI18n()
-titleStore.title = t('link.friend')
+titleStore.title = t('routes.friend')
 
 const friends = ref<BhFriend[]>([])
 const loading = ref(true)
