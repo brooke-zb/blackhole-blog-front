@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   title: string
-  content: string
-  danger: boolean
+  content?: string
+  danger?: boolean
 }>(), {
+  content: '',
   danger: false,
 })
 
@@ -16,6 +17,13 @@ const show = defineModel<boolean>({
   required: true,
 })
 
+const pressOutside = ref(false)
+function onPressOutside() {
+  if (pressOutside.value) {
+    pressOutside.value = false
+    onCancel()
+  }
+}
 function onCancel() {
   show.value = false
   emit('cancel')
@@ -40,15 +48,17 @@ const confirmClass = computed(() => {
   <teleport to="body">
     <transition name="modal">
       <div
-        v-show="show" class="fixed top-0 left-0 w-full h-full bg-opacity-70
-        flex justify-center items-end sm:items-center z-50 overflow-hidden bg-black" @click="onCancel"
+        v-if="show" class="fixed top-0 left-0 w-full h-full bg-opacity-70
+        flex justify-center items-end sm:items-center z-50 overflow-hidden bg-black" @mousedown="pressOutside = true" @mouseup="onPressOutside()"
       >
-        <div class="modal m-2 p-4 mb-8 bg-gray-100 dark:bg-slate-700 rounded-lg w-full max-w-sm" @click.stop="">
+        <div class="modal m-2 p-4 mb-8 bg-gray-100 dark:bg-slate-700 rounded-lg w-full max-w-sm" @mousedown.stop="" @mouseup.stop="pressOutside = false">
           <div class="mb-2 text-lg">
             {{ props.title }}
           </div>
           <div class="text-gray-600 dark:text-gray-300 mb-2">
-            {{ props.content }}
+            <slot>
+              {{ props.content }}
+            </slot>
           </div>
           <div class="flex justify-end gap-2">
             <bh-button class="dark:text-white bg-gray-200 dark:bg-slate-600 dark:!ring-offset-slate-700 ring-primary-300 dark:ring-dark-500 px-2" @click="onCancel()">
