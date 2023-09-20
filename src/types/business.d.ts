@@ -179,3 +179,5 @@ type BhArticleUpdate = {
   createdAt: string
   updatedAt?: string
 }
+
+type BhCategoryAdd = Omit<BhCategory, 'cid'>

@@ -56,7 +56,7 @@ function loadArticles() {
     }
     else {
       toast.add({
-        type: resp.success ? 'success' : 'danger',
+        type: 'danger',
         message: resp.msg,
         duration: 3000,
       })
@@ -73,7 +73,7 @@ function loadCategories() {
     }
     else {
       toast.add({
-        type: resp.success ? 'success' : 'danger',
+        type: 'danger',
         message: resp.msg,
         duration: 3000,
       })

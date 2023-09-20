@@ -107,6 +107,16 @@ page:
     delete: 删除
     delete-title: 删除评论
     confirm-delete: 确定删除评论"{content}"吗？该评论下的回复也会被删除
+  admin-category:
+    name: 名称
+    operation: 操作
+    add: 添加
+    add-title: 添加分类
+    edit: 编辑
+    edit-title: 编辑分类
+    delete: 删除
+    delete-title: 删除分类
+    confirm-delete: 确定删除分类"{name}"吗？若该分类下有文章将会删除失败
 network-err: 网络异常，请求失败
 auth:
   require-login: 请登录后再操作

@@ -107,6 +107,16 @@ page:
     delete: Delete
     delete-title: Delete comment
     confirm-delete: Are you sure to delete "{content}"? The replies under this comment will also be deleted
+  admin-category:
+    name: Name
+    operation: Operation
+    add: Add
+    add-title: Add category
+    edit: Edit
+    edit-title: Edit category
+    delete: Delete
+    delete-title: Delete category
+    confirm-delete: Are you sure to delete "{name}"? If there are articles under this category, the deletion will fail
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation
