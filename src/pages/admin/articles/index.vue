@@ -16,6 +16,7 @@ const { t } = useI18n()
 const titleStore = useTitleStore()
 titleStore.title = t('routes.admin.articles')
 
+// 查询条件
 const conditions = reactive({
   title: '',
   category: '',
@@ -23,6 +24,14 @@ const conditions = reactive({
   sortBy: 'created_at',
   status: 'PUBLISHED',
 })
+function resetConditions() {
+  conditions.title = ''
+  conditions.category = ''
+  conditions.tag = ''
+  conditions.sortBy = 'created_at'
+  conditions.status = 'PUBLISHED'
+  loadArticles()
+}
 
 // 文章列表
 const articles = ref<Page<BhArticlePreview>>({
@@ -47,7 +56,7 @@ function loadArticles() {
     }
     else {
       toast.add({
-        type: 'danger',
+        type: resp.success ? 'success' : 'danger',
         message: resp.msg,
         duration: 3000,
       })
@@ -64,7 +73,7 @@ function loadCategories() {
     }
     else {
       toast.add({
-        type: 'danger',
+        type: resp.success ? 'success' : 'danger',
         message: resp.msg,
         duration: 3000,
       })
@@ -94,20 +103,13 @@ function onComfirmDelete() {
   }
   api.admin.article.delete(deleteArticle.value.aid).then((resp) => {
     if (resp.success) {
-      toast.add({
-        type: 'success',
-        message: resp.msg,
-        duration: 3000,
-      })
       loadArticles()
     }
-    else {
-      toast.add({
-        type: 'danger',
-        message: resp.msg,
-        duration: 3000,
-      })
-    }
+    toast.add({
+      type: resp.success ? 'success' : 'danger',
+      message: resp.msg,
+      duration: 3000,
+    })
   })
 }
 </script>
@@ -132,17 +134,20 @@ function onComfirmDelete() {
       </select>
       <select v-model="conditions.status">
         <option value="PUBLISHED">
-          {{ t('page.admin-article.status.published') }}
+          {{ t('status.article.published') }}
         </option>
         <option value="DRAFT">
-          {{ t('page.admin-article.status.draft') }}
+          {{ t('status.article.draft') }}
         </option>
         <option value="HIDDEN">
-          {{ t('page.admin-article.status.hidden') }}
+          {{ t('status.article.hidden') }}
         </option>
       </select>
       <bh-button class="bg-primary-500 dark:bg-dark-600 dark:!ring-offset-slate-700 ring-primary-500 dark:ring-dark-600 px-2 text-white whitespace-nowrap" @click="loadArticles()">
         {{ t('page.admin-article.search') }}
+      </bh-button>
+      <bh-button class="bg-warning-600 dark:!ring-offset-slate-700 ring-warning-600 px-2 text-white whitespace-nowrap" @click="resetConditions()">
+        {{ t('page.admin-comment.reset') }}
       </bh-button>
     </div>
     <bh-table :data="articles.data">

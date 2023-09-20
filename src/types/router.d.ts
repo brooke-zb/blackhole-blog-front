@@ -46,6 +46,7 @@ declare module 'vue-router/auto/routes' {
     'admin-articles': RouteRecordInfo<'admin-articles', '/admin/articles', Record<never, never>, Record<never, never>>,
     'admin-articles-write': RouteRecordInfo<'admin-articles-write', '/admin/articles/write', Record<never, never>, Record<never, never>>,
     'admin-articles-update': RouteRecordInfo<'admin-articles-update', '/admin/articles/write/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'admin-comments': RouteRecordInfo<'admin-comments', '/admin/comments', Record<never, never>, Record<never, never>>,
     'login': RouteRecordInfo<'login', '/admin/login', Record<never, never>, Record<never, never>>,
     'article-detail': RouteRecordInfo<'article-detail', '/articles/:id(\d+)', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     'categories': RouteRecordInfo<'categories', '/categories', Record<never, never>, Record<never, never>>,

@@ -153,13 +153,13 @@ function onSubmit() {
         </label>
         <select v-model="article.status" class="mr-2">
           <option value="PUBLISHED">
-            {{ t('page.admin-article-write.status.published') }}
+            {{ t('status.article.published') }}
           </option>
           <option value="DRAFT">
-            {{ t('page.admin-article-write.status.draft') }}
+            {{ t('status.article.draft') }}
           </option>
           <option value="HIDDEN">
-            {{ t('page.admin-article-write.status.hidden') }}
+            {{ t('status.article.hidden') }}
           </option>
         </select>
         <bh-button class="text-white bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500 px-3" @click="onSubmit()">

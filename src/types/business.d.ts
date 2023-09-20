@@ -82,6 +82,7 @@ type BhFriend = {
   description: string | null
 }
 
+type BhCommentStatus = 'PUBLISHED' | 'REVIEW' | 'HIDDEN'
 
 type BhComment = {
   coid: number
@@ -90,14 +91,14 @@ type BhComment = {
   uid?: number
   avatar?: string
   site?: string
-  ip?: string
+  ip: string
   content: string
   createdAt: string
-  children: CommentDto[]
+  children: BhComment[]
   parentId?: number
   replyId?: number
   replyTo?: string
-  status: 'PUBLISHED' | 'REVIEW' | 'HIDDEN'
+  status: BhCommentStatus
 }
 
 type BhCommentAdd = {
@@ -107,6 +108,14 @@ type BhCommentAdd = {
   site?: string
   content: string
   replyId?: number
+}
+
+type BhCommentUpdate = {
+  coid: number
+  nickname: string
+  content: string
+  site?: string
+  status: BhCommentStatus
 }
 
 type BhLoginBody = {
@@ -141,6 +150,13 @@ type BhArticleCondition = {
   category?: string,
   tag?: string,
   sortBy?: 'created_at' | 'read_count',
+}
+
+type BhCommentCondition = {
+  aid?: number,
+  nickname?: string,
+  status?: BhCommentStatus,
+  ip?: string,
 }
 
 type BhArticleAdd = {

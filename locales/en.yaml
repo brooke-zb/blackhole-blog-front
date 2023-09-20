@@ -75,19 +75,11 @@ page:
     delete-title: Delete article
     confirm-delete: Are you sure to delete "{title}"?
     all-category: All categories
-    status:
-      published: Published
-      draft: Draft
-      hidden: Hidden
     date-format: YYYY-MM-DD HH:mm
   admin-article-write:
     title: Title
     content: Content
     commentable: Allow comments
-    status:
-      published: Published
-      draft: Draft
-      hidden: Hidden
     submit: Submit
     preview: Preview
     cancel-preview: Cancel preview
@@ -97,6 +89,24 @@ page:
     success: Article saved successfully
   admin-article-update:
     success: Article updated successfully
+  admin-comment:
+    nickname: Nickname
+    content: Content
+    site: Website
+    created: Sent time
+    ip: IP
+    status: Status
+    operation: Operation
+    date-format: YYYY-MM-DD HH:mm
+    search: Search
+    reset: Reset
+    click-to-search-ip: Click to search this IP
+    move: Move to
+    edit: Edit
+    edit-title: Edit comment
+    delete: Delete
+    delete-title: Delete comment
+    confirm-delete: Are you sure to delete "{content}"? The replies under this comment will also be deleted
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation
@@ -117,3 +127,13 @@ routes:
 modal:
   cancel: Cancel
   confirm: Confirm
+status:
+  all: All status
+  article:
+    published: Published
+    draft: Draft
+    hidden: Hidden
+  comment:
+    published: Published
+    review: Review
+    hidden: Hidden
