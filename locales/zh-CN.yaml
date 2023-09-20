@@ -110,7 +110,7 @@ page:
   admin-category:
     name: 名称
     operation: 操作
-    add: 添加
+    add: 新增
     add-title: 添加分类
     edit: 编辑
     edit-title: 编辑分类
@@ -127,6 +127,24 @@ page:
     delete: 删除
     delete-title: 删除标签
     confirm-delete: 确定删除标签"{name}"吗？
+  admin-user:
+    name: 用户名
+    email: 邮箱
+    role: 角色
+    link: 链接（可选）
+    password: 密码
+    enabled: 启用
+    disabled: 禁用
+    status: 状态
+    operation: 操作
+    add: 新增
+    add-title: 添加用户
+    edit: 编辑
+    edit-title: 编辑用户
+    delete: 删除
+    delete-title: 删除用户
+    confirm-delete: 确定删除用户"{name}"吗？
+    reset-password: 重置密码
 network-err: 网络异常，请求失败
 auth:
   require-login: 请登录后再操作

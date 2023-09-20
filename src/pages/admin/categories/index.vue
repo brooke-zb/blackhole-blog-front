@@ -29,7 +29,7 @@ function loadCategories() {
     }
     else {
       toast.add({
-        type: resp.success ? 'success' : 'danger',
+        type: 'danger',
         message: resp.msg,
         duration: 3000,
       })
@@ -119,7 +119,9 @@ function onComfirmAdd() {
     <bh-table :data="categories.data">
       <template #header>
         <th>{{ t('page.admin-category.name') }}</th>
-        <th>{{ t('page.admin-category.operation') }}</th>
+        <th class="sticky right-0">
+          {{ t('page.admin-category.operation') }}
+        </th>
       </template>
       <template #default="{ rowData }">
         <td>

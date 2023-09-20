@@ -127,6 +127,24 @@ page:
     delete: Delete
     delete-title: Delete tag
     confirm-delete: Are you sure to delete "{name}"?
+  admin-user:
+    name: Username
+    email: Email
+    role: Role
+    link: Link(optional)
+    password: Password
+    enabled: Enabled
+    disabled: Disabled
+    status: Status
+    operation: Operation
+    add: Add
+    add-title: Add user
+    edit: Edit
+    edit-title: Edit user
+    delete: Delete
+    delete-title: Delete user
+    confirm-delete: Are you sure to delete "{name}"?
+    reset-password: Reset password
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation

@@ -183,3 +183,14 @@ type BhArticleUpdate = {
 type BhCategoryAdd = Omit<BhCategory, 'cid'>
 
 type BhTagAdd = Omit<BhTag, 'tid'>
+
+type BhUserAdd = Omit<BhUser, 'uid' | 'role'> & {
+  password: string,
+  rid: number,
+}
+
+type BhUserUpdate = Partial<BhUserAdd> & {
+  uid: number,
+}
+
+type BhRoleAdd = Omit<BhRole, 'rid'>

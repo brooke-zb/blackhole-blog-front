@@ -89,7 +89,9 @@ function onComfirmEdit() {
     <bh-table :data="tags.data">
       <template #header>
         <th>{{ t('page.admin-tag.name') }}</th>
-        <th>{{ t('page.admin-tag.operation') }}</th>
+        <th class="sticky right-0">
+          {{ t('page.admin-tag.operation') }}
+        </th>
       </template>
       <template #default="{ rowData }">
         <td>
