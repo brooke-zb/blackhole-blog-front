@@ -6,7 +6,7 @@ const props = defineProps<{
 
 const renderHeader = computed(() => {
   if (!props.cols) {
-    return Object.keys(props.data[0])
+    return Object.keys(props.data[0] || {})
   }
   return props.cols
 })
@@ -26,7 +26,6 @@ const renderData = computed(() => {
 </script>
 
 <template>
-  <!-- eslint-disable vue/require-v-for-key -->
   <div class="overflow-x-auto">
     <table class="table-auto w-full bg-gray-50 dark:bg-slate-800">
       <!-- header -->
@@ -42,9 +41,9 @@ const renderData = computed(() => {
 
       <!-- body -->
       <tbody>
-        <tr v-for="item in renderData">
+        <tr v-for="(item, idx) in renderData" :key="idx">
           <slot :row-data="item">
-            <td v-for="col in item">
+            <td v-for="(col, idx2) in item" :key="idx2">
               {{ col }}
             </td>
           </slot>
