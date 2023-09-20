@@ -7,6 +7,7 @@ import IconTags from '~icons/regular/tags'
 import IconUsers from '~icons/regular/user-gear'
 import IconComments from '~icons/regular/comments'
 import IconRoles from '~icons/regular/shield-halved'
+import IconFriend from '~icons/regular/user-group'
 
 const appName = import.meta.env.BHBLOG_APP_TITLE
 
@@ -45,6 +46,11 @@ const routerList = [
     path: '/admin/roles',
     translate: 'routes.admin.roles',
     icon: IconRoles,
+  },
+  {
+    path: '/admin/friends',
+    translate: 'routes.admin.friends',
+    icon: IconFriend,
   },
 ]
 </script>
