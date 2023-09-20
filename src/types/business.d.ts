@@ -181,3 +181,5 @@ type BhArticleUpdate = {
 }
 
 type BhCategoryAdd = Omit<BhCategory, 'cid'>
+
+type BhTagAdd = Omit<BhTag, 'tid'>

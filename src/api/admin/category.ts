@@ -4,7 +4,7 @@ export default {
   getByCid(cid: number) {
     return request.get<BhCategory>(`/admin/categories/${cid}`)
   },
-  getList(page = 1, size = 50) {
+  getList(page = 1, size = 10) {
     return request.get<Page<BhCategory>>('/admin/categories', {
       params: {
         page,

@@ -23,7 +23,7 @@ const categories = ref<Page<BhCategory>>({
   data: [],
 })
 function loadCategories() {
-  api.admin.category.getList().then((resp) => {
+  api.admin.category.getList(categories.value.page).then((resp) => {
     if (resp.success) {
       categories.value = resp.data
     }

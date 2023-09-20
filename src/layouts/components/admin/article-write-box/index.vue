@@ -35,7 +35,7 @@ const article = reactive<BhArticleUpdate>({
 // 分类列表
 const categories = ref<BhCategory[]>([])
 function loadCategories() {
-  api.admin.category.getList().then((resp) => {
+  api.admin.category.getList(1, 50).then((resp) => {
     if (resp.success) {
       categories.value = resp.data.data
     }
