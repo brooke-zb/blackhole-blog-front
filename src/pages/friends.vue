@@ -1,7 +1,6 @@
 <route lang="yaml">
 name: friends
 meta:
-  auth: FRIEND:FULLACCESS
   layout: blog
 </route>
 
