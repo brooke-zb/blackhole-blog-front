@@ -202,7 +202,7 @@ function onComfirmAdd() {
       <div class="flex flex-wrap gap-y-2 mt-2">
         <div v-for="perm in PERMISSIONS" :key="perm" class="flex items-center gap-1 w-1/2">
           <input :id="`edit${perm}`" v-model="editRolePermissions[perm]" type="checkbox" class="checkbox">
-          <label :for="`edit${perm}`" class="ml-1">{{ t(permissionI18nKey[perm]) }}</label>
+          <label :for="`edit${perm}`" class="ml-1 text-sm">{{ t(permissionI18nKey[perm]) }}</label>
         </div>
       </div>
     </bh-modal>
@@ -215,7 +215,7 @@ function onComfirmAdd() {
       <div class="flex flex-wrap gap-y-2 mt-2">
         <div v-for="perm in PERMISSIONS" :key="perm" class="flex items-center gap-1 w-1/2">
           <input :id="`edit${perm}`" v-model="addRolePermissions[perm]" type="checkbox" class="checkbox">
-          <label :for="`edit${perm}`" class="ml-1">{{ t(permissionI18nKey[perm]) }}</label>
+          <label :for="`edit${perm}`" class="ml-1 text-sm">{{ t(permissionI18nKey[perm]) }}</label>
         </div>
       </div>
     </bh-modal>

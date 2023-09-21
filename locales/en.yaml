@@ -157,6 +157,20 @@ page:
     perm-user-full: User permission
     perm-role-full: Role permission
     perm-friend-full: Friend permission
+  admin-friend:
+    avatar: Avatar
+    name: Name
+    link: Link
+    description: Description
+    description-placeholder: Description(optional)
+    operation: Operation
+    add: Add
+    add-title: Add friend
+    edit: Edit
+    edit-title: Edit friend
+    delete: Delete
+    delete-title: Delete friend
+    confirm-delete: Are you sure to delete "{name}"?
 network-err: Network error, request failed
 auth:
   require-login: Please login before operation

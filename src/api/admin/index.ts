@@ -4,6 +4,7 @@ import comment from './comment'
 import tag from './tag'
 import user from './user'
 import role from './role'
+import friend from './friend'
 
 export default {
   article,
@@ -12,4 +13,5 @@ export default {
   tag,
   user,
   role,
+  friend,
 }

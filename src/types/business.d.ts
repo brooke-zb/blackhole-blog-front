@@ -79,7 +79,7 @@ type BhFriend = {
   name: string
   link: string
   avatar: string
-  description: string | null
+  description?: string
 }
 
 type BhCommentStatus = 'PUBLISHED' | 'REVIEW' | 'HIDDEN'
@@ -194,3 +194,5 @@ type BhUserUpdate = Partial<BhUserAdd> & {
 }
 
 type BhRoleAdd = Omit<BhRole, 'rid'>
+
+type BhFriendAdd = Omit<BhFriend, 'fid'>

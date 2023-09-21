@@ -157,6 +157,20 @@ page:
     perm-user-full: 用户权限
     perm-role-full: 角色权限
     perm-friend-full: 友链权限
+  admin-friend:
+    avatar: 头像
+    name: 名称
+    link: 链接
+    description: 简介
+    description-placeholder: 简介（可选）
+    operation: 操作
+    add: 添加
+    add-title: 添加友链
+    edit: 编辑
+    edit-title: 编辑友链
+    delete: 删除
+    delete-title: 删除友链
+    confirm-delete: 确定删除友链"{name}"吗？
 network-err: 网络异常，请求失败
 auth:
   require-login: 请登录后再操作
