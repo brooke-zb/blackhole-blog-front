@@ -21,36 +21,43 @@ const routerList = [
     path: '/admin/articles',
     translate: 'routes.admin.articles',
     icon: IconArticles,
+    permission: 'ARTICLE:FULLACCESS',
   },
   {
     path: '/admin/comments',
     translate: 'routes.admin.comments',
     icon: IconComments,
+    permission: 'COMMENT:FULLACCESS',
   },
   {
     path: '/admin/categories',
     translate: 'routes.admin.categories',
     icon: IconCategories,
+    permission: 'CATEGORY:FULLACCESS',
   },
   {
     path: '/admin/tags',
     translate: 'routes.admin.tags',
     icon: IconTags,
+    permission: 'TAG:FULLACCESS',
   },
   {
     path: '/admin/users',
     translate: 'routes.admin.users',
     icon: IconUsers,
+    permission: 'USER:FULLACCESS',
   },
   {
     path: '/admin/roles',
     translate: 'routes.admin.roles',
     icon: IconRoles,
+    permission: 'ROLE:FULLACCESS',
   },
   {
     path: '/admin/friends',
     translate: 'routes.admin.friends',
     icon: IconFriend,
+    permission: 'FRIEND:FULLACCESS',
   },
 ]
 </script>
@@ -74,25 +81,27 @@ const routerList = [
 
     <!-- router list -->
     <ul>
-      <li v-for="router in routerList" :key="router.path">
-        <router-link
-          :to="router.path"
-          class="flex items-center w-full h-12 gap-1 transition-colors hover:bg-primary-200 dark:hover:bg-dark-600"
-          :class="{ '!bg-primary-300 dark:!bg-dark-500': $route.path === router.path }"
-        >
-          <component
-            :is="router.icon" class="w-5 h-5 m-5 shrink-0 fill-gray-600 dark:fill-gray-200"
-            :class="{ '!fill-gray-700 dark:!fill-gray-50': $route.path === router.path }"
-          />
-          <span
-            class="whitespace-nowrap transition-colors delay-200 duration-200 select-none group-hover/sidebar:select-auto
-            text-transparent group-hover/sidebar:text-gray-600 dark:group-hover/sidebar:text-gray-200"
-            :class="{ 'group-hover/sidebar:!text-gray-700 dark:group-hover/sidebar:!text-gray-50': $route.path === router.path }"
+      <admin-auth v-for="router in routerList" :key="router.path" :permission="router.permission">
+        <li>
+          <router-link
+            :to="router.path"
+            class="flex items-center w-full h-12 gap-1 transition-colors hover:bg-primary-200 dark:hover:bg-dark-600"
+            :class="{ '!bg-primary-300 dark:!bg-dark-500': $route.path === router.path }"
           >
-            {{ $t(router.translate) }}
-          </span>
-        </router-link>
-      </li>
+            <component
+              :is="router.icon" class="w-5 h-5 m-5 shrink-0 fill-gray-600 dark:fill-gray-200"
+              :class="{ '!fill-gray-700 dark:!fill-gray-50': $route.path === router.path }"
+            />
+            <span
+              class="whitespace-nowrap transition-colors delay-200 duration-200 select-none group-hover/sidebar:select-auto
+            text-transparent group-hover/sidebar:text-gray-600 dark:group-hover/sidebar:text-gray-200"
+              :class="{ 'group-hover/sidebar:!text-gray-700 dark:group-hover/sidebar:!text-gray-50': $route.path === router.path }"
+            >
+              {{ $t(router.translate) }}
+            </span>
+          </router-link>
+        </li>
+      </admin-auth>
     </ul>
   </div>
 </template>
