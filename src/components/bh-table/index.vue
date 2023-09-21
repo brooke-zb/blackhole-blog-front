@@ -55,7 +55,7 @@ const renderData = computed(() => {
         <div class="py-8">
           <i-regular-box-open class="w-12 h-12 fill-gray-500 dark:fill-gray-400" />
           <p class="text-gray-500 dark:text-gray-400">
-            暂无数据
+            {{ $t('table.no-data') }}
           </p>
         </div>
       </caption>
