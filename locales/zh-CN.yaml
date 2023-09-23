@@ -76,6 +76,9 @@ page:
     commentable: 允许评论
     submit: 提交
     preview: 预览
+    upload-image: 上传图片
+    upload-success: 上传成功
+    copy-success: 复制成功
     cancel-preview: 取消预览
     input-tags: 输入标签名
     published_time: 发布时间

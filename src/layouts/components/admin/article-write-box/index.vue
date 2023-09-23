@@ -17,6 +17,7 @@ const emit = defineEmits<{
 onMounted(() => {
   loadCategories()
   loadArticle()
+  initUploadEl()
 })
 
 const toast = useToast()
@@ -123,6 +124,47 @@ function onSubmit() {
     emit('add', addArticle)
   }
 }
+
+// 上传图片
+const uploadEl = ref<HTMLInputElement>()
+const staticBaseUrl = import.meta.env.BHBLOG_STATIC_BASEURL
+const uploadImagePath = ref('')
+const imageMarkdown = computed(() => {
+  return uploadImagePath.value ? `![${getUploadImageName()}](${staticBaseUrl}/${uploadImagePath.value})` : ''
+})
+function getUploadImageName() {
+  const idxStart = uploadImagePath.value.lastIndexOf('/')
+  const idxEnd = uploadImagePath.value.lastIndexOf('.')
+  return uploadImagePath.value.substring(idxStart + 1, idxEnd)
+}
+function initUploadEl() {
+  uploadEl.value!.addEventListener('change', () => {
+    if (uploadEl.value?.files?.length) {
+      api.admin.article.addAttachment(uploadEl.value.files[0]).then((resp) => {
+        if (resp.success) {
+          uploadImagePath.value = resp.data
+        }
+        toast.add({
+          type: resp.success ? 'success' : 'danger',
+          message: resp.success ? t('page.admin-article-write.upload-success') : resp.msg,
+          duration: 3000,
+        })
+      })
+    }
+  })
+}
+function uploadImage() {
+  uploadEl.value?.click()
+}
+function copyImageMarkdown() {
+  navigator.clipboard.writeText(imageMarkdown.value).then(() => {
+    toast.add({
+      type: 'success',
+      message: t('page.admin-article-write.copy-success'),
+      duration: 3000,
+    })
+  })
+}
 </script>
 
 <template>
@@ -175,8 +217,22 @@ function onSubmit() {
         :class="isPreview ? 'bg-warning-600 ring-warning-600' : 'bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500'"
         @click="togglePreview()"
       >
+        <template #icon>
+          <i-regular-eye class="fill-white" />
+        </template>
         {{ isPreview ? t('page.admin-article-write.cancel-preview') : t('page.admin-article-write.preview') }}
       </bh-button>
+      <input ref="uploadEl" type="file" accept="image/*" class="hidden">
+      <bh-button
+        class="text-white bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500"
+        @click="uploadImage()"
+      >
+        <template #icon>
+          <i-regular-cloud-arrow-up class="fill-white" />
+        </template>
+        {{ t('page.admin-article-write.upload-image') }}
+      </bh-button>
+      <bh-input v-if="imageMarkdown" v-model="imageMarkdown" readonly :placeholder="t('page.admin-article-write.title')" @click="copyImageMarkdown()" />
       <select v-model="article.cid">
         <option v-for="item in categories" :key="item.cid" :value="item.cid">
           {{ item.name }}

@@ -49,6 +49,7 @@ declare module 'vue' {
     IRegularChevronsRight: typeof import('~icons/regular/chevrons-right')['default']
     IRegularCircleCheck: typeof import('~icons/regular/circle-check')['default']
     IRegularCircleXmark: typeof import('~icons/regular/circle-xmark')['default']
+    IRegularCloudArrowUp: typeof import('~icons/regular/cloud-arrow-up')['default']
     IRegularEnvelope: typeof import('~icons/regular/envelope')['default']
     IRegularEye: typeof import('~icons/regular/eye')['default']
     IRegularFolder: typeof import('~icons/regular/folder')['default']

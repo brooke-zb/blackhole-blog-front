@@ -76,6 +76,9 @@ page:
     commentable: Allow comments
     submit: Submit
     preview: Preview
+    upload-image: Upload image
+    upload-success: Upload success
+    copy-success: Copy success
     cancel-preview: Cancel preview
     input-tags: Input tags name
     published_time: Published time

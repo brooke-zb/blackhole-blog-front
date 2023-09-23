@@ -110,6 +110,10 @@ export default defineConfig({
     }),
     VueDevTools(),
   ],
+  define: {
+    __INTLIFY_JIT_COMPILATION__: true,
+    __INTLIFY_DROP_MESSAGE_COMPILER__: true,
+  },
   server: {
     host: '127.0.0.1',
     port: 3000,

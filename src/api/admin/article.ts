@@ -22,7 +22,7 @@ export default {
     const formData = new FormData()
     formData.append('file', attachment)
 
-    return request.post<void>('/admin/articles/attachments', {
+    return request.post<string>('/admin/articles/attachments', {
       data: formData,
       headers: {
         'Content-Type': 'multipart/form-data',
