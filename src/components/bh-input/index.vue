@@ -2,6 +2,7 @@
 const props = withDefaults(defineProps<{
   type?: 'text' | 'password'
   placeholder?: string
+  readonly?: boolean
   invalid?: boolean
   focus?: boolean
 }>(), {
@@ -45,7 +46,7 @@ const slotClassAppend = computed(() => ({
       ref="input"
       v-model="inputValue" class="rounded-md bg-transparent px-2 py-1.5 w-full border-2 placeholder:text-sm
       transition-colors placeholder:transition-colors outline-0" :class="classAppend"
-      :type="props.type" :placeholder="props.placeholder"
+      :type="props.type" :placeholder="props.placeholder" :readonly="props.readonly"
     >
     <div
       v-if="$slots.right" class="absolute w-5 h-5 right-3 top-0 bottom-0 m-auto"
