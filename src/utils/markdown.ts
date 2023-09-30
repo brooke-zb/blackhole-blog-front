@@ -77,6 +77,18 @@ md.renderer.rules.paragraph_open = (tokens, idx, options, _env, slf) => {
   return slf.renderToken(tokens, idx, options)
 }
 
+// list
+md.renderer.rules.bullet_list_open = (tokens, idx, options, _env, slf) => {
+  const token = tokens[idx]
+  token.attrSet('class', 'list-disc list-inside')
+  return slf.renderToken(tokens, idx, options)
+}
+md.renderer.rules.ordered_list_open = (tokens, idx, options, _env, slf) => {
+  const token = tokens[idx]
+  token.attrSet('class', 'list-decimal list-inside')
+  return slf.renderToken(tokens, idx, options)
+}
+
 // link
 md.renderer.rules.link_open = (tokens, idx, options, _env, slf) => {
   const token = tokens[idx]
