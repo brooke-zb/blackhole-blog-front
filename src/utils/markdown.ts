@@ -62,11 +62,13 @@ md.renderer.rules.heading_open = (tokens, idx, options, env, slf) => {
   const level = Number.parseInt(token.tag.substring(1)) - 1
   token.attrSet('class', `${headingClass[level]} text-primary-700 dark:text-dark-200`)
   token.attrSet('id', id)
-  useAnchorStore().add({
-    id,
-    level: level + 1,
-    title: tokens[idx + 1].content,
-  })
+  if (level < 3) {
+    useAnchorStore().add({
+      id,
+      level: level + 1,
+      title: tokens[idx + 1].content,
+    })
+  }
   return slf.renderToken(tokens, idx, options)
 }
 
