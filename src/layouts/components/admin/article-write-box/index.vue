@@ -33,6 +33,10 @@ const article = reactive<BhArticleUpdate>({
   createdAt: dayjs().format('YYYY-MM-DDTHH:mm'),
 })
 
+// 工具栏吸顶
+const { y } = useWindowScroll()
+const windowY = computed(() => Math.max(0, y.value - 48))
+
 // 分类列表
 const categories = ref<BhCategory[]>([])
 function loadCategories() {
@@ -211,8 +215,9 @@ function copyImageMarkdown() {
     </div>
 
     <!-- right -->
-    <div class="shrink-0 md:pt-12 flex flex-col gap-2">
-      <bh-button
+    <div class="shrink-0 md:pt-12">
+      <div class="flex flex-col gap-2 md:relative sticky-bar">
+        <bh-button
         class="text-white"
         :class="isPreview ? 'bg-warning-600 ring-warning-600' : 'bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500'"
         @click="togglePreview()"
@@ -250,8 +255,15 @@ function copyImageMarkdown() {
         <input id="updateLastModified" v-model="updateLastModified" type="checkbox" class="checkbox shrink-0">
         <label for="updateLastModified">{{ t('page.admin-article-write.update_modified') }}</label>
       </div>
+      </div>
     </div>
 
     <bh-gallery ref="gallery" />
   </div>
 </template>
+
+<style scoped>
+.sticky-bar {
+  top: calc(v-bind('windowY') * 1px);
+}
+</style>
