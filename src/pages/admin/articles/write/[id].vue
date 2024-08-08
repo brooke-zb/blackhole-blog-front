@@ -34,5 +34,5 @@ function updateArticle(article: BhArticleUpdate) {
 </script>
 
 <template>
-  <article-write-box :aid="parseInt(useRoute('admin-articles-update').params.id)" update @update="updateArticle" />
+  <article-write-box :aid="parseInt(useRoute('admin-articles-update').params.id as string)" update @update="updateArticle" />
 </template>

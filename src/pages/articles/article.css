@@ -3,6 +3,7 @@
   margin-block-end: 1em;
   margin-inline-start: 0;
   margin-inline-end: 0;
+  @apply text-base;
 }
 
 /* prismjs */
@@ -35,9 +36,8 @@ code[class*='language-'] {
 
 /* Inline code */
 :not(pre)>code {
-  @apply font-mono py-0.5 px-1 mx-0.5;
+  @apply font-mono py-0.5 px-1 mx-0.5 break-words;
   @apply bg-primary-100 dark:bg-slate-700 text-primary-800 dark:text-white transition-colors rounded-md;
-  @apply border border-primary-300 dark:border-slate-500;
   white-space: normal;
 }
 

@@ -12,7 +12,7 @@ const { t } = useI18n()
 titleStore.title = t('page.tag.title', { name: route.params.name })
 
 function loadArticle(page: number) {
-  return api.article.getListByTag(route.params.name, page)
+  return api.article.getListByTag(route.params.name as string, page)
 }
 </script>
 

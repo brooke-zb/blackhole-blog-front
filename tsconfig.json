@@ -25,7 +25,8 @@
     "types": [
       "vite/client",
       "unplugin-icons/types/vue",
-      "vite-plugin-vue-meta-layouts/client.d.ts"
+      "vite-plugin-vue-meta-layouts/client.d.ts",
+      "unplugin-vue-router/client"
     ]
   },
   "include": [

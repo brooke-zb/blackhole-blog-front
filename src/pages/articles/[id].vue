@@ -31,7 +31,7 @@ const loading = ref(true)
 async function getArticle() {
   loading.value = true
 
-  const resp = await api.article.getByAid(useRoute('article-detail').params.id)
+  const resp = await api.article.getByAid(useRoute('article-detail').params.id as string)
   if (resp.success) {
     article.value = resp.data
     anchorStore.clear()

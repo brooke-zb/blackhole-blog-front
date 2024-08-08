@@ -6,7 +6,7 @@ type FilterOptional<T> = Pick<
     }[keyof T],
     undefined
   >
->;
+>
 
 type FilterNotOptional<T> = Pick<
   T,
@@ -16,18 +16,18 @@ type FilterNotOptional<T> = Pick<
     }[keyof T],
     undefined
   >
->;
+>
 
 type PartialEither<T, K extends keyof any> = { [P in Exclude<keyof FilterOptional<T>, K>]-?: T[P] } &
   { [P in Exclude<keyof FilterNotOptional<T>, K>]?: T[P] } &
-  { [P in Extract<keyof T, K>]?: undefined };
+  { [P in Extract<keyof T, K>]?: undefined }
 
-type Object = {
-  [name: string]: any;
-};
+interface Object {
+  [name: string]: any
+}
 
-type EitherOr<O extends Object, L extends string, R extends string> = 
+type EitherOr<O extends Object, L extends string, R extends string> =
   (
-    PartialEither<Pick<O, L | R>, L> | 
+    PartialEither<Pick<O, L | R>, L> |
     PartialEither<Pick<O, L | R>, R>
-  )  & Omit<O, L | R>;
+  ) & Omit<O, L | R>

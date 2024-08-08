@@ -1,21 +1,21 @@
 type Resp<T> = {
-  success: true,
-  data: T,
-  msg: string,
+  success: true
+  data: T
+  msg: string
 } | {
-  success: false,
-  data: null,
-  msg: string,
+  success: false
+  data: null
+  msg: string
 }
 
-type Page<T> = {
+interface Page<T> {
   total: number
   page: number
   size: number
   data: T[]
 }
 
-type BhArticle = {
+interface BhArticle {
   aid: number
   user: BhArticleUser
   category: BhArticleCategory
@@ -29,7 +29,7 @@ type BhArticle = {
   readCount: number
 }
 
-type BhArticlePreview = {
+interface BhArticlePreview {
   aid: number
   user: BhArticleUser
   category: BhArticleCategory
@@ -42,39 +42,39 @@ type BhArticlePreview = {
 
 type BhArticleStatus = 'PUBLISHED' | 'DRAFT' | 'HIDDEN'
 
-type BhArticleUser = {
+interface BhArticleUser {
   uid: number
   name: string
 }
 
-type BhArticleCategory = {
+interface BhArticleCategory {
   cid: number
   name: string
 }
 
-type BhArticleTag = {
+interface BhArticleTag {
   name: string
 }
 
-type BhTag = {
+interface BhTag {
   tid: number
   name: string
 }
 
-type BhArticleCountInfo = {
+interface BhArticleCountInfo {
   articleCount: number
 }
 
 type BhTagHeat = BhTag & BhArticleCountInfo
 
-type BhCategory = {
+interface BhCategory {
   cid: number
   name: string
 }
 
 type BhCategoryHeat = BhCategory & BhArticleCountInfo
 
-type BhFriend = {
+interface BhFriend {
   fid: number
   name: string
   link: string
@@ -84,7 +84,7 @@ type BhFriend = {
 
 type BhCommentStatus = 'PUBLISHED' | 'REVIEW' | 'HIDDEN'
 
-type BhComment = {
+interface BhComment {
   coid: number
   nickname: string
   email?: string
@@ -101,7 +101,7 @@ type BhComment = {
   status: BhCommentStatus
 }
 
-type BhCommentAdd = {
+interface BhCommentAdd {
   aid: number
   nickname: string
   email?: string
@@ -110,7 +110,7 @@ type BhCommentAdd = {
   replyId?: number
 }
 
-type BhCommentUpdate = {
+interface BhCommentUpdate {
   coid: number
   nickname: string
   content: string
@@ -118,13 +118,13 @@ type BhCommentUpdate = {
   status: BhCommentStatus
 }
 
-type BhLoginBody = {
+interface BhLoginBody {
   username: string
   password: string
   rememberMe: boolean
 }
 
-type BhUser = {
+interface BhUser {
   uid: number
   name: string
   mail: string
@@ -133,33 +133,33 @@ type BhUser = {
   enabled: boolean
 }
 
-type BhRole = {
+interface BhRole {
   rid: number
   name: string
   permissions: BhPermission[]
 }
 
-type BhPermission = {
+interface BhPermission {
   name: string
 }
 
-type BhArticleCondition = {
-  title?: string,
-  username?: string,
-  status?: BhArticleStatus,
-  category?: string,
-  tag?: string,
-  sortBy?: 'created_at' | 'read_count',
+interface BhArticleCondition {
+  title?: string
+  username?: string
+  status?: BhArticleStatus
+  category?: string
+  tag?: string
+  sortBy?: 'created_at' | 'read_count'
 }
 
-type BhCommentCondition = {
-  aid?: number,
-  nickname?: string,
-  status?: BhCommentStatus,
-  ip?: string,
+interface BhCommentCondition {
+  aid?: number
+  nickname?: string
+  status?: BhCommentStatus
+  ip?: string
 }
 
-type BhArticleAdd = {
+interface BhArticleAdd {
   cid: number
   tags: Omit<BhTag, 'tid'>[]
   title: string
@@ -168,7 +168,7 @@ type BhArticleAdd = {
   status: BhArticleStatus
 }
 
-type BhArticleUpdate = {
+interface BhArticleUpdate {
   aid: number
   cid: number
   tags: Omit<BhTag, 'tid'>[]
@@ -185,12 +185,12 @@ type BhCategoryAdd = Omit<BhCategory, 'cid'>
 type BhTagAdd = Omit<BhTag, 'tid'>
 
 type BhUserAdd = Omit<BhUser, 'uid' | 'role'> & {
-  password: string,
-  rid: number,
+  password: string
+  rid: number
 }
 
 type BhUserUpdate = Partial<BhUserAdd> & {
-  uid: number,
+  uid: number
 }
 
 type BhRoleAdd = Omit<BhRole, 'rid'>
