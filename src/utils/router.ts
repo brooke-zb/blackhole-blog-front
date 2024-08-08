@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { setupLayouts } from 'virtual:meta-layouts'
-import { routes } from 'vue-router/auto/routes'
+import { routes } from 'vue-router/auto-routes'
 
 const router = createRouter({
-  routes: setupLayouts(routes),
   history: createWebHistory(),
+  routes: setupLayouts(routes),
 })
 
 router.beforeEach(async (to) => {

@@ -119,7 +119,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/proxy': {
-        target: 'http://127.0.0.1:80',
+        target: 'https://blog.brookezb.com/api/v2',
         changeOrigin: true,
         followRedirects: true,
         rewrite: path => path.replace(/^\/proxy/, ''),
