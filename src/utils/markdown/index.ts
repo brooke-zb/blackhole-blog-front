@@ -2,7 +2,10 @@ import MarkdownIt from 'markdown-it'
 import 'katex/dist/katex.min.css'
 import taskLists from 'markdown-it-task-lists'
 import katex from '@vscode/markdown-it-katex'
-import { preWrapper } from './plugins/preWrapper'
+import ClipboardJs from 'clipboard'
+import { highlightPlugin, preWrapperPlugin } from './plugins/preWrapper'
+import { containerPlugin } from './plugins/container'
+import type BhGallery from '@/components/bh-gallery/index.vue'
 
 export async function createMarkdownRenderer() {
   const md = new MarkdownIt({
@@ -11,7 +14,9 @@ export async function createMarkdownRenderer() {
     linkify: false,
     typographer: false,
   })
-  md.use(await preWrapper())
+  md.use(await highlightPlugin())
+    .use(containerPlugin)
+    .use(preWrapperPlugin)
 
   // heading
   const headingClass = [
@@ -89,4 +94,73 @@ export async function createMarkdownRenderer() {
   md.use(taskLists)
 
   return md
+}
+
+interface AfterRenderOptions {
+  /**
+   * 图片灯箱实例
+   */
+  gallery?: InstanceType<typeof BhGallery>
+  /**
+   * I18n函数
+   */
+  t: (key: string) => string
+}
+
+export function afterMarkdownRender(options: AfterRenderOptions) {
+  const toast = useToast()
+
+  // 图片灯箱
+  options.gallery?.init('[data-gallery]')
+
+  // 代码复制
+  nextTick(() => {
+    document.querySelectorAll('[data-copy-code]').forEach((el) => {
+      if (!(el instanceof HTMLElement))
+        return
+      const code = document.querySelector(`#${el.dataset.targetId} code`)?.textContent
+      if (code) {
+        new ClipboardJs(el, {
+          text: () => code,
+        }).on('success', () => {
+          if (el.classList.contains('copied'))
+            return
+          el.classList.add('copied')
+          setTimeout(() => {
+            el.classList.remove('copied')
+          }, 3000)
+        }).on('error', () => {
+          toast.add({
+            type: 'danger',
+            message: options.t('page.article.copy-fail'),
+            duration: 3000,
+          })
+        })
+      }
+    })
+  }).then(() => {
+    // 代码组
+    document.querySelectorAll('[data-code-group]').forEach((el) => {
+      if (!(el instanceof HTMLElement))
+        return
+      const tabs = el.querySelector('.tabs') as HTMLElement
+      const blocks = el.querySelector('.blocks') as HTMLElement
+      const inputs = tabs.querySelectorAll('input')
+
+      tabs.addEventListener('change', (e) => {
+        if (!(e.target instanceof HTMLInputElement))
+          return
+        const index = Array.from(inputs).indexOf(e.target)
+        const codeblocks = blocks.children
+        for (let i = 0; i < codeblocks.length; i++) {
+          if (i !== index) {
+            codeblocks[i].classList.remove('active')
+          }
+          else if (!codeblocks[i].classList.contains('active')) {
+            codeblocks[i].classList.add('active')
+          }
+        }
+      })
+    })
+  })
 }

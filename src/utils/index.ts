@@ -3,7 +3,7 @@ import { isDark, toggleDark } from './dark'
 import { isPageLoading, setPageLoading } from './loading'
 import { router } from './router'
 import request from './request'
-import { createMarkdownRenderer } from './markdown'
+import { afterMarkdownRender, createMarkdownRenderer } from './markdown'
 import { useToast } from './toast'
 
 let md: markdownIt
@@ -23,5 +23,6 @@ export {
   router,
   request,
   getMarkdownRenderer,
+  afterMarkdownRender,
   useToast,
 }

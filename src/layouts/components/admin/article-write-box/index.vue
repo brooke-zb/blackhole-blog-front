@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import '@/pages/articles/article.css'
-import { getMarkdownRenderer } from '@/utils'
+import Clipboard2 from 'clipboard'
+import { afterMarkdownRender, getMarkdownRenderer } from '@/utils'
 
 const props = withDefaults(defineProps<{
   update: boolean
@@ -93,8 +94,9 @@ function togglePreview() {
     getMarkdownRenderer().then((md) => {
       renderHTML.value = md.render(article.content)
     }).then(() => {
-      nextTick(() => {
-        gallery.value.init('[data-gallery]')
+      afterMarkdownRender({
+        gallery: gallery.value,
+        t,
       })
     })
   }

@@ -3,6 +3,7 @@ import { bundledLanguages } from 'shiki'
 import { transformerMetaHighlight, transformerNotationDiff } from '@shikijs/transformers'
 import Shiki from '@shikijs/markdown-it'
 import { customAlphabet } from 'nanoid'
+import type MarkdownIt from 'markdown-it'
 
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 10)
 
@@ -11,63 +12,48 @@ const defaultTheme = {
   dark: 'dracula',
 }
 
-function parseLang(lang: string | number | null | (number | string)[] | boolean | undefined): string {
-  if (typeof lang === 'string' && lang.startsWith('language-'))
-    return lang.replace(/language-/, '')
-  if (Array.isArray(lang)) {
-    return lang.filter(l => typeof l === 'string')
-      .filter(l => l.startsWith('language-'))
-      .map(l => l.replace(/language-/, ''))[0] ?? ''
-  }
-  return ''
+export function extractLang(info: string) {
+  return info
+    .trim()
+    .replace(/=(\d*)/, '')
+    // eslint-disable-next-line regexp/optimal-quantifier-concatenation
+    .replace(/:(no-)?line-numbers(\{| |$|=\d*).*/, '')
+    .replace(/(-vue|\{| ).*$/, '')
+    .replace(/^vue-html$/, 'template')
+    .replace(/^ansi$/, '')
 }
 
-export async function preWrapper() {
+export function preWrapperPlugin(md: MarkdownIt) {
+  const fence = md.renderer.rules.fence!
+  md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+    const token = tokens[idx]
+
+    // remove title from info
+    token.info = token.info.replace(/\[.*\]/, '')
+
+    // eslint-disable-next-line regexp/no-unused-capturing-group
+    const active = / active( |$)/.test(token.info) ? ' active' : ''
+    token.info = token.info.replace(/ active$/, '').replace(/ active /, ' ')
+
+    const id = nanoid()
+
+    return `<div class="bh-pre${active}" id="${id}">
+<button class="bh-copy z-10" title="Copy" data-target-id="${id}" data-copy-code></button>
+<div class="bh-lang z-5">${extractLang(token.info)}</div>
+${fence(tokens, idx, options, env, self)}</div>
+`
+  }
+}
+
+export async function highlightPlugin() {
   return Shiki({
     themes: defaultTheme,
     langs: Object.keys(bundledLanguages) as BundledLanguage[],
     transformers: [
-      transformerNotationDiff(),
+      transformerNotationDiff({
+
+      }),
       transformerMetaHighlight(),
-      {
-        name: 'bhblog:add-copy-btn',
-        pre(node) {
-          const codeNode = node.children[0]
-
-          // 支持显示语言
-          if (codeNode.type !== 'element' || codeNode.tagName !== 'code')
-            return
-          const lang = parseLang(codeNode.properties.class)
-          if (!lang)
-            return
-          const langNode = {
-            type: 'element' as const,
-            tagName: 'div',
-            properties: {
-              class: ['bh-lang z-5'],
-            },
-            children: [{ type: 'text' as const, value: lang }],
-          }
-          node.children.unshift(langNode)
-
-          // 支持代码复制
-          const id = nanoid()
-          node.properties.id = id
-
-          const copyBtn = {
-            type: 'element' as const,
-            tagName: 'button',
-            properties: {
-              title: 'Copy',
-              class: ['bh-copy z-10'],
-              dataTargetId: id,
-              dataCopyCode: true,
-            },
-            children: [],
-          }
-          node.children.unshift(copyBtn)
-        },
-      },
     ],
   })
 }

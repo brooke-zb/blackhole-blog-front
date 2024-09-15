@@ -5,25 +5,28 @@ meta:
 </route>
 
 <script setup lang="ts">
-import Clipboard2 from 'clipboard'
-import { getMarkdownRenderer } from '@/utils'
+import { afterMarkdownRender, getMarkdownRenderer } from '@/utils'
 import './article.css'
 
 definePage({
   path: '/articles/:id(\\d+)',
 })
 
-const gallery = ref()
-
-onMounted(() => {
-  getArticle().then(() => {
-    gallery.value.init('[data-gallery]')
-  })
-})
 const toast = useToast()
 const titleStore = useTitleStore()
 const anchorStore = useAnchorStore()
 const { t } = useI18n()
+
+const gallery = ref()
+
+onMounted(() => {
+  getArticle().then(() => {
+    afterMarkdownRender({
+      gallery: gallery.value,
+      t,
+    })
+  })
+})
 
 titleStore.title = t('title.article')
 const article = ref<BhArticle>()
@@ -40,31 +43,6 @@ async function getArticle() {
     anchorStore.clear()
     contentHTML.value = md.render(resp.data.content)
     titleStore.title = resp.data.title
-    nextTick(() => {
-      document.querySelectorAll('[data-copy-code]').forEach((el) => {
-        if (!(el instanceof HTMLElement))
-          return
-        const code = document.querySelector(`#${el.dataset.targetId} code`)?.textContent
-        if (code) {
-          new Clipboard2(el, {
-            text: () => code,
-          }).on('success', () => {
-            if (el.classList.contains('copied'))
-              return
-            el.classList.add('copied')
-            setTimeout(() => {
-              el.classList.remove('copied')
-            }, 3000)
-          }).on('error', () => {
-            toast.add({
-              type: 'danger',
-              message: t('page.article.copy-fail'),
-              duration: 3000,
-            })
-          })
-        }
-      })
-    })
   }
   else {
     toast.add({
