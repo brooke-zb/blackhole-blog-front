@@ -39,6 +39,8 @@ page:
       sending: Sending...
       submit: Submit
       cancel-reply: Cancel
+    copy-fail: Copy Failed
+    copy-success: Copy success
   about:
     email: Email
   not-found:
@@ -103,7 +105,9 @@ page:
     edit-title: Edit comment
     delete: Delete
     delete-title: Delete comment
-    confirm-delete: Are you sure to delete "{content}"? The replies under this comment will also be deleted
+    confirm-delete: >-
+      Are you sure to delete "{content}"? The replies under this comment will
+      also be deleted
   admin-category:
     name: Name
     operation: Operation
@@ -113,7 +117,9 @@ page:
     edit-title: Edit category
     delete: Delete
     delete-title: Delete category
-    confirm-delete: Are you sure to delete "{name}"? If there are articles under this category, the deletion will fail
+    confirm-delete: >-
+      Are you sure to delete "{name}"? If there are articles under this
+      category, the deletion will fail
   admin-tag:
     name: Name
     operation: Operation

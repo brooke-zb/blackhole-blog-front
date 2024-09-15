@@ -39,6 +39,8 @@ page:
       sending: 发送中...
       submit: 发送
       cancel-reply: 取消
+    copy-success: 复制成功
+    copy-fail: 复制失败
   about:
     email: 邮箱
   not-found:

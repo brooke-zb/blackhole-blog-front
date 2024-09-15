@@ -26,13 +26,13 @@ pre[class*='language-'] {
   @apply bg-gray-100 dark:bg-slate-800 text-gray-400 dark:text-gray-500;
 }
 
-pre[class*='language-'] {
+/* pre[class*='language-'] {
   @apply pb-4 pt-0 overflow-auto select-text;
 }
 
 code[class*='language-'] {
   @apply text-gray-700 dark:text-gray-100;
-}
+} */
 
 /* Inline code */
 :not(pre)>code {
@@ -41,72 +41,97 @@ code[class*='language-'] {
   white-space: normal;
 }
 
-/* prismjs code style */
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  @apply text-gray-600 dark:text-gray-400;
+/* shiki支持 */
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  /* 可选，用于定义字体样式 */
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
-.token.punctuation {
-  @apply text-gray-500 dark:text-gray-300;
+.shiki {
+  @apply relative rounded;
 }
 
-.token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted {
-  @apply text-rose-700 dark:text-amber-300;
+.shiki code {
+  @apply overflow-x-auto w-full block p-4;
 }
 
-.token.function-name .token.boolean,
-.token.number,
-.token.function {
-  @apply text-red-600 dark:text-sky-300;
+.shiki .line {
+  @apply inline-block w-full;
 }
 
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-  @apply text-pink-700 dark:text-yellow-200;
+.shiki .highlighted span,
+.shiki .diff span {
+  @apply !bg-transparent dark:!bg-transparent;
 }
 
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-  @apply text-blue-600 dark:text-fuchsia-400;
+.shiki .highlighted {
+  @apply bg-gray-500/10;
 }
 
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable {
-  @apply text-lime-600 dark:text-lime-400;
+html.dark .shiki .highlighted {
+  @apply !bg-gray-50/10;
 }
 
-.token.operator,
-.token.entity,
-.token.url {
-  @apply text-amber-700 dark:text-cyan-300;
+.shiki .diff.remove {
+  @apply !bg-red-200 dark:!bg-red-900/50;
 }
 
-.token.important,
-.token.bold {
-  @apply font-bold;
+.shiki .diff.remove::before {
+  content: "−";
+  @apply text-red-500 dark:text-red-400 absolute left-1.5;
 }
 
-.token.entity {
-  @apply cursor-help;
+.shiki .diff.add {
+  @apply !bg-green-200 dark:!bg-green-900/50;
 }
 
-.token.inserted {
-  @apply text-green-700 dark:text-green-300;
+.shiki .diff.add::before {
+  content: "+";
+  @apply text-green-500 dark:text-green-400 absolute left-1.5;
+}
+
+/* 复制按钮 */
+.shiki .bh-copy {
+  @apply absolute top-2 right-2 rounded cursor-pointer w-8 h-8 opacity-0 duration-150;
+  @apply border border-gray-200 dark:border-gray-500 bg-gray-50 dark:bg-gray-700;
+}
+.shiki .bh-copy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  mask: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjJlbSIgaGVpZ2h0PSIxLjJlbSIgdmlld0JveD0iMCAwIDI0IDI0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik05IDVIN2EyIDIgMCAwIDAtMiAydjEyYTIgMiAwIDAgMCAyIDJoMTBhMiAyIDAgMCAwIDItMlY3YTIgMiAwIDAgMC0yLTJoLTIiLz48cGF0aCBkPSJNOSA1YTIgMiAwIDAgMSAyLTJoMmEyIDIgMCAwIDEgMiAydjBhMiAyIDAgMCAxLTIgMmgtMmEyIDIgMCAwIDEtMi0yIi8+PC9nPjwvc3ZnPg==') no-repeat 50% 50%;
+  @apply bg-gray-900 dark:bg-gray-100;
+}
+
+.shiki .bh-copy.copied {
+  @apply opacity-100;
+}
+
+.shiki .bh-copy.copied::before {
+  mask: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjJlbSIgaGVpZ2h0PSIxLjJlbSIgdmlld0JveD0iMCAwIDI0IDI0Ij48ZyBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik05IDVIN2EyIDIgMCAwIDAtMiAydjEyYTIgMiAwIDAgMCAyIDJoMTBhMiAyIDAgMCAwIDItMlY3YTIgMiAwIDAgMC0yLTJoLTIiLz48cGF0aCBkPSJNOSA1YTIgMiAwIDAgMSAyLTJoMmEyIDIgMCAwIDEgMiAydjBhMiAyIDAgMCAxLTIgMmgtMmEyIDIgMCAwIDEtMi0ybTAgOWwyIDJsNC00Ii8+PC9nPjwvc3ZnPg==') no-repeat 50% 50%;
+  @apply bg-green-600 dark:bg-green-400;
+}
+
+.shiki:hover .bh-copy {
+  @apply opacity-100 duration-150;
+}
+
+/* 语言显示 */
+.shiki .bh-lang {
+  @apply absolute top-0 left-0 w-full text-right px-2 py-1 text-xs !text-gray-600 dark:!text-gray-400 opacity-100 duration-150 select-none;
+}
+
+.shiki:hover .bh-lang,
+.shiki .bh-copy.copied + .bh-lang {
+  @apply opacity-0;
 }
 
 /* task list */

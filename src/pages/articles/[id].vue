@@ -5,7 +5,8 @@ meta:
 </route>
 
 <script setup lang="ts">
-import { md } from '@/utils'
+import Clipboard2 from 'clipboard'
+import { getMarkdownRenderer } from '@/utils'
 import './article.css'
 
 definePage({
@@ -33,10 +34,37 @@ async function getArticle() {
 
   const resp = await api.article.getByAid(useRoute('article-detail').params.id as string)
   if (resp.success) {
+    const md = await getMarkdownRenderer()
+
     article.value = resp.data
     anchorStore.clear()
     contentHTML.value = md.render(resp.data.content)
     titleStore.title = resp.data.title
+    nextTick(() => {
+      document.querySelectorAll('[data-copy-code]').forEach((el) => {
+        if (!(el instanceof HTMLElement))
+          return
+        const code = document.querySelector(`#${el.dataset.targetId} code`)?.textContent
+        if (code) {
+          new Clipboard2(el, {
+            text: () => code,
+          }).on('success', () => {
+            if (el.classList.contains('copied'))
+              return
+            el.classList.add('copied')
+            setTimeout(() => {
+              el.classList.remove('copied')
+            }, 3000)
+          }).on('error', () => {
+            toast.add({
+              type: 'danger',
+              message: t('page.article.copy-fail'),
+              duration: 3000,
+            })
+          })
+        }
+      })
+    })
   }
   else {
     toast.add({

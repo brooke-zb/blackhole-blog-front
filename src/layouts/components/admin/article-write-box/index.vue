@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { md } from '@/utils'
 import '@/pages/articles/article.css'
+import { getMarkdownRenderer } from '@/utils'
 
 const props = withDefaults(defineProps<{
   update: boolean
@@ -90,9 +90,12 @@ const renderHTML = ref('')
 function togglePreview() {
   isPreview.value = !isPreview.value
   if (isPreview.value) {
-    renderHTML.value = md.render(article.content)
-    nextTick(() => {
-      gallery.value.init('[data-gallery]')
+    getMarkdownRenderer().then((md) => {
+      renderHTML.value = md.render(article.content)
+    }).then(() => {
+      nextTick(() => {
+        gallery.value.init('[data-gallery]')
+      })
     })
   }
 }
@@ -218,43 +221,43 @@ function copyImageMarkdown() {
     <div class="shrink-0 md:pt-12">
       <div class="flex flex-col gap-2 md:relative sticky-bar">
         <bh-button
-        class="text-white"
-        :class="isPreview ? 'bg-warning-600 ring-warning-600' : 'bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500'"
-        @click="togglePreview()"
-      >
-        <template #icon>
-          <i-regular-eye class="fill-white" />
-        </template>
-        {{ isPreview ? t('page.admin-article-write.cancel-preview') : t('page.admin-article-write.preview') }}
-      </bh-button>
-      <input ref="uploadEl" type="file" accept="image/*" class="hidden">
-      <bh-button
-        class="text-white bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500"
-        @click="uploadImage()"
-      >
-        <template #icon>
-          <i-regular-cloud-arrow-up class="fill-white" />
-        </template>
-        {{ t('page.admin-article-write.upload-image') }}
-      </bh-button>
-      <bh-input v-if="imageMarkdown" v-model="imageMarkdown" readonly :placeholder="t('page.admin-article-write.title')" @click="copyImageMarkdown()" />
-      <select v-model="article.cid">
-        <option v-for="item in categories" :key="item.cid" :value="item.cid">
-          {{ item.name }}
-        </option>
-      </select>
-      <bh-chips v-model="tags" :placeholder="t('page.admin-article-write.input-tags')" />
-      <template v-if="props.update">
-        <h3>{{ t('page.admin-article-write.published_time') }}</h3>
-        <input
-          v-model="article.createdAt" class="appearance-none bg-primary-50 dark:bg-slate-700 p-0.5
-        rounded border border-primary-400 dark:border-dark-600 outline-0" type="datetime-local"
+          class="text-white"
+          :class="isPreview ? 'bg-warning-600 ring-warning-600' : 'bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500'"
+          @click="togglePreview()"
         >
-      </template>
-      <div v-if="props.update" class="flex items-center gap-2">
-        <input id="updateLastModified" v-model="updateLastModified" type="checkbox" class="checkbox shrink-0">
-        <label for="updateLastModified">{{ t('page.admin-article-write.update_modified') }}</label>
-      </div>
+          <template #icon>
+            <i-regular-eye class="fill-white" />
+          </template>
+          {{ isPreview ? t('page.admin-article-write.cancel-preview') : t('page.admin-article-write.preview') }}
+        </bh-button>
+        <input ref="uploadEl" type="file" accept="image/*" class="hidden">
+        <bh-button
+          class="text-white bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500"
+          @click="uploadImage()"
+        >
+          <template #icon>
+            <i-regular-cloud-arrow-up class="fill-white" />
+          </template>
+          {{ t('page.admin-article-write.upload-image') }}
+        </bh-button>
+        <bh-input v-if="imageMarkdown" v-model="imageMarkdown" readonly :placeholder="t('page.admin-article-write.title')" @click="copyImageMarkdown()" />
+        <select v-model="article.cid">
+          <option v-for="item in categories" :key="item.cid" :value="item.cid">
+            {{ item.name }}
+          </option>
+        </select>
+        <bh-chips v-model="tags" :placeholder="t('page.admin-article-write.input-tags')" />
+        <template v-if="props.update">
+          <h3>{{ t('page.admin-article-write.published_time') }}</h3>
+          <input
+            v-model="article.createdAt" class="appearance-none bg-primary-50 dark:bg-slate-700 p-0.5
+        rounded border border-primary-400 dark:border-dark-600 outline-0" type="datetime-local"
+          >
+        </template>
+        <div v-if="props.update" class="flex items-center gap-2">
+          <input id="updateLastModified" v-model="updateLastModified" type="checkbox" class="checkbox shrink-0">
+          <label for="updateLastModified">{{ t('page.admin-article-write.update_modified') }}</label>
+        </div>
       </div>
     </div>
 
