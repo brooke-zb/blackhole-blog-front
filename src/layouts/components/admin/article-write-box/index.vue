@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import '@/pages/articles/article.css'
-import Clipboard2 from 'clipboard'
 import { afterMarkdownRender, getMarkdownRenderer } from '@/utils'
 
 const props = withDefaults(defineProps<{
