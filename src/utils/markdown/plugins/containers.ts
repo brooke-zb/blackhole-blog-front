@@ -6,6 +6,7 @@ import { extractLang } from './preWrapper'
 
 export function containerPlugin(md: MarkdownIt) {
   md.use(container, 'code-group', createCodeGroup(md))
+    .use(container, 'details', createDetails(md))
 }
 
 interface ContainerRender { render: RenderRule }
@@ -61,6 +62,26 @@ function createCodeGroup(md: MarkdownIt): ContainerRender {
         return `<div data-code-group class="bh-code-group"><div class="tabs">${tabs}</div><div class="blocks">\n`
       }
       return `</div></div>\n`
+    },
+  }
+}
+
+// 详情块
+function createDetails(md: MarkdownIt): ContainerRender {
+  return {
+    render(tokens, idx, _options, env) {
+      const token = tokens[idx]
+      const info = token.info.trim().slice('details'.length).trim()
+      const attrs = md.renderer.renderAttrs(token)
+      if (token.nesting === 1) {
+        const title = md.renderInline(info || 'Details', {
+          references: env.references,
+        })
+        return `<details class="bh-details"${attrs}><summary>${title}</summary>\n`
+      }
+      else {
+        return `</details>\n`
+      }
     },
   }
 }

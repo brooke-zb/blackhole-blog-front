@@ -67,7 +67,7 @@ html.dark .shiki .highlighted {
 
 /* 代码diff */
 .shiki .diff.remove {
-  @apply !bg-red-200 dark:!bg-red-900/50;
+  @apply !bg-red-100 dark:!bg-red-900/30 opacity-70;
 }
 
 .shiki .diff.remove::before {
@@ -161,7 +161,7 @@ html.dark .shiki .highlighted {
 
 /* 告警块 */
 .github-alert {
-  @apply relative p-4 mb-4 rounded border-l-4;
+  @apply relative p-4 my-4 rounded border-l-4;
 }
 
 .github-alert .alert-title {
@@ -240,4 +240,13 @@ html.dark .shiki .highlighted {
 .github-alert.important .alert-title::before {
   @apply bg-indigo-600 dark:bg-indigo-200;
   mask: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjVlbSIgaGVpZ2h0PSIxLjVlbSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0xMiA3cS40MjUgMCAuNzEzLS4yODhUMTMgNnQtLjI4OC0uNzEyVDEyIDV0LS43MTIuMjg4VDExIDZ0LjI4OC43MTNUMTIgN20tMSA4aDJWOWgtMnptLTkgN1Y0cTAtLjgyNS41ODgtMS40MTJUNCAyaDE2cS44MjUgMCAxLjQxMy41ODhUMjIgNHYxMnEwIC44MjUtLjU4NyAxLjQxM1QyMCAxOEg2em0zLjE1LTZIMjBWNEg0djEzLjEyNXpNNCAxNlY0eiIvPjwvc3ZnPg==') no-repeat 50% 50%;
+}
+
+/* 详情块 */
+.bh-details {
+  @apply relative p-4 my-4 rounded bg-white dark:bg-slate-800;
+}
+
+.bh-details summary {
+  @apply cursor-pointer font-bold;
 }

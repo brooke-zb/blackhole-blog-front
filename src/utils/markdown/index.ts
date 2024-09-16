@@ -10,8 +10,7 @@ import type BhGallery from '@/components/bh-gallery/index.vue'
 
 export async function createMarkdownRenderer() {
   const md = new MarkdownIt({
-    html: true,
-    langPrefix: 'language-',
+    html: false,
     linkify: false,
     typographer: false,
   })

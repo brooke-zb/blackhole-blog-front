@@ -38,10 +38,9 @@ export function preWrapperPlugin(md: MarkdownIt) {
     const id = nanoid()
 
     return `<div class="bh-pre${active}" id="${id}">
+${fence(tokens, idx, options, env, self)}
 <button class="bh-copy z-10" title="Copy" data-target-id="${id}" data-copy-code></button>
-<div class="bh-lang z-5">${extractLang(token.info)}</div>
-${fence(tokens, idx, options, env, self)}</div>
-`
+<div class="bh-lang z-5">${extractLang(token.info)}</div></div>`
   }
 }
 
