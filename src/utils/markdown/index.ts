@@ -4,7 +4,8 @@ import taskLists from 'markdown-it-task-lists'
 import katex from '@vscode/markdown-it-katex'
 import ClipboardJs from 'clipboard'
 import { highlightPlugin, preWrapperPlugin } from './plugins/preWrapper'
-import { containerPlugin } from './plugins/container'
+import { containerPlugin } from './plugins/containers'
+import { gitHubAlertsPlugin } from './plugins/githubAlerts'
 import type BhGallery from '@/components/bh-gallery/index.vue'
 
 export async function createMarkdownRenderer() {
@@ -17,6 +18,7 @@ export async function createMarkdownRenderer() {
   md.use(await highlightPlugin())
     .use(containerPlugin)
     .use(preWrapperPlugin)
+    .use(gitHubAlertsPlugin)
 
   // heading
   const headingClass = [
