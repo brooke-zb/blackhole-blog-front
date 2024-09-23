@@ -127,4 +127,17 @@ export default defineConfig({
     },
   },
   envPrefix: 'BHBLOG_',
+  build: {
+    rollupOptions: {
+      output: {
+        chunkFileNames: (chunkInfo) => {
+          // 防止shiki中的clarity模块被广告拦截器误判为跟踪器
+          if (chunkInfo.name && chunkInfo.name.includes('clarity')) {
+            return `assets/clearness-[hash].js`
+          }
+          return `assets/[name]-[hash].js`
+        },
+      },
+    },
+  },
 })
