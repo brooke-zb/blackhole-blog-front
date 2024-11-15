@@ -1,7 +1,7 @@
 <!-- eslint-disable antfu/consistent-list-newline -->
 <script setup lang="ts">
-import fs from '@/assets/shaders/fragment.glsl?raw&inline'
-import vs from '@/assets/shaders/vertex.glsl?raw&inline'
+import fs from '@/assets/shaders/fragment.glsl'
+import vs from '@/assets/shaders/vertex.glsl'
 import * as twgl from 'twgl.js'
 
 const canvasEl = ref<HTMLCanvasElement>()

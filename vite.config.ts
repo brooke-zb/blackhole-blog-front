@@ -9,6 +9,7 @@ import Components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
+import glsl from 'vite-plugin-glsl'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import MetaLayouts from 'vite-plugin-vue-meta-layouts'
 
@@ -107,6 +108,9 @@ export default defineConfig({
         'sharp-regular': FileSystemIconLoader('./src/icons/sharp-regular'),
         'sharp-solid': FileSystemIconLoader('./src/icons/sharp-solid'),
       },
+    }),
+    glsl({
+      compress: true,
     }),
     VueDevTools(),
   ],

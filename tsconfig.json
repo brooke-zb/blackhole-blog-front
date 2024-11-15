@@ -17,7 +17,8 @@
       "vite/client",
       "unplugin-icons/types/vue",
       "vite-plugin-vue-meta-layouts/client.d.ts",
-      "unplugin-vue-router/client"
+      "unplugin-vue-router/client",
+      "vite-plugin-glsl/ext"
     ],
     "allowImportingTsExtensions": true,
     /* Linting */
