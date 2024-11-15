@@ -13,7 +13,7 @@ function formatDate(time: string) {
 </script>
 
 <template>
-  <div class="group text-gray-400 dark:text-slate-600 hover:text-gray-500 dark:hover:text-slate-400 md:hover:scale-105 transition-transform">
+  <div class="group text-gray-500 dark:text-slate-400 hover:text-gray-600 dark:hover:text-slate-300 md:hover:scale-105 transition-transform">
     <router-link
       :to="`/articles/${props.data.aid}`" class="text-xl mb-1 me-2 text-primary-600 dark:text-dark-400
         hover:text-primary-800 dark:hover:text-dark-200"
@@ -26,7 +26,7 @@ function formatDate(time: string) {
       :to="`/categories/${props.data.category.name}`" :title="t('routes.category')"
       class="inline-flex items-center gap-1 me-2"
     >
-      <i-regular-folder class="inline w-4 h-4 fill-gray-400 dark:fill-slate-600 group-hover:fill-gray-500 dark:group-hover:fill-slate-400" />
+      <i-regular-folder class="inline w-4 h-4 fill-gray-500 dark:fill-slate-400 group-hover:fill-gray-600 dark:group-hover:fill-slate-300" />
       {{ props.data.category.name }}
     </router-link>
     <div class="inline-flex items-center gap-x-3 flex-wrap">
@@ -34,7 +34,7 @@ function formatDate(time: string) {
         v-for="tag in props.data.tags" :key="tag.name" :to="`/tags/${tag.name}`" :title="t('routes.tag')"
         class="inline-flex items-center text-sm"
       >
-        <i-regular-tag class="inline w-4 h-4 fill-gray-400 dark:fill-slate-600 group-hover:fill-gray-500 dark:group-hover:fill-slate-400" />
+        <i-regular-tag class="inline w-4 h-4 fill-gray-500 dark:fill-slate-400 group-hover:fill-gray-600 dark:group-hover:fill-slate-300" />
         {{ tag.name }}
       </router-link>
     </div>

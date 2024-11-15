@@ -1,7 +1,8 @@
+<!-- eslint-disable antfu/consistent-list-newline -->
 <script setup lang="ts">
-import * as twgl from 'twgl.js'
-import vs from '@/assets/shaders/vertex.glsl?raw&inline'
 import fs from '@/assets/shaders/fragment.glsl?raw&inline'
+import vs from '@/assets/shaders/vertex.glsl?raw&inline'
+import * as twgl from 'twgl.js'
 
 const canvasEl = ref<HTMLCanvasElement>()
 
@@ -19,14 +20,12 @@ function getContext(el: HTMLCanvasElement): WebGLRenderingContext {
 // 背景渲染颜色
 const Colors = {
   light: {
-    c1: [0.87, 1, 0.97],
-    c2: [0.99, 0.89, 1],
     background: [0.98, 0.98, 0.98],
+    mixColorRatio: 0.2,
   },
   dark: {
-    c1: [0, 0.16, 0.40],
-    c2: [0.33, 0, 0.4],
-    background: [0.04, 0.04, 0.10],
+    background: [0.058, 0.090, 0.164],
+    mixColorRatio: 0.3,
   },
 }
 
@@ -39,6 +38,7 @@ onMounted(() => {
   gl.clearColor(15 / 255, 23 / 255, 42 / 255, 1)
   const programInfo = twgl.createProgramInfo(gl, [vs, fs])
   const arrays = {
+    // eslint-disable antfu/consistent-list-newline
     position: [
       -1.0, -1.0, 1.0,
       1.0, -1.0, 1.0,
@@ -52,7 +52,6 @@ onMounted(() => {
 
   let centerX = Math.random()
   let lastTime = 0
-  const HALF_PI = Math.PI * 0.5
   const render = (time: number) => {
     twgl.resizeCanvasToDisplaySize(canvasEl.value!)
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
@@ -65,11 +64,22 @@ onMounted(() => {
 
     const uniforms = {
       resolution: [canvasEl.value!.width, canvasEl.value!.height],
-      c1Center: [Math.sin(centerX) * 0.5 + 0.5, Math.sin(slowTime) * 0.3 + 0.5],
-      c2Center: [Math.cos(centerX + HALF_PI) * 0.5 + 0.5, Math.cos(slowTime + HALF_PI) * 0.3 + 0.5],
-      c1Color: isDark.value ? Colors.dark.c1 : Colors.light.c1,
-      c2Color: isDark.value ? Colors.dark.c2 : Colors.light.c2,
-      backgroundColor: isDark.value ? Colors.dark.background : Colors.light.background,
+      bgColor: isDark.value ? Colors.dark.background : Colors.light.background,
+      mixColorRatio: isDark.value ? Colors.dark.mixColorRatio : Colors.light.mixColorRatio,
+      // 这里更改颜色数量后记得修改fragment.glsl中的COLOR_COUNT
+      uTime: slowTime,
+      colors: [
+        16 / 255, 176 / 255, 166 / 255, // teal
+        53 / 255, 21 / 255, 161 / 255, // purple
+        222 / 255, 24 / 255, 104 / 255, // pink
+        227 / 255, 147 / 255, 14 / 255, // orange
+      ],
+      colorCenter: [
+        0.25, 0.25, // left bottom
+        0.25, 0.75, // left top
+        0.75, 0.75, // right top
+        0.75, 0.25, // right bottom
+      ],
     }
     gl.useProgram(programInfo.program)
     twgl.setBuffersAndAttributes(gl, programInfo, bufferInfo)

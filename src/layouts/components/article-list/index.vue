@@ -72,7 +72,7 @@ watchEffect(() => {
         v-for="year in timelineData.keys()" :key="year"
         class="flex flex-col gap-8 w-full sm:max-w-2xl relative mt-8 mb-4"
       >
-        <h2 class="text-4xl font-bold absolute -z-10 -left-4 md:-left-10 -top-8 text-primary-200 dark:text-slate-700 select-none">
+        <h2 class="text-4xl font-bold absolute -z-10 -left-4 md:-left-10 -top-8 text-primary-300 dark:text-slate-600 select-none">
           {{ year }}
         </h2>
         <article-card
