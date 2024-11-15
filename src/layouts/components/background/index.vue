@@ -21,11 +21,11 @@ function getContext(el: HTMLCanvasElement): WebGLRenderingContext {
 const Colors = {
   light: {
     background: [0.98, 0.98, 0.98],
-    mixColorRatio: 0.2,
+    mixColorRatio: 0.5,
   },
   dark: {
     background: [0.058, 0.090, 0.164],
-    mixColorRatio: 0.3,
+    mixColorRatio: 0.8,
   },
 }
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import '@/pages/articles/article.css'
 import { afterMarkdownRender, getMarkdownRenderer } from '@/utils'
+import '@/pages/articles/article.css'
 
 const props = withDefaults(defineProps<{
-  update: boolean
+  update?: boolean
   aid?: number
 }>(), {
   update: false,

@@ -2,6 +2,7 @@ precision highp float;
 
 const int COLOR_COUNT = 4;
 const float MIX_COLOR_SIZE = 0.5;
+const float MIX_BRIGHT_THRESHOLD = 0.43;
 uniform float mixColorRatio;
 uniform vec3 bgColor;
 uniform vec3 colors[COLOR_COUNT];
@@ -37,19 +38,22 @@ float noise(float x) {
 }
 
 void main() {
+    float mRate = 0.0;
     float tRate = 0.0;
     float rates[COLOR_COUNT];
     for (int i = 0; i < COLOR_COUNT; i++) {
         vec2 offset = vec2(noise(uTime + colorCenter[i][0] * 3.0 + float(i)), noise(uTime + colorCenter[i][1] * 7.0 + float(i)));
         float d = distance(uv + offset, colorCenter[i]);
         rates[i] = d < MIX_COLOR_SIZE ? (MIX_COLOR_SIZE - d): 0.0;
+        mRate = max(mRate, rates[i]);
         tRate += rates[i];
     }
-    float tRateMultipler = tRate > mixColorRatio ? mixColorRatio / tRate : 1.0;
-    vec3 mixColor = bgColor * (1.0 - (tRate * tRateMultipler));
+    mRate = mRate < MIX_BRIGHT_THRESHOLD ? (tRate > MIX_BRIGHT_THRESHOLD ? MIX_BRIGHT_THRESHOLD : tRate) : mRate;
+    vec3 mixColor = vec3(0.0);
     for (int i = 0; i < COLOR_COUNT; i++) {
-        mixColor += colors[i] * rates[i] * tRateMultipler;
+        mixColor += colors[i] * rates[i];
     }
+    mixColor = mixColor / tRate * mRate * mixColorRatio + bgColor * (1.0 - mRate * mixColorRatio);
 
     gl_FragColor = vec4(mixColor, 1);
 }
