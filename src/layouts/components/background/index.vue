@@ -69,10 +69,10 @@ onMounted(() => {
       // 这里更改颜色数量后记得修改fragment.glsl中的COLOR_COUNT
       uTime: slowTime,
       colors: [
-        0.00687, 0.51888, 0.4642, // teal
         0.42247, 0.30185, 0.82745, // purple
         0.78161, 0.23017, 0.3664, // pink
-        0.63734, 0.33649, 0.00872, // orange
+        0.86535, 0.35613, 0.12047, // orange
+        0.00687, 0.51888, 0.4642, // teal
       ],
       colorCenter: [
         0.25, 0.25, // left bottom
