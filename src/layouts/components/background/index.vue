@@ -25,7 +25,7 @@ const Colors = {
   },
   dark: {
     background: [0.058, 0.090, 0.164],
-    mixColorRatio: 0.8,
+    mixColorRatio: 0.7,
   },
 }
 
@@ -69,10 +69,10 @@ onMounted(() => {
       // 这里更改颜色数量后记得修改fragment.glsl中的COLOR_COUNT
       uTime: slowTime,
       colors: [
-        16 / 255, 176 / 255, 166 / 255, // teal
-        53 / 255, 21 / 255, 161 / 255, // purple
-        222 / 255, 24 / 255, 104 / 255, // pink
-        227 / 255, 147 / 255, 14 / 255, // orange
+        0.00687, 0.51888, 0.4642, // teal
+        0.42247, 0.30185, 0.82745, // purple
+        0.78161, 0.23017, 0.3664, // pink
+        0.63734, 0.33649, 0.00872, // orange
       ],
       colorCenter: [
         0.25, 0.25, // left bottom
