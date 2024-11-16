@@ -21,7 +21,7 @@ function getContext(el: HTMLCanvasElement): WebGLRenderingContext {
 const Colors = {
   light: {
     background: [0.98, 0.98, 0.98],
-    mixColorRatio: 0.5,
+    mixColorRatio: 0.4,
   },
   dark: {
     background: [0.058, 0.090, 0.164],
@@ -69,10 +69,10 @@ onMounted(() => {
       // 这里更改颜色数量后记得修改fragment.glsl中的COLOR_COUNT
       uTime: slowTime,
       colors: [
-        0.42247, 0.30185, 0.82745, // purple
-        0.78161, 0.23017, 0.3664, // pink
-        0.86535, 0.35613, 0.12047, // orange
-        0.00687, 0.51888, 0.4642, // teal
+        0.31593, 0.03235, 0.72251, // purple
+        0.83077, 0.00662, 0.20932, // pink
+        0.86558, 0.38955, 0.01461, // orange
+        0.21993, 0.49608, 0.39866, // teal
       ],
       colorCenter: [
         0.25, 0.25, // left bottom
