@@ -46,7 +46,7 @@ function onResize() {
 
   nextTick(() => {
     // NOTE: Force repaint to make sure the style set above is applied.
-    // eslint-disable-next-line no-unused-expressions
+    // eslint-disable-next-line ts/no-unused-expressions
     el.value!.offsetHeight
     textareaCalcStyle.value = textareaStyle as any
   })

@@ -1,10 +1,10 @@
-import { createApp } from 'vue'
-import './style.css'
-import { createI18n } from 'vue-i18n'
+import { router } from '@/utils'
 import messages from '@intlify/unplugin-vue-i18n/messages'
 import { createPinia } from 'pinia'
+import { createApp } from 'vue'
+import { createI18n } from 'vue-i18n'
 import App from './App.vue'
-import { router } from '@/utils'
+import './style.css'
 
 if (isDark.value) {
   // import this value to activate dark mode

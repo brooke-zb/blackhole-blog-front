@@ -22,7 +22,7 @@ export function gitHubAlertsPlugin(md: MarkdownIt) {
         while (
           endIndex < tokens.length
           && (tokens[endIndex].type !== 'blockquote_close'
-          || tokens[endIndex].level !== open.level)
+            || tokens[endIndex].level !== open.level)
         ) {
           endIndex++
         }

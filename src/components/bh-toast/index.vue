@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import InfoIcon from '~icons/regular/circle-info'
-import DangerIcon from '~icons/regular/triangle-exclamation'
 import SuccessIcon from '~icons/regular/circle-check'
 import WarningIcon from '~icons/regular/circle-exclamation'
+import InfoIcon from '~icons/regular/circle-info'
+import DangerIcon from '~icons/regular/triangle-exclamation'
 
 const props = defineProps<{
   config: ToastProps

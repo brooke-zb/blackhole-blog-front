@@ -1,13 +1,13 @@
-declare type ValidationData = {
-  value: any,
-  rule?: Validator,
+declare interface ValidationData {
+  value: any
+  rule?: Validator
   invalid?: boolean
 }
 
 declare type Validator = (value: string) => ValidatateResult
 
-declare type ValidatateResult = {
-  invalid: boolean,
+declare interface ValidatateResult {
+  invalid: boolean
   message: string
 }
 

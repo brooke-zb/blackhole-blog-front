@@ -1,9 +1,9 @@
-import type { BundledLanguage } from 'shiki'
-import { bundledLanguages } from 'shiki'
-import { transformerMetaHighlight, transformerNotationDiff } from '@shikijs/transformers'
-import Shiki from '@shikijs/markdown-it'
-import { customAlphabet } from 'nanoid'
 import type MarkdownIt from 'markdown-it'
+import type { BundledLanguage } from 'shiki'
+import Shiki from '@shikijs/markdown-it'
+import { transformerMetaHighlight, transformerNotationDiff } from '@shikijs/transformers'
+import { customAlphabet } from 'nanoid'
+import { bundledLanguages } from 'shiki'
 
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 10)
 

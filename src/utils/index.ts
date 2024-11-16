@@ -1,9 +1,9 @@
 import type markdownIt from 'markdown-it'
 import { isDark, toggleDark } from './dark'
 import { isPageLoading, setPageLoading } from './loading'
-import { router } from './router'
-import request from './request'
 import { afterMarkdownRender, createMarkdownRenderer } from './markdown'
+import request from './request'
+import { router } from './router'
 import { useToast } from './toast'
 
 let md: markdownIt
@@ -16,13 +16,13 @@ async function getMarkdownRenderer() {
 }
 
 export {
-  toggleDark,
-  isDark,
-  setPageLoading,
-  isPageLoading,
-  router,
-  request,
-  getMarkdownRenderer,
   afterMarkdownRender,
+  getMarkdownRenderer,
+  isDark,
+  isPageLoading,
+  request,
+  router,
+  setPageLoading,
+  toggleDark,
   useToast,
 }

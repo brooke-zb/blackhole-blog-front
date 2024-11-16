@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import logo from '@/assets/images/avatar.png?url'
+import IconComments from '~icons/regular/comments'
+import IconFriend from '~icons/regular/face-sunglasses'
+import IconCategories from '~icons/regular/folders'
 import IconIndex from '~icons/regular/gauge-max'
 import IconArticles from '~icons/regular/memo'
-import IconCategories from '~icons/regular/folders'
+import IconRoles from '~icons/regular/shield-halved'
 import IconTags from '~icons/regular/tags'
 import IconUsers from '~icons/regular/user-gear'
-import IconComments from '~icons/regular/comments'
-import IconRoles from '~icons/regular/shield-halved'
-import IconFriend from '~icons/regular/face-sunglasses'
 
 const appName = import.meta.env.BHBLOG_APP_TITLE
 

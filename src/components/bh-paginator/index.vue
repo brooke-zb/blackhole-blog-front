@@ -98,6 +98,7 @@ function offsetPage(offset: number) {
 
     <!-- 展示页 -->
     <div class="paginator-group flex border rounded-lg border-primary-200 dark:border-dark-950">
+      <!-- eslint-disable vue/no-v-text-v-html-on-component -->
       <paginator-button
         v-for="num, index in pageInfo.pages" :key="index"
         :is-current-page="page === num" @click="toPage(num)" v-text="num"

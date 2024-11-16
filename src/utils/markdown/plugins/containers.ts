@@ -1,6 +1,6 @@
 import type MarkdownIt from 'markdown-it'
-import container from 'markdown-it-container'
 import type { RenderRule } from 'markdown-it/lib/renderer.mjs'
+import container from 'markdown-it-container'
 import { nanoid } from 'nanoid'
 import { extractLang } from './preWrapper'
 

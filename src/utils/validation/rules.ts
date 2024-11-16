@@ -1,5 +1,5 @@
 function email(message: string) {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const re = /^(?:[^<>()[\]\\.,;:\s@"]+(?:\.[^<>()[\]\\.,;:\s@"]+)*|".+")@(?:\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\]|(?:[a-z\-0-9]+\.)+[a-z]{2,})$/i
 
   return (value: string) => ({
     invalid: !re.test(String(value)),
@@ -35,7 +35,7 @@ function maxLength(max: number, message: string) {
   })
 }
 
-function betweenLength(min: number, max: number, message: { min: string; max: string }) {
+function betweenLength(min: number, max: number, message: { min: string, max: string }) {
   return (value: string) => {
     if (value.length < min) {
       return {
@@ -81,12 +81,12 @@ function and(...validators: Validator[]) {
 }
 
 export {
-  email,
-  notEmpty,
-  isEmpty,
-  minLength,
-  maxLength,
-  betweenLength,
-  or,
   and,
+  betweenLength,
+  email,
+  isEmpty,
+  maxLength,
+  minLength,
+  notEmpty,
+  or,
 }

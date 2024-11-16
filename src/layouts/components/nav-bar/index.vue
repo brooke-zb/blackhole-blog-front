@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import IconRegularAddressCard from '~icons/regular/address-card'
 import IconRegularBoxArchive from '~icons/regular/box-archive'
+import IconRegularFaceSunglasses from '~icons/regular/face-sunglasses'
 import IconRegularFolders from '~icons/regular/folders'
 import IconRegularTags from '~icons/regular/tags'
-import IconRegularAddressCard from '~icons/regular/address-card'
-import IconRegularFaceSunglasses from '~icons/regular/face-sunglasses'
 
 const titleStore = useTitleStore()
 const userStore = useUserStore()

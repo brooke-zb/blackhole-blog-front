@@ -1,12 +1,12 @@
-import MarkdownIt from 'markdown-it'
-import 'katex/dist/katex.min.css'
-import taskLists from 'markdown-it-task-lists'
+import type BhGallery from '@/components/bh-gallery/index.vue'
 import katex from '@vscode/markdown-it-katex'
 import ClipboardJs from 'clipboard'
-import { highlightPlugin, preWrapperPlugin } from './plugins/preWrapper'
+import MarkdownIt from 'markdown-it'
+import taskLists from 'markdown-it-task-lists'
 import { containerPlugin } from './plugins/containers'
 import { gitHubAlertsPlugin } from './plugins/githubAlerts'
-import type BhGallery from '@/components/bh-gallery/index.vue'
+import { highlightPlugin, preWrapperPlugin } from './plugins/preWrapper'
+import 'katex/dist/katex.min.css'
 
 export async function createMarkdownRenderer() {
   const md = new MarkdownIt({

@@ -78,7 +78,7 @@ onMounted(() => {
         0.25, 0.25, // left bottom
         0.25, 0.75, // left top
         0.75, 0.75, // right top
-        0.75, 0.25, // right bottom
+        0.65, 0.35, // right bottom
       ],
     }
     gl.useProgram(programInfo.program)

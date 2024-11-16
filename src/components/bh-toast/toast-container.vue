@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import gsap from 'gsap'
 import { toastImpl } from '@/utils/toast'
+import gsap from 'gsap'
 
 toastImpl.add = add
 toastImpl.remove = remove
