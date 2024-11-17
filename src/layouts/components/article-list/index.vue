@@ -66,13 +66,13 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center mb-4 px-4">
+  <div class="flex flex-col items-center mb-4 px-2">
     <template v-if="props.timeline">
       <div
         v-for="year in timelineData.keys()" :key="year"
-        class="flex flex-col gap-8 w-full sm:max-w-2xl relative mt-8 mb-4"
+        class="flex flex-col gap-4 w-full sm:max-w-2xl relative mt-10 mb-4"
       >
-        <h2 class="text-4xl font-bold absolute -z-10 -left-4 md:-left-10 -top-8 text-primary-300 dark:text-slate-600 select-none">
+        <h2 class="text-4xl font-bold absolute -z-10 -left-2 md:-left-8 -top-10 text-primary-300 dark:text-slate-600 select-none">
           {{ year }}
         </h2>
         <article-card
