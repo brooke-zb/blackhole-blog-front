@@ -90,14 +90,15 @@ const renderHTML = ref('')
 function togglePreview() {
   isPreview.value = !isPreview.value
   if (isPreview.value) {
-    getMarkdownRenderer().then((md) => {
-      renderHTML.value = md.render(article.content)
-    }).then(() => {
-      afterMarkdownRender({
-        gallery: gallery.value,
-        t,
+    getMarkdownRenderer()
+      .then(md => md.renderAsync(article.content))
+      .then(content => renderHTML.value = content)
+      .then(() => {
+        afterMarkdownRender({
+          gallery: gallery.value,
+          t,
+        })
       })
-    })
   }
 }
 

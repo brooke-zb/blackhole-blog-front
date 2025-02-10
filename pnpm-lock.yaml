@@ -35,6 +35,9 @@ importers:
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
+      markdown-it-async:
+        specifier: ^2.0.0
+        version: 2.0.0
       markdown-it-attrs:
         specifier: ^4.3.1
         version: 4.3.1(markdown-it@14.1.0)
@@ -74,7 +77,7 @@ importers:
         version: 6.0.3(@vue/compiler-dom@3.5.13)(eslint@9.20.0(jiti@2.4.2))(rollup@4.34.6)(typescript@5.7.3)(vue-i18n@11.1.1(vue@3.5.13(typescript@5.7.3)))(vue@3.5.13(typescript@5.7.3))(webpack-sources@3.2.3)
       '@shikijs/markdown-it':
         specifier: ^2.3.2
-        version: 2.3.2
+        version: 2.3.2(markdown-it-async@2.0.0)
       '@shikijs/transformers':
         specifier: ^2.3.2
         version: 2.3.2
@@ -2350,6 +2353,9 @@ packages:
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.30.17.tgz}
 
+  markdown-it-async@2.0.0:
+    resolution: {integrity: sha512-jBthmQR5MwXR9Y8Y0teRoZAenaKQMdjuTfpbNARqMBSRPvyzyXCVduHZHakyyhL3ugIacCobXJrO07t277sIjw==, tarball: https://registry.npmmirror.com/markdown-it-async/-/markdown-it-async-2.0.0.tgz}
+
   markdown-it-attrs@4.3.1:
     resolution: {integrity: sha512-/ko6cba+H6gdZ0DOw7BbNMZtfuJTRp9g/IrGIuz8lYc/EfnmWRpaR3CFPnNbVz0LDvF8Gf1hFGPqrQqq7De0rg==, tarball: https://registry.npmmirror.com/markdown-it-attrs/-/markdown-it-attrs-4.3.1.tgz}
     engines: {node: '>=6'}
@@ -4262,10 +4268,12 @@ snapshots:
     dependencies:
       '@shikijs/types': 2.3.2
 
-  '@shikijs/markdown-it@2.3.2':
+  '@shikijs/markdown-it@2.3.2(markdown-it-async@2.0.0)':
     dependencies:
       markdown-it: 14.1.0
       shiki: 2.3.2
+    optionalDependencies:
+      markdown-it-async: 2.0.0
 
   '@shikijs/themes@2.3.2':
     dependencies:
@@ -5838,6 +5846,11 @@ snapshots:
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  markdown-it-async@2.0.0:
+    dependencies:
+      '@types/markdown-it': 14.1.2
+      markdown-it: 14.1.0
 
   markdown-it-attrs@4.3.1(markdown-it@14.1.0):
     dependencies:

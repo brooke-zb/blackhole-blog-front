@@ -1,4 +1,4 @@
-import type markdownIt from 'markdown-it'
+import type { MarkdownItAsync } from 'markdown-it-async'
 import { isDark, toggleDark } from './dark'
 import { isPageLoading, setPageLoading } from './loading'
 import { afterMarkdownRender, createMarkdownRenderer } from './markdown'
@@ -6,7 +6,7 @@ import request from './request'
 import { router } from './router'
 import { useToast } from './toast'
 
-let md: markdownIt
+let md: MarkdownItAsync
 
 async function getMarkdownRenderer() {
   if (!md) {

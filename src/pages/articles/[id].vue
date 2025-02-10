@@ -41,7 +41,7 @@ async function getArticle() {
 
     article.value = resp.data
     anchorStore.clear()
-    contentHTML.value = md.render(resp.data.content)
+    contentHTML.value = await md.renderAsync(resp.data.content)
     titleStore.title = resp.data.title
   }
   else {

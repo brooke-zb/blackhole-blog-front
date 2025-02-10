@@ -1,7 +1,7 @@
 import type BhGallery from '@/components/bh-gallery/index.vue'
 import katex from '@vscode/markdown-it-katex'
 import ClipboardJs from 'clipboard'
-import MarkdownIt from 'markdown-it'
+import MarkdownItAsync from 'markdown-it-async'
 import taskLists from 'markdown-it-task-lists'
 import { containerPlugin } from './plugins/containers'
 import { gitHubAlertsPlugin } from './plugins/githubAlerts'
@@ -9,12 +9,12 @@ import { highlightPlugin, preWrapperPlugin } from './plugins/preWrapper'
 import 'katex/dist/katex.min.css'
 
 export async function createMarkdownRenderer() {
-  const md = new MarkdownIt({
+  const md = MarkdownItAsync({
     html: false,
     linkify: false,
     typographer: false,
   })
-  md.use(await highlightPlugin())
+  md.use(highlightPlugin())
     .use(containerPlugin)
     .use(preWrapperPlugin)
     .use(gitHubAlertsPlugin)
