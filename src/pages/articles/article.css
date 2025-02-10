@@ -44,11 +44,11 @@ html.dark .shiki span {
 }
 
 .shiki code {
-  @apply overflow-x-auto w-full block py-4;
+  @apply overflow-x-auto min-w-full flex flex-wrap flex-col py-4;
 }
 
 .shiki .line {
-  @apply inline-block w-full px-4;
+  @apply px-4 min-h-6;
 }
 
 /* 代码高亮 */
