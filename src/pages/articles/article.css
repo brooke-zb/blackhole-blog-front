@@ -58,11 +58,19 @@ html.dark .shiki span {
 }
 
 .shiki .highlighted {
-  @apply bg-gray-500/10;
+  @apply bg-sky-400/10;
+}
+
+.shiki .highlighted-word {
+  @apply border border-primary-400 rounded bg-sky-400/10 px-0.5;
 }
 
 html.dark .shiki .highlighted {
   @apply !bg-gray-50/10;
+}
+
+html.dark .shiki .highlighted-word {
+  @apply border-dark-400 !bg-gray-50/10;
 }
 
 /* 代码diff */

@@ -1,7 +1,7 @@
 import type MarkdownIt from 'markdown-it'
 import type { BundledLanguage } from 'shiki'
 import Shiki from '@shikijs/markdown-it'
-import { transformerMetaHighlight, transformerNotationDiff } from '@shikijs/transformers'
+import { transformerMetaHighlight, transformerMetaWordHighlight, transformerNotationDiff } from '@shikijs/transformers'
 import { customAlphabet } from 'nanoid'
 
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 10)
@@ -43,7 +43,7 @@ ${fence(tokens, idx, options, env, self)}
   }
 }
 
-const myBundleLangs: BundledLanguage[] = ['bash', 'bat', 'c', 'c#', 'c++', 'cmd', 'cpp', 'csharp', 'css', 'csv', 'diff', 'docker', 'dockerfile', 'dotenv', 'git-commit', 'git-rebase', 'glsl', 'go', 'groovy', 'html', 'ini', 'java', 'javascript', 'js', 'json', 'json5', 'jsonc', 'jsonl', 'jsx', 'kotlin', 'kql', 'kt', 'kts', 'log', 'lua', 'make', 'makefile', 'markdown', 'md', 'nginx', 'php', 'powershell', 'properties', 'proto', 'protobuf', 'ps', 'ps1', 'py', 'python', 'reg', 'regex', 'regexp', 'rs', 'ruby', 'rust', 'sass', 'scala', 'scss', 'sh', 'shader', 'shell', 'sql', 'svelte', 'swift', 'systemd', 'tex', 'toml', 'ts', 'tsx', 'typescript', 'vue', 'vue-html', 'wgsl', 'xml', 'yaml', 'yml', 'zig']
+const myBundleLangs: BundledLanguage[] = ['bash', 'bat', 'c', 'c#', 'c++', 'cmd', 'cpp', 'csharp', 'css', 'csv', 'diff', 'docker', 'dockerfile', 'dotenv', 'git-commit', 'git-rebase', 'glsl', 'go', 'groovy', 'html', 'ini', 'java', 'javascript', 'js', 'json', 'json5', 'jsonc', 'jsonl', 'jsx', 'kotlin', 'kql', 'kt', 'kts', 'log', 'lua', 'make', 'makefile', 'markdown', 'md', 'nginx', 'php', 'powershell', 'properties', 'proto', 'protobuf', 'ps', 'ps1', 'py', 'python', 'reg', 'regex', 'regexp', 'rs', 'ruby', 'rust', 'sass', 'scala', 'scss', 'sh', 'shader', 'shell', 'sql', 'svelte', 'swift', 'systemd', 'tex', 'toml', 'ts', 'tsx', 'typescript', 'vue', 'vue-html', 'wasm', 'wgsl', 'xml', 'yaml', 'yml', 'zig']
 
 export async function highlightPlugin() {
   return Shiki({
@@ -51,9 +51,10 @@ export async function highlightPlugin() {
     langs: myBundleLangs,
     transformers: [
       transformerNotationDiff({
-
+        matchAlgorithm: 'v3',
       }),
       transformerMetaHighlight(),
+      transformerMetaWordHighlight(),
     ],
   })
 }
