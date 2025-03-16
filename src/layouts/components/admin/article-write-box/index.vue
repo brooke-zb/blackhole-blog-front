@@ -58,6 +58,7 @@ function loadCategories() {
 const abstract = ref<string>('')
 const abstractLoading = ref(false)
 function getArticleAbstract() {
+  abstract.value = ''
   abstractLoading.value = true
   api.admin.article.getAbstract(article.content).then(async (resp) => {
     const streamReader = resp.getReader()
