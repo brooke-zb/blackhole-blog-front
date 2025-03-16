@@ -39,4 +39,10 @@ export default {
   delete(aid: number | string) {
     return request.delete<void>(`/admin/articles/${aid}`)
   },
+
+  getAbstract(content: string) {
+    return request.stream<any>('post', '/admin/articles/abstract', {
+      data: { content },
+    })
+  },
 }

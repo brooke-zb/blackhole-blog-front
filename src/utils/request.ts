@@ -23,6 +23,19 @@ const request = {
   delete: <D>(url: string, config?: AxiosRequestConfig) => {
     return instance.delete(url, config) as Promise<Resp<D>>
   },
+  stream: <D>(method: string, url: string, config?: AxiosRequestConfig) => {
+    return instance.request({
+      method,
+      headers: {
+        Accept: 'text/event-stream',
+      },
+      url,
+      ...config,
+      responseType: 'stream',
+      adapter: 'fetch',
+      timeout: 0,
+    }) as Promise<ReadableStream<D>>
+  },
 }
 
 // 请求拦截器

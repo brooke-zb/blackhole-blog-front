@@ -54,6 +54,32 @@ function loadCategories() {
   })
 }
 
+// 文章摘要
+const abstract = ref<string>('')
+const abstractLoading = ref(false)
+function getArticleAbstract() {
+  abstractLoading.value = true
+  api.admin.article.getAbstract(article.content).then(async (resp) => {
+    const streamReader = resp.getReader()
+    const decoder = new TextDecoder('utf-8')
+    while (true) {
+      const { done, value } = await streamReader.read()
+      if (done)
+        break
+
+      // 获取到数据时，将数据添加到文本中
+      abstract.value += decoder.decode(value)
+    }
+    toast.add({
+      type: 'success',
+      message: t('page.admin-article-write.abstract-success'),
+      duration: 3000,
+    })
+  }).finally(() => {
+    abstractLoading.value = false
+  })
+}
+
 // 文章标签
 const tags = ref<string[]>([])
 
@@ -187,6 +213,13 @@ function copyImageMarkdown() {
       />
       <bh-textarea
         v-show="!isPreview"
+        v-model="abstract"
+        :placeholder="t('page.admin-article-write.abstract')"
+        :min-rows="3"
+        class="mb-2"
+      />
+      <bh-textarea
+        v-show="!isPreview"
         v-model="article.content"
         :placeholder="t('page.admin-article-write.content')"
         :min-rows="15"
@@ -260,6 +293,18 @@ function copyImageMarkdown() {
           <input id="updateLastModified" v-model="updateLastModified" type="checkbox" class="checkbox shrink-0">
           <label for="updateLastModified">{{ t('page.admin-article-write.update_modified') }}</label>
         </div>
+        <bh-button
+          class="text-white bg-primary-500 dark:bg-dark-500 ring-primary-500 dark:ring-dark-500"
+          :disabled="abstractLoading"
+          @click="getArticleAbstract()"
+        >
+          <template v-if="abstractLoading">
+            <i-regular-spinner-third class="animate-spin w-6 h-6" />
+          </template>
+          <template v-else>
+            {{ t('page.admin-article-write.get-abstract') }}
+          </template>
+        </bh-button>
       </div>
     </div>
 

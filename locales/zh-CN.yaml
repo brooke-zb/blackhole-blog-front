@@ -86,6 +86,9 @@ page:
     published_time: 发布时间
     update_modified: 更新编辑时间
     success: 文章保存成功
+    get-abstract: 生成摘要
+    abstract: 文章摘要
+    abstract-success: AI摘要生成完成
   admin-article-update:
     success: 文章更新成功
   admin-comment:

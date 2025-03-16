@@ -86,6 +86,9 @@ page:
     published_time: Published time
     update_modified: Update modified time
     success: Article saved successfully
+    abstract: Article Abstract
+    get-abstract: Generate Abstract
+    abstract-success: AI abstract generated
   admin-article-update:
     success: Article updated successfully
   admin-comment:
