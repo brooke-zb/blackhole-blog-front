@@ -21,6 +21,7 @@ interface BhArticle {
   category: BhArticleCategory
   tags: BhArticleTag[]
   title: string
+  abstract?: string
   content: string
   commentable: boolean
   createdAt: string
@@ -35,6 +36,7 @@ interface BhArticlePreview {
   category: BhArticleCategory
   tags: BhArticleTag[]
   title: string
+  abstract?: string
   createdAt: string
   status: BhArticleStatus
   readCount: number
@@ -163,6 +165,7 @@ interface BhArticleAdd {
   cid: number
   tags: Omit<BhTag, 'tid'>[]
   title: string
+  abstract?: string
   content: string
   commentable: boolean
   status: BhArticleStatus
@@ -173,6 +176,7 @@ interface BhArticleUpdate {
   cid: number
   tags: Omit<BhTag, 'tid'>[]
   title: string
+  abstract?: string
   content: string
   commentable: boolean
   status: BhArticleStatus

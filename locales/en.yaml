@@ -41,6 +41,9 @@ page:
       cancel-reply: Cancel
     copy-fail: Copy Failed
     copy-success: Copy success
+    abstract: AI Abstract
+    expand: Expand
+    collapse: Collapse
   about:
     email: Email
   not-found:

@@ -27,6 +27,7 @@ const article = reactive<BhArticleUpdate>({
   cid: 1,
   tags: [],
   title: '',
+  abstract: '',
   content: '',
   commentable: true,
   status: 'PUBLISHED',
@@ -55,10 +56,9 @@ function loadCategories() {
 }
 
 // 文章摘要
-const abstract = ref<string>('')
 const abstractLoading = ref(false)
 function getArticleAbstract() {
-  abstract.value = ''
+  article.abstract = ''
   abstractLoading.value = true
   api.admin.article.getAbstract(article.content).then(async (resp) => {
     const streamReader = resp.getReader()
@@ -69,7 +69,7 @@ function getArticleAbstract() {
         break
 
       // 获取到数据时，将数据添加到文本中
-      abstract.value += decoder.decode(value)
+      article.abstract += decoder.decode(value)
     }
     toast.add({
       type: 'success',
@@ -93,6 +93,7 @@ function loadArticle() {
         article.cid = resp.data.category.cid
         article.tags = resp.data.tags
         article.title = resp.data.title
+        article.abstract = resp.data.abstract || ''
         article.content = resp.data.content
         article.commentable = resp.data.commentable
         article.status = resp.data.status
@@ -140,6 +141,7 @@ function onSubmit() {
       cid: article.cid,
       tags: tags.value.map(item => ({ name: item })),
       title: article.title,
+      abstract: article.abstract,
       content: article.content,
       commentable: article.commentable,
       status: article.status,
@@ -214,7 +216,7 @@ function copyImageMarkdown() {
       />
       <bh-textarea
         v-show="!isPreview"
-        v-model="abstract"
+        v-model="article.abstract!"
         :placeholder="t('page.admin-article-write.abstract')"
         :min-rows="3"
         class="mb-2"

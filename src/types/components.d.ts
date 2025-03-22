@@ -62,6 +62,7 @@ declare module 'vue' {
     IRegularMoonStars: typeof import('~icons/regular/moon-stars')['default']
     IRegularRightToBracket: typeof import('~icons/regular/right-to-bracket')['default']
     IRegularSpinnerThird: typeof import('~icons/regular/spinner-third')['default']
+    IRegularStars: typeof import('~icons/regular/stars')['default']
     IRegularTag: typeof import('~icons/regular/tag')['default']
     IRegularUser: typeof import('~icons/regular/user')['default']
     IRegularXmark: typeof import('~icons/regular/xmark')['default']
