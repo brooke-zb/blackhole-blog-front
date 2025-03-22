@@ -122,8 +122,8 @@ const expandAbstract = ref(true)
       </span>
       <div class="flex-shrink-0 flex flex-col items-end">
         <bh-button
-          class="py-0.5 bg-primary-500 ring-primary-500 text-white
-        dark:bg-gray-200 dark:ring-gray-200 ring-offset-slate-700 dark:ring-offset-dark-700 dark:text-gray-800"
+          class="py-0.5 bg-primary-500 ring-primary-500 text-white ring-offset-slate-700
+        dark:bg-gray-200 dark:ring-gray-200 dark:!ring-offset-dark-700 dark:text-gray-800"
           @click="expandAbstract = !expandAbstract"
         >
           {{ expandAbstract ? t('page.article.expand') : t('page.article.collapse') }}
