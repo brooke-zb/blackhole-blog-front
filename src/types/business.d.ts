@@ -36,7 +36,6 @@ interface BhArticlePreview {
   category: BhArticleCategory
   tags: BhArticleTag[]
   title: string
-  abstract?: string
   createdAt: string
   status: BhArticleStatus
   readCount: number
