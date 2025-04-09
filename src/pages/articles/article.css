@@ -133,7 +133,7 @@ html.dark .shiki .highlighted-word {
 
 /* 代码组 */
 .bh-code-group .tabs {
-  @apply flex rounded-t border-b border-gray-100 dark:border-gray-700 gap-4 px-4;
+  @apply flex rounded-t border-b border-gray-100 dark:border-gray-700 gap-4 px-4 overflow-x-auto;
   @apply bg-white dark:bg-[#282A36];
 }
 
