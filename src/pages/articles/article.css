@@ -3,7 +3,7 @@
   margin-block-end: 1em;
   margin-inline-start: 0;
   margin-inline-end: 0;
-  @apply text-base;
+  @apply text-base leading-7;
 }
 
 /* Inline code */
@@ -13,9 +13,15 @@
   white-space: normal;
 }
 
+/* list */
+.list-disc li,
+.list-decimal li {
+  @apply leading-7;
+}
+
 /* task list */
 .task-list-item {
-  @apply flex items-center;
+  @apply flex items-center leading-7;
 }
 
 .task-list-item-checkbox {
