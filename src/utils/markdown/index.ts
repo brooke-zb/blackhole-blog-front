@@ -5,6 +5,7 @@ import MarkdownItAsync from 'markdown-it-async'
 import taskLists from 'markdown-it-task-lists'
 import { containerPlugin } from './plugins/containers'
 import { gitHubAlertsPlugin } from './plugins/githubAlerts'
+import { clearMermaid, renderMermaid } from './plugins/mermaid'
 import { highlightPlugin, preWrapperPlugin } from './plugins/preWrapper'
 import 'katex/dist/katex.min.css'
 
@@ -108,14 +109,18 @@ interface AfterRenderOptions {
   t: (key: string) => string
 }
 
+export function beforeUnmounted() {
+  clearMermaid()
+}
+
 export function afterMarkdownRender(options: AfterRenderOptions) {
   const toast = useToast()
 
   // 图片灯箱
   options.gallery?.init('[data-gallery]')
 
-  // 代码复制
   nextTick(() => {
+    // 代码复制
     document.querySelectorAll('[data-copy-code]').forEach((el) => {
       if (!(el instanceof HTMLElement))
         return
@@ -164,4 +169,7 @@ export function afterMarkdownRender(options: AfterRenderOptions) {
       })
     })
   })
+
+  // 渲染mermaid
+  renderMermaid()
 }

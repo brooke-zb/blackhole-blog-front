@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { afterMarkdownRender, getMarkdownRenderer } from '@/utils'
+import { beforeUnmounted } from '@/utils/markdown'
 import '@/pages/articles/article.css'
 
 const props = withDefaults(defineProps<{
@@ -19,6 +20,8 @@ onMounted(() => {
   loadArticle()
   initUploadEl()
 })
+
+onUnmounted(beforeUnmounted)
 
 const toast = useToast()
 const { t } = useI18n()

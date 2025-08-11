@@ -258,3 +258,8 @@ html.dark .shiki .highlighted-word {
 .bh-details summary {
   @apply cursor-pointer font-bold;
 }
+
+/* Mermaid */
+.bh-mermaid-wrapper {
+  @apply flex justify-center;
+}

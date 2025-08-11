@@ -6,6 +6,7 @@ meta:
 
 <script setup lang="ts">
 import { afterMarkdownRender, getMarkdownRenderer } from '@/utils'
+import { beforeUnmounted } from '@/utils/markdown'
 import './article.css'
 
 definePage({
@@ -27,6 +28,8 @@ onMounted(() => {
     })
   })
 })
+
+onUnmounted(beforeUnmounted)
 
 titleStore.title = t('title.article')
 const article = ref<BhArticle>()

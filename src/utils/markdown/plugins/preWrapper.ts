@@ -1,8 +1,9 @@
-import type MarkdownIt from 'markdown-it'
+import type { MarkdownItAsync } from 'markdown-it-async'
 import { fromAsyncCodeToHtml } from '@shikijs/markdown-it/async'
 import { transformerMetaHighlight, transformerMetaWordHighlight, transformerNotationDiff } from '@shikijs/transformers'
 import { customAlphabet } from 'nanoid'
 import { codeToHtml } from 'shiki'
+import { addMermaid } from './mermaid'
 
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 10)
 
@@ -22,7 +23,7 @@ export function extractLang(info: string) {
     .replace(/^ansi$/, '')
 }
 
-export function preWrapperPlugin(md: MarkdownIt) {
+export function preWrapperPlugin(md: MarkdownItAsync) {
   const fence = md.renderer.rules.fence!
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
     const token = tokens[idx]
@@ -35,11 +36,15 @@ export function preWrapperPlugin(md: MarkdownIt) {
     token.info = token.info.replace(/ active$/, '').replace(/ active /, ' ')
 
     const id = nanoid()
-
+    const lang = extractLang(token.info)
+    if (lang === 'mermaid') {
+      addMermaid(id, token.content)
+      return `<div class="bh-mermaid-wrapper" id="${id}"></div>`
+    }
     return `<div class="bh-pre${active}" id="${id}">
 ${fence(tokens, idx, options, env, self)}
 <button class="bh-copy z-10" title="Copy" data-target-id="${id}" data-copy-code></button>
-<div class="bh-lang z-5">${extractLang(token.info)}</div></div>`
+<div class="bh-lang z-5">${lang}</div></div>`
   }
 }
 
